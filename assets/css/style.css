@@ -1,0 +1,476 @@
+/* Réinitialisation des marges et des paddings */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+/* Styles pour la barre de navigation */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4b5943;
+    color: #fff;
+    padding: 10px;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+input[type="checkbox"]#menu-toggle {
+    display: none;
+}
+
+.menu-icon::before {
+    content: "\2630";
+    font-size: 25px;
+}
+
+/* Styles pour les liens de la barre de navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    position: relative;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+nav li::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #8fb43a;
+    transition: width 0.3s ease-in-out;
+}
+
+nav li:hover::after {
+    width: 100%;
+}
+
+/* Styles pour le menu de navigation en mode responsive */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+    }
+
+    input[type="checkbox"]#menu-toggle:checked+label.menu-icon::before {
+        content: "\2715";
+    }
+
+    input[type="checkbox"]#menu-toggle:checked~ul {
+        display: flex;
+    }
+}
+
+/* Styles pour le contenu principal */
+main {
+    flex: 1;
+    /* Faites en sorte que le contenu principal s'étire pour occuper l'espace disponible */
+    display: flex;
+    gap: 20px;
+    margin: 20px;
+    }
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+.right-column {
+    flex: 1;
+    /* Pour que l'élément prenne autant d'espace que possible */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 71vh;
+
+}
+
+
+/* Styles pour les blocs principaux */
+.main-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Ajout de cette ligne pour aligner verticalement les éléments */
+}
+
+/* Styles pour la boîte d'actualités vide */
+.empty-message {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+    margin: 10px;
+    font-style: italic;
+}
+
+#btnSup {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Styles pour le bloc d'informations en direct */
+.live-info {
+    width: 100%;
+    /* Modifier la largeur comme souhaité */
+    height: 100%;
+    /* Modifier la hauteur comme souhaité */
+    overflow-y: auto;
+    /* Pour ajouter une barre de défilement verticale si nécessaire */
+}
+
+#bckNote {
+    height: 235px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #c8d6a2;
+    margin: 2px;
+
+}
+
+button {
+    margin-right: 10px;
+    border-radius: 5px;
+    border-color: #4b5943;
+    background-color: #4b5943;
+    padding: 6px 10px;
+    color: #fff;
+    margin: 5px;
+}
+
+button:hover {
+    margin-right: 10px;
+    border-radius: 5px;
+    border-color: #c8d6a2;
+    background-color: #c8d6a2;
+    padding: 6px 10px;
+    color: #000000;
+    margin: 5px;
+}
+
+
+
+#bckLive {
+    background-color: #fff;
+    border: solid 3px #c8d6a2;
+    height: 92%;
+}
+
+h3 {
+    text-align: center;
+    margin: 5px;
+}
+
+/* Styles pour le calendrier */
+.calendar {
+    width: 400px;
+    /* Modifiez la largeur si nécessaire */
+    border: 3px solid #c8d6a2;
+    /* Autres styles restent inchangés */
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Ajout de cette ligne pour centrer verticalement les éléments */
+    padding: 5px;
+    background-color: #c8d6a2;
+    border-radius: 1px;
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: 600;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: #fff;
+}
+
+.days span {
+    display: block;
+    text-align: center;
+    padding: 5px;
+border: 1px solid #c8d6a2;
+}
+
+.days .current-day {
+    border: 2px solid #4b5943;
+    border-radius: 20%;
+    background-color: #8fb43a;
+    font-weight: bold;
+}
+
+/* Styles pour le bloc-note */
+.note {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.ButtonsComment {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.ButtonsComment button {
+    margin: 0 5px;
+}
+
+/* Styles pour les dernières actualités */
+.news {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.news textarea {
+    width: 100%;
+}
+
+/* Styles pour l'horloge */
+.clock {
+    text-align: center;
+}
+
+/* Styles pour le footer */
+footer {
+    background-color: #4b5943;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+}
+
+/* Styles pour le texte "Contact administrateur" à droite */
+.footer-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+/* Styles pour les fenêtres modales */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Styles pour les titres des fenêtres modales */
+.modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Styles pour les paragraphes des fenêtres modales */
+.modal-content p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Styles pour les liens des fenêtres modales */
+.modal-content a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+/* Styles pour les formulaires de connexion */
+.login-modal-trigger {
+    cursor: pointer;
+}
+
+.login-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.login-modal .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+}
+
+.login-modal .modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.login-modal .modal-content label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-modal .modal-content input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.login-modal .modal-content .buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+/* Cacher le menu burger en mode bureau */
+@media (min-width: 769px) {
+    .menu-icon {
+        display: none;
+    }
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 5px;
+}
+
+input[type="submit"] {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4b5943;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    margin-top: 10px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+/* CODE CSS PAGE UPDATE EMPLOYEE */
+
+form {
+    border: 1px solid #4b5943;
+    /* Bordure du formulaire */
+    padding: 20px;
+    /* Marge intérieure du formulaire */
+    max-width: 400px;
+    /* Largeur maximale du formulaire */
+    width: 100%;
+    /* Largeur du formulaire à 100% */
+    border-radius: 3px;
+}
+
+label,
+input {
+    display: block;
+    /* Affichage en bloc pour les étiquettes et les champs de saisie */
+    margin-bottom: 10px;
+    /* Marge inférieure entre les éléments */
+    width: 100%;
+    /* Largeur des éléments à 100% */
+    box-sizing: border-box;
+    /* Inclure les bordures et le padding dans la largeur totale */
+    border-radius: 5px;
+    /* Bordure arrondie pour les champs de saisie */
+    border-color: #4b5943;
+    /* Couleur de bordure des champs de saisie */
+}
+
+#updateForm {
+    display: flex;
+    justify-content: center;
+}
+
+/* MEDIA QUERIE */
+
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    input[type="submit"] {
+        padding: 8px 16px;
+    }
+}
