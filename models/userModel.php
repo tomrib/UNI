@@ -79,4 +79,12 @@ class user
         $request->execute();
         return $request->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function deleteUser()
+    {
+        $query = 'DELETE FROM `jg7b_users` WHERE id = :id;';
+        $request = $this->db->prepare($query);
+        $request->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $request->execute();
+    }
 }

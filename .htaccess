@@ -1,0 +1,11 @@
+RewriteEngine On
+
+RewriteRule ^connexion$ ./controllers/loginController.php
+
+RewriteRule ^bureau$ ./controllers/deskController.php
+
+RewriteRule ^Liste-Employer$ ./controllers/listEmployeController.php
+
+RewriteRule ^Ajout-Employer$ ./controllers/addEmployeController.php
+
+RewriteRule ^Ajout-client$ ./controllers/addCustomerController.php

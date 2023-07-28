@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="../../assets/css/employees.css">
-
+<?php var_dump($_POST); ?>
         <!-- Titre de la modal -->
         <h2>Créer un Nouveau Profil</h2>
-        <form action="./employer" id="profileForm" method="POST">
+        <form  id="profileForm" method="POST">
             <!-- Champs pour saisir les informations de l'employé(e) -->
             <label for="lastname">Nom:</label>
             <input type="text" id="lastname" name="lastname" placeholder="Nom de l'employé(e)...">

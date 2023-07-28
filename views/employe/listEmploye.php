@@ -21,6 +21,7 @@
                     <th>Type contrat</th>
                     <th>N° Sécu</th>
                     <th>Action</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -30,17 +31,23 @@
                         <td><?= $list->firstname ?></td>
                         <td><?= $list->email ?></td>
                         <td><?= $list->address ?></td>
-                        <td><?= $list->phone ?></td>
+                        <td>0<?= $list->phone ?></td>
                         <td><?= $list->contra ?></td>
                         <td><?= $list->cq ?></td>
                         <td><?= $list->id_Who ?></td>
+                        <td>
+                        <form action="/Liste-Employer" method="post">
+                                <input type="hidden" name="id_suppression" value="<?= $list->id ?>">
+                                <input type="submit" value="Supprimer">
+                            </form>
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
 
         <!-- Bouton pour créer un nouveau profil -->
-        <button onclick="openModal()" class="create-profile-button">Créer un nouveau profil</button>
+        <button onclick="openModal()" class="create-profile-button"> <a href="/Ajout-Employer">Créer un nouveau profil</a></button>
 
         <!-- Modèle de formulaire pour créer et éditer un profil -->
     </div>

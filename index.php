@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CODE POUR LE LOGIN ACCUEIL A RECUP</title>
-    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="../../assets/css/login.css">
 </head>
 
 <body>
@@ -24,8 +24,6 @@
         <button id="lostMdp" type="button" onclick="motDePassePerdu()" m>Mot de passe perdu</button>
     </form>
     <script src="login.js" defer></script>
-<?php require_once 'controllers/loginController.php'; 
-    session_start();?>
 </body>
 
 </html>
