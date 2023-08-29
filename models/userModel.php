@@ -25,8 +25,8 @@ class user
 
     public function addUser()
     {
-        $query = 'INSERT INTO `jg7b_users`(`lastname`, `firstname`, `email`, `password`, `address`, `phone`, `socialInsuranceNumber`,`id_usersTypes`,`id_contractsTypes`) 
-        VALUES (:lastname,:firstname,:email,:password,:address,:phone,:contra,:socialInsuranceNumber,1,:id_contractsTypes);';
+        $query = 'INSERT INTO `jg7b_users`(`lastname`, `firstname`, `email`, `password`, `address`, `phone`, `socialInsuranceNumber`, `id_usersTypes`, `id_contractsTypes`) 
+        VALUES (:lastname,:firstname,:email,:password,:address,:phone,:socialInsuranceNumber,1,:id_contractsTypes);';
         $request = $this->db->prepare($query);
         $request->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
         $request->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
@@ -41,8 +41,20 @@ class user
 
     public function listUser()
     {
-        $query = 'SELECT `id`, `lastname`, `firstname`, `email`, `address`, `phone`, `contra`, `socialInsuranceNumber`, `id_contractsTypes`
-        FROM `jg7b_users`;';
+        $query = 'SELECT
+        jg7b_users.id,
+        `lastname`,
+        `firstname`,
+        `email`,
+        `password`,
+        `address`,
+        `phone`,
+        `socialInsuranceNumber`,
+        `id_usersTypes`,
+        jg7b_contractstypes.name AS contra
+    FROM
+        `jg7b_users`
+    INNER JOIN `jg7b_contractstypes` ON jg7b_users.id_contractsTypes = jg7b_contractstypes.id;';
         $request = $this->db->query($query);
         return $request->fetchAll(PDO::FETCH_OBJ);
     }
@@ -86,5 +98,51 @@ class user
         $request = $this->db->prepare($query);
         $request->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $request->execute();
-    } 
+    }
+
+
+
+    public function updateUser()
+    {
+        $query = 'UPDATE `jg7b_users`
+        SET `lastname` = :lastname,
+        `firstname` = :firstname,
+        `email` = :email,
+        `password` = :password,
+        `address` = :address,
+        `phone` = :phone,
+        `socialInsuranceNumber` = :socialInsuranceNumber,
+        `id_usersTypes` = :userType;';
+        $request = $this->db->prepare($query);
+        $request->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
+        $request->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
+        $request->bindValue(':email', $this->email, PDO::PARAM_STR);
+        $request->bindValue(':password', $this->password, PDO::PARAM_STR);
+        $request->bindValue(':address', $this->address, PDO::PARAM_STR);
+        $request->bindValue(':phone', $this->phone, PDO::PARAM_STR);
+        $request->bindValue(':socialInsuranceNumber', $this->socialInsuranceNumber, PDO::PARAM_STR);
+        $request->bindValue(':userType', $this->id_usersTypes, PDO::PARAM_INT);
+        return $request->execute();
+    }
+
+    public function UserOne()
+    {
+        $query = 'SELECT
+        `lastname`,
+        `firstname`,
+        `email`,
+        `password`,
+        `address`,
+        `phone`,
+        `socialInsuranceNumber`,
+        `id_usersTypes`,
+        jg7b_contractstypes.name AS contra
+    FROM
+        `jg7b_users`
+    INNER JOIN `jg7b_contractstypes` ON jg7b_users.id_contractsTypes = jg7b_contractstypes.id
+    WHERE jg7b_users.id = :id;';
+        $request = $this->db->query($query);
+        $request->bindValue(':id', $this->id, PDO::PARAM_STR);
+        return $request->fetchAll(PDO::FETCH_OBJ);
+    }
 }

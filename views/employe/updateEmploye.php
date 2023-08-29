@@ -2,6 +2,7 @@
 <div id="updateForm">
     <form id="profileForm" method="POST">
         <h3>Modification d'un profil employé(e)</h3>
+
         <label for="lastname">Nom:</label>
         <input type="text" id="lastname" name="lastname" value="" placeholder="Nom de l'employé(e)...">
         <p class="errors"><?= @$formErrors['lastname'] ?></p>
@@ -18,8 +19,12 @@
         <input type="tel" id="phone" name="phone" value="" placeholder="Téléphone de l'employé(e)...">
         <p class="errors"><?= @$formErrors['phone'] ?></p>
         <label for="contra">Type Contrat:</label>
-        <input type="text" id="contra" title="CDI, CDD, Intérim, Temps partiel, Extra" name="contra" value="" placeholder="CDI, CDD, Intérim, Temps partiel, Extra...">
-        <p class="errors"><?= @$formErrors['contra'] ?></p>
+        <select type="text" id="contra" name="contra">
+            <option selected disabled value="0">---</option>
+            <?php foreach ($contra as $liste) { ?>
+                <option value="<?= $liste->id ?>"><?= $liste->name ?></option>
+            <?php } ?>
+        </select>
         <label for="cq">N° Sécu:</label>
         <input type="text" id="cq" name="cq" value="" placeholder="Numéro de sécurité sociale de l'employé(e)...">
         <p class="errors"><?= @$formErrors['cq'] ?></p>
