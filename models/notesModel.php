@@ -1,12 +1,12 @@
 <?php
 require_once "database.php";
-class intervention
+class notes
 {
     public $db = NULL;
     public int $id = 0;
     public string $text = "";
-    public string $img = "";
-    public int $id_business  = 0;
+    public string $date = "";
+    public int $id_users  = 0;
 
     public function __construct()
     {
@@ -16,4 +16,9 @@ class intervention
             die($e->getMessage());
         }
     }
+
+    public function addNote(){
+        
+    }
+
 }

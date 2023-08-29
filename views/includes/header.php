@@ -17,7 +17,7 @@
             <ul>
                 <li><a href="/bureau">Accueil</a></li>
                 <li><a href="/Liste-Employer">Employé(e)s</a></li>
-                <li><a href="#">Client(e)s</a></li>
+                <li><a href="/Liste-client">Client(e)s</a></li>
                 <li><a href="#">Archives</a></li>
                 <li><a href="#">Interventions</a></li>
                 <li class="login-modal-trigger"><a href="#">Se déconnecter</a></li>

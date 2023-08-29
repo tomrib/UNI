@@ -1,6 +1,6 @@
 <?php
-require_once "../models/userModel.php";
-require_once "../confi.php";
+require_once "models/userModel.php";
+require_once "confi.php";
 $formErrors = [];
 $user = new user;
 if (count($_POST) > 0) {
@@ -16,9 +16,10 @@ if (count($_POST) > 0) {
     }
     if (!empty($_POST['loginPassword'])) {
         if (isset($password)) {
-            if (password_verify( $password,$_POST['loginPassword'])) {
-                var_dump($_POST['loginPassword']);die('ff');
+            if (password_verify($_POST['loginPassword'],$password)) {
                 $_SESSION['user'] = $user->getIds();
+/*                 if () {
+                } */
                 header('Location: ./bureau');
                 exit;
             } else {
@@ -31,4 +32,3 @@ if (count($_POST) > 0) {
         $formErrors['loginEmail'] = USER_PASSWORD_EMPTY;
     }
 }
-require_once "../index.php";

@@ -25,24 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($list as $list) { ?>
-                    <tr>
-                        <td><?= $list->lastname ?></td>
-                        <td><?= $list->firstname ?></td>
-                        <td><?= $list->email ?></td>
-                        <td><?= $list->address ?></td>
-                        <td>0<?= $list->phone ?></td>
-                        <td><?= $list->contra ?></td>
-                        <td><?= $list->cq ?></td>
-                        <td><?= $list->id_Who ?></td>
-                        <td>
-                        <form action="/Liste-Employer" method="post">
-                                <input type="hidden" name="id_suppression" value="<?= $list->id ?>">
-                                <input type="submit" value="Supprimer">
-                            </form>
-                        </td>
-                    </tr>
-                <?php } ?>
+
             </tbody>
         </table>
 
