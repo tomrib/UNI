@@ -37,7 +37,7 @@
                     </ul>
                 </li>
                 <li class="parent">
-                    <a href="#  ">Employé(e)s</a>
+                    <a href="#">Employé(e)s</a>
                     <ul class="sub-menu">
                         <li><a href="#">Liste employé(e)</a></li>
                         <li><a href="#">Nouveau employé(s)</a></li>

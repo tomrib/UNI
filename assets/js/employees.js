@@ -79,3 +79,4 @@ function checkPasswordConditions() {
 
 // Ajouter un écouteur d'événement sur la saisie du mot de passe
 passwordInput.addEventListener("input", checkPasswordConditions);
+

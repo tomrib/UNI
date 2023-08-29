@@ -24,33 +24,32 @@
                 </div>
             </div>
         </div>
-
         <div class="main-block">
-            <form method="POST" id="bckNote" class="note">Bloc Note<textarea wrap="hard" name="blocNote" id="BN" cols="60" rows="15"></textarea>
+            <form method="POST" id="bckNote" class="note">
+                <p>Bloc Note</p>
+                <textarea wrap="hard" name="blocNote" id="BN" cols="60" rows="15"></textarea>
                 <button type="submit" name="btnBlockValidation">Valider</button>
             </form>
         </div>
     </div>
     <div class="note live-info" id="bckLive">
-
         <div class="right-column">
             <div class="main-block">
-
                 <h3>Actualité(s) en direct</h3>
                 <hr>
-                <div class="empty-message">Aucune actualité pour le moment.</div>
-                <ul class="news-list">
-                    <!-- Les actualités seront générées dynamiquement ici -->
+                <p class="empty-message">Aucune actualité pour le moment.</p>
+                <div class="news-list">
                     <?php foreach ($viewListBlock as $listBlock) { ?>
                         <div id="btnSup">
                             <p><?= $listBlock->text ?></p>
-
-                            <button>logo suppression</button>
+                            <form method="post">
+                                <input type="hidden" name="id_suppression" value="<?= $listBlock->id ?>">
+                                <input type="submit" value="Supprimer">
+                            </form>
                         </div>
                     <?php }  ?>
-                </ul>
+                </div>
             </div>
         </div>
     </div>
 </main>
-<script src="../assets/js/clockCalendar.js"></script>

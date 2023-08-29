@@ -1,14 +1,10 @@
 <?php
 require_once "database.php";
-class business
+class contractsTypes
 {
     public $db = NULL;
     public int $id = 0;
     public string $name = "";
-    public string $address = "";
-    public int $phone = 0;
-    public string $email = "";
-    public int $siret = 0;
 
     public function __construct()
     {
@@ -17,5 +13,12 @@ class business
         } catch (PDOException $e) {
             die($e->getMessage());
         }
+    }
+
+    public function listContractTypes()
+    {
+        $query = 'SELECT `id`, `name` FROM `jg7b_contractstypes`;';
+        $request = $this->db->query($query);
+        return $request->fetchAll(PDO::FETCH_OBJ);
     }
 }
