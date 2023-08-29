@@ -10,9 +10,9 @@ class user
     public string $password = "";
     public string $address = "";
     public int $phone = 0;
-    public string $socialInsuranceNumber = "";
-    public int $id_usersTypes  = 0;
-    public int $id_contractsTypes = 0;
+    public string $contra = "";
+    public string $cq = "";
+    public int $id_Who  = 1;
 
     public function __construct()
     {
@@ -25,8 +25,8 @@ class user
 
     public function addUser()
     {
-        $query = 'INSERT INTO `jg7b_users`(`lastname`, `firstname`, `email`, `password`, `address`, `phone`, `socialInsuranceNumber`,`id_usersTypes`,`id_contractsTypes`) 
-        VALUES (:lastname,:firstname,:email,:password,:address,:phone,:contra,:socialInsuranceNumber,1,:id_contractsTypes);';
+        $query = 'INSERT INTO `jg7b_users`(`lastname`, `firstname`, `email`, `password`, `address`, `phone`, `contra`, `cq`,`id_Who`) 
+        VALUES (:lastname,:firstname,:email,:password,:address,:phone,:phone,:contra,1);';
         $request = $this->db->prepare($query);
         $request->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
         $request->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
@@ -34,14 +34,14 @@ class user
         $request->bindValue(':password', $this->password, PDO::PARAM_STR);
         $request->bindValue(':address', $this->address, PDO::PARAM_STR);
         $request->bindValue(':phone', $this->phone, PDO::PARAM_STR);
-        $request->bindValue(':socialInsuranceNumber', $this->socialInsuranceNumber, PDO::PARAM_STR);
-        $request->bindValue(':id_contractsTypes', $this->id_contractsTypes, PDO::PARAM_STR);
+        $request->bindValue(':contra', $this->contra, PDO::PARAM_STR);
+        $request->bindValue(':cq', $this->cq, PDO::PARAM_STR);
         return $request->execute();
     }
 
     public function listUser()
     {
-        $query = 'SELECT `id`, `lastname`, `firstname`, `email`, `address`, `phone`, `contra`, `socialInsuranceNumber`, `id_contractsTypes`
+        $query = 'SELECT `id`, `lastname`, `firstname`, `email`, `address`, `phone`, `contra`, `cq`, `id_Who`
         FROM `jg7b_users`;';
         $request = $this->db->query($query);
         return $request->fetchAll(PDO::FETCH_OBJ);
@@ -68,10 +68,9 @@ class user
         $request->execute();
         return $request->fetch(PDO::FETCH_COLUMN);
     }
-
     public function getIds()
     {
-        $query = 'SELECT `id`,`id_usersTypes`
+        $query = 'SELECT `id`,`id_Who`
         FROM `jg7b_users` 
         WHERE email = :email';
         $request = $this->db->prepare($query);
@@ -79,12 +78,4 @@ class user
         $request->execute();
         return $request->fetch(PDO::FETCH_ASSOC);
     }
-
-    public function deleteUser()
-    {
-        $query = 'DELETE FROM `jg7b_users` WHERE id = :id;';
-        $request = $this->db->prepare($query);
-        $request->bindValue(':id', $this->id, PDO::PARAM_INT);
-        return $request->execute();
-    } 
 }

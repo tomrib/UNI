@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../assets/css/employe.css">
+<link rel="stylesheet" href="../assets/css/employees.css">
 <!-- Conteneur principal -->
 <div class="parentContainer">
     <div class="container">
@@ -21,16 +21,26 @@
                     <th>Type contrat</th>
                     <th>N° Sécu</th>
                     <th>Action</th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
-
+                <?php foreach ($list as $list) { ?>
+                    <tr>
+                        <td><?= $list->lastname ?></td>
+                        <td><?= $list->firstname ?></td>
+                        <td><?= $list->email ?></td>
+                        <td><?= $list->address ?></td>
+                        <td><?= $list->phone ?></td>
+                        <td><?= $list->contra ?></td>
+                        <td><?= $list->cq ?></td>
+                        <td><?= $list->id_Who ?></td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
 
         <!-- Bouton pour créer un nouveau profil -->
-        <button onclick="openModal()" class="create-profile-button"> <a href="/Ajout-Employer">Créer un nouveau profil</a></button>
+        <button onclick="openModal()" class="create-profile-button">Créer un nouveau profil</button>
 
         <!-- Modèle de formulaire pour créer et éditer un profil -->
     </div>

@@ -1,8 +1,8 @@
-<link rel="stylesheet" href="../../assets/css/employees.css">
+<link rel="stylesheet" href="../assets/css/employees.css">
 
         <!-- Titre de la modal -->
         <h2>Créer un Nouveau Profil</h2>
-        <form  id="profileForm" method="POST">
+        <form action="./employer" id="profileForm" method="POST">
             <!-- Champs pour saisir les informations de l'employé(e) -->
             <label for="lastname">Nom:</label>
             <input type="text" id="lastname" name="lastname" placeholder="Nom de l'employé(e)...">
@@ -32,14 +32,7 @@
             <input type="tel" id="phone" name="phone" placeholder="Téléphone de l'employé(e)...">
             <p class="errors"><?= @$formErrors['phone'] ?></p>
             <label for="contra">Type Contrat:</label>
-            <!-- liste des contra -->
-            <select type="text" id="contra" name="contra"> 
-            <option selected disabled value="0">---</option>
-            <?php foreach ($contra as $liste) { ?>
-                <option value="<?= $liste->id ?>"><?= $liste->name ?></option>               
-                <?php } ?>
-            </select>
-
+            <input type="text" id="contra" name="contra" placeholder="Type de contrat de l'employé(e)...">
             <p class="errors"><?= @$formErrors['contra'] ?></p>
             <label for="cq">N° Sécu:</label>
             <input type="text" id="cq" name="cq" placeholder="Numéro de sécurité sociale de l'employé(e)...">
@@ -51,4 +44,5 @@
         <button id="editProfileButton" style="display: none;">Modifier</button>
         <!-- Bouton pour fermer la modal -->
         <button id="closeModalButton" onclick="closeModal()">Fermer</button>
+
         <script src="../assets/js/employees.js"></script>
