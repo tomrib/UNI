@@ -1,12 +1,12 @@
 <?php require_once 'controllers/loginController.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
-    
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CODE POUR LE LOGIN ACCUEIL A RECUP</title>
-    <link rel="stylesheet" href="../../assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/login.css">
 </head>
 
 <body>
@@ -16,9 +16,9 @@
         <label for="login">ADRESSE MAIL</label>
         <input name="loginEmail" type="text" id="login" placeholder="login" autofocus required>
 
-        <label for="loginPassword">MOT DE PASSE</label>
-        <input name="loginPassword" type="password" id="loginPassword" placeholder="mot de passe" required>
-        <p class="errors"><?= @$formErrors['loginEmail'] ?></p>
+        <label for="password">MOT DE PASSE</label>
+        <input name="loginPassword" type="Password" id="password" placeholder="mot de passe" required>
+
         <!-- Boutons d'action -->
         <button id="validatioLogin" type="sudmit">Valider</button>
         <button type="button" onclick="annuler()">Annuler</button>

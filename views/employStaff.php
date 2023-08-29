@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    
     <h1>Interface Employés</h1>
         <form id="form" method="POST">
             <label for="arrivee">Heure d'arrivée :</label>
