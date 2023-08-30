@@ -1,11 +1,9 @@
 RewriteEngine On
-
-RewriteRule ^connexion$ ./controllers/loginController.php
-
+#?   Connexion
+RewriteRule ^connexion$ ./index
+#?   Bureau
 RewriteRule ^bureau$ ./controllers/deskController.php
-
+#?   les vue des employer 
 RewriteRule ^Liste-Employer$ ./controllers/listEmployeController.php
-
 RewriteRule ^Ajout-Employer$ ./controllers/addEmployeController.php
-
-RewriteRule ^Ajout-client$ ./controllers/addCustomerController.php
+RewriteRule ^Modifier-Employer$ /controllers/updateEmployeController.php
