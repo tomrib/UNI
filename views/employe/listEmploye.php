@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../assets/css/employe.css">
+
 <!-- Conteneur principal -->
 <div class="parentContainer">
     <div class="container">
@@ -7,7 +7,10 @@
 
         <!-- Champ de recherche -->
         <input type="text" id="searchInput" placeholder="Rechercher un employé(e)...">
+        <div id="search-results">
 
+
+        </div>
         <!-- Tableau pour afficher la liste des employés -->
         <table id="employees-table" class="responsiveTable">
             <thead>
@@ -37,16 +40,13 @@
                         <td><?= $list->id_usersTypes ?></td>
                         <td>
                             <!-- il faut ajouter le chiffrement de l'id -->
-                            <form action="/Modifier-Employer" method="GET">
-                                <input type="hidden" name="Modifier" value="<?= $list->id ?>">
-                                <input type="submit" value="Modifier">
-                            </form>
+                            <a href="/Modifier-Employer-<?= $list->id ?>"><button>Modifier</button></a>
                         </td>
                         <td>
                             <!-- il faut ajouter le chiffrement de l'id -->
                             <form action="/Liste-Employer" method="POST">
                                 <input type="hidden" name="id_suppression" value="<?= $list->id ?>">
-                                <input type="submit" value="Supprimer">
+                                <input type="submit" name="delete" value="Supprimer">
                             </form>
                         </td>
                     </tr>
@@ -56,7 +56,7 @@
 
         <!-- Bouton pour créer un nouveau profil -->
         <button onclick="openModal()" class="create-profile-button"> <a href="/Ajout-Employer">Créer un nouveau profil</a></button>
+<script src="../../assets/js/search.js"></script>
 
-        <!-- Modèle de formulaire pour créer et éditer un profil -->
     </div>
 </div>

@@ -47,7 +47,7 @@
                 <li>
                     <a href="#">Archives interventions</a>
                 </li>
-                <li class="login-modal-trigger"><a href="#">Se déconnecter</a></li>
+                <li class="login-modal-trigger"><a href="./deconnecter">Se déconnecter</a></li>
             </ul>
         </nav>
     </header>

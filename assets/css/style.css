@@ -546,3 +546,7 @@ input {
         padding: 8px 16px;
     }
 }
+
+.errors{
+    color: red;
+}

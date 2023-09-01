@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../models/userModel.php';
 require_once '../models/blockModel.php';
 require_once '../confi.php';

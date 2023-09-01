@@ -51,7 +51,7 @@ CREATE TABLE jg7b_users(
         password               Varchar (255) NOT NULL ,
         address                Varchar (255) ,
         phone                  Varchar (15) ,
-        socialInsuranceNumber  Varchar (20) ,
+        socialInsuranceNumber  Varchar (20) UNIQUE,
         id_usersTypes     Int NOT NULL ,
         id_contractsTypes Int
 	,CONSTRAINT users_PK PRIMARY KEY (id)

@@ -1,9 +1,10 @@
 RewriteEngine On
 #?   Connexion
 RewriteRule ^connexion$ ./index
+RewriteRule ^deconnecter$ ./controllers/logoutController.php
 #?   Bureau
 RewriteRule ^bureau$ ./controllers/deskController.php
 #?   les vue des employer 
 RewriteRule ^Liste-Employer$ ./controllers/listEmployeController.php
 RewriteRule ^Ajout-Employer$ ./controllers/addEmployeController.php
-RewriteRule ^Modifier-Employer$ /controllers/updateEmployeController.php
+RewriteRule ^Modifier-Employer-([0-9]+)$ /controllers/updateEmployeController.php?id=$1
