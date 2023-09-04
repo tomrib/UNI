@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="">
 <div id="updateForm">
     <?php foreach ($userIdOne as  $userIdOne) { ?>
         <form action="./Modifier-Employer-<?= $userIdOne->id ?>" id="profileForm" method="POST">

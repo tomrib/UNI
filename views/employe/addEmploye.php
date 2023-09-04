@@ -21,7 +21,6 @@
         <p class="errors"><?= @$formErrors['address'] ?></p>
         <label for="phone">Téléphone</label>
         <input type="text" id="phone" name="phone" placeholder="Téléphone de l'employé(e)..." inputmode="numeric" title="Veuillez entrer un numéro de téléphone à 10 chiffres." maxlength="10" pattern="[0-9]{10}" required>
-
         <p class="errors"><?= @$formErrors['phone'] ?></p>
         <label for="cq">N° Sécu</label>
         <input type="text" id="cq" name="cq" placeholder="Numéro de sécurité sociale de l'employé(e)...">
@@ -55,9 +54,6 @@
                 <li class="password-condition stringLength">Au moins 8 caractères<span></span></li>
             </ul>
         </div>
-
-
-
 
         <div> <button name="validationEmployees" id="validationEmployees" type="submit">Créer</button></div>
     </form>
