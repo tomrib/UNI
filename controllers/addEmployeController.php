@@ -33,10 +33,10 @@ if (count($_POST) > 0) {
         if (preg_match($regex['date'], $_POST['birthday'])) {
             $add->birthday = strip_tags(ucwords($_POST['birthday']));
         } else {
-            $formErrors['birthday'] = "2";
+            $formErrors['birthday'] = USER_BIRTHAY_ERROR_INVALID;
         }
     } else {
-        $formErrors['birthday'] = "1";
+        $formErrors['birthday'] = USER_BIRTHAY_ERROR_EMPTY;
     }
 
     if (!empty($_POST['email'])) {
@@ -104,10 +104,10 @@ if (count($_POST) > 0) {
         if (preg_match($regex['date'], $_POST['beginningContract'])) {
             $add->beginningContract = strip_tags(ucwords($_POST['beginningContract']));
         } else {
-            $formErrors['beginningContract'] = "2";
+            $formErrors['beginningContract'] = USER_CONTRACT_ERROR_INVALID;
         }
     } else {
-        $formErrors['beginningContract'] = "1";
+        $formErrors['beginningContract'] = USER_CONTRACT_ERROR_EMPTY;
     }
 
     if ($_POST['contra'] == "2" || $_POST['contra'] == "3") {
@@ -118,7 +118,7 @@ if (count($_POST) > 0) {
                 $formErrors['endContract'] = USER_LASTNAME_ERROR_INVALID;
             }
         } else {
-            $formErrors['endContract'] = USER_FIRSTNAME_ERROR_EMPTY;
+            $formErrors['endContract'] = USER_CONTRACTEND_ERROR_EMPTY;
         }
     }
 

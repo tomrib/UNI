@@ -33,12 +33,8 @@
             <p class="errors"><?= @$formErrors['address'] ?></p>
 
             <label for="phone">Téléphone:</label>
-            <input type="tel" id="phone" name="phone" value="<?= $userIdOne->phone ?>" title="Veuillez entrer un numéro de téléphone à 10 chiffres." maxlength="10" pattern="[0-9]{10}" required>
+            <input type="tel" id="phone" name="phone" value="0<?= $userIdOne->phone ?>">
             <p class="errors"><?= @$formErrors['phone'] ?></p>
-
-            <label for="socialInsuranceNumber">N° Sécu:</label>
-            <input type="text" id="cq" name="socialInsuranceNumber" value="<?= $userIdOne->socialInsuranceNumber ?>">
-            <p class="errors"><?= @$formErrors['socialInsuranceNumber'] ?></p>
 
             <label for="contra">Type Contrat:</label>
             <select type="text" id="contra" name="contra">
@@ -47,10 +43,17 @@
                     <option value="<?= $liste->id ?>"><?= $liste->name ?></option>
                 <?php } ?>
             </select>
+
+
             <label for="beginningContract">Date de début :</label>
             <input type="date" id="beginningContract" value="<?= $userIdOne->beginningContract ?>" name="beginningContract" required>
             <label for="endContract">Date de fin :</label>
             <input type="date" id="endContract" value="<?= $userIdOne->endContract ?>" name="endContract" required>
+
+
+            <label for="socialInsuranceNumber">N° Sécu:</label>
+            <input type="text" id="cq" name="socialInsuranceNumber" value="<?= $userIdOne->socialInsuranceNumber ?>">
+            <p class="errors"><?= @$formErrors['socialInsuranceNumber'] ?></p>
 
             <button name="validationEmployees" id="validationUpdate" type="submit">Modifier</button>
             <button id="closeUpdateEmployes" onclick="closeModal()">Annuler</button>

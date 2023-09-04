@@ -144,9 +144,10 @@ class user
     public function updateUser()
     {
         $query = 'UPDATE `jg7b_users`
-        SET `lastname` = :lastname,
+        SET 
+        `lastname` = :lastname,
         `firstname` = :firstname,
-        `birthday` = :birthday
+        `birthday` = :birthday,
         `email` = :email,
         `address` = :address,
         `phone` = :phone,
