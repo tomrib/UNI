@@ -6,7 +6,7 @@
     </div>
     <div class="footer-right">Contacts</div>
 </footer>
-<div class="modal credits-modal">
+<!-- <div class="modal credits-modal">
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Crédits</h2>
@@ -19,7 +19,7 @@
         <h2>CGU</h2>
         <p>Coucou</p>
     </div>
-</div>
-<script src="../../assets/js/script.js"></script>
+</div> -->
+<script src="assets/js/script.js"></script>
 </body>
 </html>

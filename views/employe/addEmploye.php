@@ -22,9 +22,9 @@
         <label for="phone">Téléphone</label>
         <input type="text" id="phone" name="phone" placeholder="Téléphone de l'employé(e)..." inputmode="numeric" title="Veuillez entrer un numéro de téléphone à 10 chiffres." maxlength="10" pattern="[0-9]{10}" required>
         <p class="errors"><?= @$formErrors['phone'] ?></p>
-        <label for="cq">N° Sécu</label>
-        <input type="text" id="cq" name="cq" placeholder="Numéro de sécurité sociale de l'employé(e)...">
-        <p class="errors"><?= @$formErrors['cq'] ?></p>
+        <label for="socialInsuranceNumber">N° Sécu</label>
+        <input type="text" id="socialInsuranceNumber" name="socialInsuranceNumber" placeholder="Numéro de sécurité sociale de l'employé(e)...">
+        <p class="errors"><?= @$formErrors['socialInsuranceNumber'] ?></p>
         <!--DEBUT MODIF-->
         <label for="password">Mot de passe</label>
         <div class="eye">
@@ -34,6 +34,15 @@
             </button>
         </div>
         <p class="errors"><?= @$formErrors['password'] ?></p>
+        <div id="password-info-box" class="passwordInfoBox" style="display: none;">
+            <ul>
+                <li class="password-condition lower">Au moins 1 minuscule<span></span></li>
+                <li class="password-condition upper">Au moins 1 majuscule<span></span></li>
+                <li class="password-condition number">Au moins 1 chiffre<span></span></li>
+                <li class="password-condition special">Au moins un caractère spécial<span></span></li>
+                <li class="password-condition stringLength">Au moins 8 caractères<span></span></li>
+            </ul>
+        </div>
         <label class="typeContrat" for="contra">Type Contrat</label>
         <select type="text" id="contra" name="contra">
             <option selected disabled value="0">---</option>
@@ -44,26 +53,6 @@
 
         <!-- Insérez les champs de sélection de date ici -->
         <div id="dateFields"></div>
-
-        <div id="password-info-box" class="passwordInfoBox" style="display: none;">
-            <ul>
-                <li class="password-condition lower">Au moins 1 minuscule<span></span></li>
-                <li class="password-condition upper">Au moins 1 majuscule<span></span></li>
-                <li class="password-condition number">Au moins 1 chiffre<span></span></li>
-                <li class="password-condition special">Au moins un caractère spécial<span></span></li>
-                <li class="password-condition stringLength">Au moins 8 caractères<span></span></li>
-            </ul>
-        </div>
-
-        <div> <button name="validationEmployees" id="validationEmployees" type="submit">Créer</button></div>
     </form>
 </div>
-<!-- Boutons pour supprimer et modifier un profil, masqués par défaut -->
-<button id="deleteProfileButton" style="display: none;">Supprimer</button>
-<button id="editProfileButton" style="display: none;">Modifier</button>
-<!-- Bouton pour fermer la modal -->
-
-<button id="closeModalButton" onclick="closeModal()">Fermer</button>
-
-<script src="assets/js/employees.js"></script>
-<script src="assets/js/timeContract.js"></script>
+<script src="assets/js/addEmployees.js"></script>

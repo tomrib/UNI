@@ -42,11 +42,12 @@ CREATE TABLE jg7b_users(
         password Varchar (255) NOT NULL,
         address Varchar (255),
         phone Varchar (15),
-        socialInsuranceNumber Varchar (20) UNIQUE,
+        socialInsuranceNumber Varchar (20),
         birthday Date NOT NULL,
+        beginningContract Date NOT NULL,
+        endContract Date,
         id_usersTypes Int NOT NULL,
-        id_contractsTypes Int,
-        CONSTRAINT users_PK PRIMARY KEY (id),
+        id_contractsTypes Int, CONSTRAINT users_PK PRIMARY KEY (id),
         CONSTRAINT users_usersTypes_FK FOREIGN KEY (id_usersTypes) REFERENCES jg7b_usersTypes(id),
         CONSTRAINT users_contractsTypes0_FK FOREIGN KEY (id_contractsTypes) REFERENCES jg7b_contractsTypes(id)
 ) ENGINE = InnoDB;
@@ -91,17 +92,14 @@ CREATE TABLE jg7b_archives(
 #------------------------------------------------------------
 # Table: JG7b_durationContract
 #------------------------------------------------------------
-
 CREATE TABLE JG7b_durationContract(
-        id                 Int  Auto_increment  NOT NULL ,
-        beginningContract  Date ,
-        endContract        Date ,
-        id_JG7b_users      Int NOT NULL
-	,CONSTRAINT JG7b_durationContract_PK PRIMARY KEY (id)
-
-	,CONSTRAINT JG7b_durationContract_JG7b_users_FK FOREIGN KEY (id_JG7b_users) REFERENCES JG7b_users(id)
-)ENGINE=InnoDB;
-
+        id Int Auto_increment NOT NULL,
+        beginningContract Date,
+        endContract Date,
+        id_JG7b_users Int NOT NULL,
+        CONSTRAINT JG7b_durationContract_PK PRIMARY KEY (id),
+        CONSTRAINT JG7b_durationContract_JG7b_users_FK FOREIGN KEY (id_JG7b_users) REFERENCES JG7b_users(id)
+) ENGINE = InnoDB;
 
 #------------------------------------------------------------
 # Table: jg7b_businessUsers

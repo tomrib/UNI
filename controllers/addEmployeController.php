@@ -7,7 +7,6 @@ $formErrors = [];
 $listContra = new contractsTypes;
 $contra = $listContra->listContractTypes();
 $add = new user;
-
 if (count($_POST) > 0) {
 
     if (!empty($_POST['lastname'])) {
@@ -31,13 +30,13 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['birthday'])) {
-        if (preg_match($regex['birthday'], $_POST['birthday'])) {
+        if (preg_match($regex['date'], $_POST['birthday'])) {
             $add->birthday = strip_tags(ucwords($_POST['birthday']));
         } else {
-            $formErrors['birthday'] = USER_LASTNAME_ERROR_INVALID;
+            $formErrors['birthday'] = "2";
         }
     } else {
-        $formErrors['birthday'] = USER_FIRSTNAME_ERROR_EMPTY;
+        $formErrors['birthday'] = "1";
     }
 
     if (!empty($_POST['email'])) {
@@ -90,15 +89,37 @@ if (count($_POST) > 0) {
 
     if (!empty($_POST['socialInsuranceNumber'])) {
         if (preg_match($regex['socialInsuranceNumber'], $_POST['socialInsuranceNumber'])) {
-            $add->socialInsuranceNumber = strip_tags($_POST['socialInsuranceNumber']);
-            if ($add->checkIfUserExists('socialInsuranceNumber') > 0) {
+            if ($add->checkIfUserExists('socialInsuranceNumber') == 0) {
                 $formErrors['socialInsuranceNumber'] = USER_CQ_ERROR_EXIT;
+            } else {
+                $add->socialInsuranceNumber = strip_tags($_POST['socialInsuranceNumber']);
             }
         } else {
             $formErrors['socialInsuranceNumber'] = USER_CQ_ERROR_INVALID;
         }
     } else {
         $formErrors['socialInsuranceNumber'] = USER_CQ_ERROR_EMPTY;
+    }
+    if (!empty($_POST['beginningContract'])) {
+        if (preg_match($regex['date'], $_POST['beginningContract'])) {
+            $add->beginningContract = strip_tags(ucwords($_POST['beginningContract']));
+        } else {
+            $formErrors['beginningContract'] = "2";
+        }
+    } else {
+        $formErrors['beginningContract'] = "1";
+    }
+
+    if ($_POST['contra'] == "2" || $_POST['contra'] == "3") {
+        if (!empty($_POST['endContract'])) {
+            if (preg_match($regex['date'], $_POST['endContract'])) {
+                $add->endContract = strip_tags(ucwords($_POST['endContract']));
+            } else {
+                $formErrors['endContract'] = USER_LASTNAME_ERROR_INVALID;
+            }
+        } else {
+            $formErrors['endContract'] = USER_FIRSTNAME_ERROR_EMPTY;
+        }
     }
 
     if (count($formErrors) == 0) {

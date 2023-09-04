@@ -20,7 +20,7 @@
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon"></label>
             <ul>
-                <li><a href="/bureauAdministratrice">Accueil</a></li>
+                <li><a href="./bureau">Accueil</a></li>
 
                 <li class="parent">
                     <a href="#">Client(e)s</a>

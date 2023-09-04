@@ -104,7 +104,8 @@ if (count($_POST) > 0) {
      * ci le count de formErrors et a 1 ou plus il ne pased pas dans la condition 
      *  */
 
-    
+    var_export($_POST);
+    var_dump($formErrors);
     if (count($formErrors) == 0) {
         $update->updateUser();
     }
