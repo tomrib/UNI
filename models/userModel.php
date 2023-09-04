@@ -10,7 +10,7 @@ class user
     public string $email = "";
     public string $password = "";
     public string $address = "";
-    public int $phone = 0;
+    public string $phone = "";
     public string $socialInsuranceNumber = "";
     public int $id_usersTypes  = 0;
     public int $id_contractsTypes = 0;

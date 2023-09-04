@@ -33,7 +33,7 @@
             <p class="errors"><?= @$formErrors['address'] ?></p>
 
             <label for="phone">Téléphone:</label>
-            <input type="tel" id="phone" name="phone" value="0<?= $userIdOne->phone ?>">
+            <input type="tel" id="phone" name="phone" value="<?= $userIdOne->phone ?>">
             <p class="errors"><?= @$formErrors['phone'] ?></p>
 
             <label for="contra">Type Contrat:</label>
