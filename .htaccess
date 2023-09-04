@@ -3,9 +3,8 @@ RewriteEngine On
 RewriteRule ^connexion$ ./index
 
 RewriteRule ^bureau$ ./controllers/deskController.php
-
+#?   les vue des employer 
 RewriteRule ^Liste-Employer$ ./controllers/listEmployeController.php
-
 RewriteRule ^Ajout-Employer$ ./controllers/addEmployeController.php
 
 RewriteRule ^Liste-client$ ./controllers/listCustomerController.php

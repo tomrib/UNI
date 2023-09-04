@@ -7,7 +7,10 @@
 
         <!-- Champ de recherche -->
         <input type="text" id="searchInput" placeholder="Rechercher un employé(e)...">
+        <div id="search-results">
 
+
+        </div>
         <!-- Tableau pour afficher la liste des employés -->
         <table id="employees-table" class="responsiveTable">
             <thead>
@@ -25,15 +28,35 @@
                 </tr>
             </thead>
             <tbody>
-
+                <?php foreach ($list as $list) { ?>
+                    <tr>
+                        <td><?= $list->lastname ?></td>
+                        <td><?= $list->firstname ?></td>
+                        <td><?= $list->email ?></td>
+                        <td><?= $list->address ?></td>
+                        <td>0<?= $list->phone ?></td>
+                        <td><?= $list->contra ?></td>
+                        <td><?= $list->socialInsuranceNumber ?></td>
+                        <td><?= $list->id_usersTypes ?></td>
+                        <td>
+                            <!-- il faut ajouter le chiffrement de l'id -->
+                            <a href="/Modifier-Employer-<?= $list->id ?>"><button>Modifier</button></a>
+                        </td>
+                        <td>
+                            <!-- il faut ajouter le chiffrement de l'id -->
+                            <form action="/Liste-Employer" method="POST">
+                                <input type="hidden" name="id_suppression" value="<?= $list->id ?>">
+                                <input type="submit" name="delete" value="Supprimer">
+                            </form>
+                        </td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
 
         <!-- Bouton pour créer un nouveau profil -->
         <button onclick="openModal()" class="create-profile-button"> <a href="/Ajout-Employer">Créer un nouveau profil</a></button>
+        <script src="../../assets/js/search.js"></script>
 
-        <!-- Modèle de formulaire pour créer et éditer un profil -->
     </div>
 </div>
-
-

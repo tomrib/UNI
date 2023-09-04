@@ -1,41 +1,66 @@
 <link rel="stylesheet" href="">
 <div id="updateForm">
-    <form id="profileForm" method="POST">
-        <h3>Modification d'un profil employé(e)</h3>
-        <label for="lastname">Nom:</label>
-        <input type="text" id="lastname" name="lastname" value="" placeholder="Nom de l'employé(e)...">
-        <p class="errors"><?= @$formErrors['lastname'] ?></p>
-        <label for="firstname">Prénom:</label>
-        <input type="text" id="firstname" name="firstname" value="" placeholder="Prénom de l'employé(e)...">
-        <p class="errors"><?= @$formErrors['firstname'] ?></p>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="" placeholder="Email de l'employé(e)...">
-        <p class="errors"><?= @$formErrors['email'] ?></p>
-        <label for="address">Adresse:</label>
-        <input type="text" id="address" name="address" value="" placeholder="Adresse de l'employé(e)...">
-        <p class="errors"><?= @$formErrors['address'] ?></p>
-        <label for="phone">Téléphone:</label>
-        <input type="tel" id="phone" name="phone" value="" placeholder="Téléphone de l'employé(e)...">
-        <p class="errors"><?= @$formErrors['phone'] ?></p>
-        <label for="contra">Type Contrat:</label>
-        <input type="text" id="contra" title="CDI, CDD, Intérim, Temps partiel, Extra" name="contra" value="" placeholder="CDI, CDD, Intérim, Temps partiel, Extra...">
-        <p class="errors"><?= @$formErrors['contra'] ?></p>
-        <label for="cq">N° Sécu:</label>
-        <input type="text" id="cq" name="cq" value="" placeholder="Numéro de sécurité sociale de l'employé(e)...">
-        <p class="errors"><?= @$formErrors['cq'] ?></p>
-        <button name="validationEmployees" id="validationUpdate" type="submit">Modifier</button>
-        <button id="closeUpdateEmployes" onclick="closeModal()">Annuler</button>
-    </form>
-</div>
+    <?php foreach ($userIdOne as  $userIdOne) { ?>
+        <form action="./Modifier-Employer-<?= $userIdOne->id ?>" id="profileForm" method="POST">
+            <h1>Modification d'un profil employé(e)</h1>
 
-<div id="confirmationModal" class="modal">
-    <div class="modal-content">
-        <p id="confirmationMessage">Êtes-vous sûr(e) de vouloir modifier ?</p>
-        <div class="modal-buttons">
-            <button id="confirmUpdate">Oui</button>
-            <button id="cancelUpdate">Non</button>
+            <label for="typeUser">Types de postes:</label>
+            <select type="text" id="typeUser" name="typeUser">
+                <option value="<?= $userIdOne->usersTypeId ?>"><?= $userIdOne->usersType ?></option>
+                <?php foreach ($listTypeUser as $listUser) { ?>
+                    <option value="<?= $listUser->id ?>"><?= $listUser->name ?></option>
+                <?php } ?>
+            </select>
+            <p class="errors"><?= @$formErrors['typeUser'] ?></p>
+
+            <label for="lastname">Nom:</label>
+            <input type="text" id="lastname" name="lastname" value="<?= $userIdOne->lastname ?>">
+            <p class="errors"><?= @$formErrors['lastname'] ?></p>
+
+            <label for="firstname">Prénom:</label>
+            <input type="text" id="firstname" name="firstname" value="<?= $userIdOne->firstname ?>">
+            <p class="errors"><?= @$formErrors['firstname'] ?></p>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<?= $userIdOne->email ?>">
+            <p class="errors"><?= @$formErrors['email'] ?></p>
+
+            <label for="address">Adresse:</label>
+            <input type="text" id="address" name="address" value="<?= $userIdOne->address ?>">
+            <p class="errors"><?= @$formErrors['address'] ?></p>
+
+            <label for="phone">Téléphone:</label>
+            <input type="tel" id="phone" name="phone" value="0<?= $userIdOne->phone ?>">
+            <p class="errors"><?= @$formErrors['phone'] ?></p>
+
+            <label for="contra">Type Contrat:</label>
+            <select type="text" id="contra" name="contra">
+                <option value="<?= $userIdOne->contraId ?>"><?= $userIdOne->contra ?></option>
+                <?php foreach ($contra as $liste) { ?>
+                    <option value="<?= $liste->id ?>"><?= $liste->name ?></option>
+                <?php } ?>
+            </select>
+            <div id="dateFields">
+            </div>
+
+            <label for="socialInsuranceNumber">N° Sécu:</label>
+            <input type="text" id="cq" name="socialInsuranceNumber" value="<?= $userIdOne->socialInsuranceNumber ?>">
+            <p class="errors"><?= @$formErrors['socialInsuranceNumber'] ?></p>
+
+            <button name="validationEmployees" id="validationUpdate" type="submit">Modifier</button>
+            <button id="closeUpdateEmployes" onclick="closeModal()">Annuler</button>
+        <?php } ?>
+        <div id="confirmationModal" class="modal">
+            <div class="modal-content">
+                <p id="confirmationMessage">Êtes-vous sûr(e) de vouloir modifier ?</p>
+                <div class="modal-buttons">
+                    <input type="submit" id="confirmUpdate" value="Oui">
+                    <button id="cancelUpdate">Non</button>
+                </div>
+            </div>
         </div>
-    </div>
+        </form>
 </div>
 
+<script src="../../assets/js/timeContract.js"></script>
 <script src="../../assets/js/update.js"></script>

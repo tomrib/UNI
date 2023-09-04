@@ -41,15 +41,15 @@
                 <li class="parent">
                     <a href="#">Employé(e)s</a>
                     <ul class="sub-menu">
-                        <li><a href="#">Liste employé(e)</a></li>
-                        <li><a href="#">Nouveau employé(s)</a></li>
+                        <li><a href="./Liste-Employer">Liste employé(e)</a></li>
+                        <li><a href="./Ajout-Employer">Nouveau employé(s)</a></li>
                         <li><a href="#">Archives employé(e)</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#">Archives interventions</a>
                 </li>
-                <li class="login-modal-trigger"><a href="#">Se déconnecter</a></li>
+                <li class="login-modal-trigger"><a href="./deconnecter">Se déconnecter</a></li>
             </ul>
         </nav>
     </header>
