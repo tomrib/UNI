@@ -1,3 +1,4 @@
+</main>
 <footer>
     <div class="footer-left">
         <span class="credits-modal-trigger">Crédits</span>
@@ -5,6 +6,7 @@
     </div>
     <div class="footer-right">Contacts</div>
 </footer>
+
 <div class="modal credits-modal">
     <div class="modal-content">
         <span class="close">&times;</span>
@@ -19,7 +21,9 @@
         <p>Coucou</p>
     </div>
 </div>
-<script src="../../assets/js/script.js"></script>
+
+<script src="assets/js/script.js"></script>
+
 </body>
 
 </html>

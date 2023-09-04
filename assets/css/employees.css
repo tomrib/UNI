@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
 
-    background-color: #c8d6a2;
+    background-color: #fff;
 }
  
 /* Conteneur principal */
@@ -185,4 +185,14 @@ button:hover {
         white-space: normal;
     }
 
+}
+
+.password-condition {
+    margin-right: 10px;
+        border-radius: 5px;
+        border-color: #4b5943;
+        background-color: #4b5943;
+        padding: 6px 10px;
+        color: #fff;
+        margin: 5px;
 }

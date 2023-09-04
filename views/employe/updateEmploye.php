@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="">
 <div id="updateForm">
     <form id="profileForm" method="POST">
         <h3>Modification d'un profil employé(e)</h3>

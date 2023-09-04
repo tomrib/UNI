@@ -1,6 +1,7 @@
+/*SASS GOOD*/
 @import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+/*SASS GOOD*/
 
-/* Réinitialisation des marges et des paddings */
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +16,7 @@ body {
     background-color: #fff;
 }
 
-/* Styles pour la barre de navigation */
+/*SASS GOOD*/
 header {
     display: flex;
     align-items: center;
@@ -184,7 +185,6 @@ main {
     height: 71vh;
 }
 
-/* ... Le reste de votre code CSS ... */
 
 
 /* Styles pour les blocs principaux */
@@ -546,3 +546,4 @@ input {
         padding: 8px 16px;
     }
 }
+

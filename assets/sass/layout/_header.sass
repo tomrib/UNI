@@ -1,0 +1,98 @@
+//              Styles header
+header
+    background-color: $color_1
+    color: $color_3
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 10px
+
+.menu-icon
+    display: none
+    cursor: pointer
+
+input[type="checkbox"]#menu-toggle
+    display: none
+
+.menu-icon::before
+    content: "\2630"
+    font-size: 25px
+
+nav ul 
+    list-style: none
+    display: flex
+
+nav li 
+    position: relative
+    margin: 10px
+
+nav a 
+    color: $color_3
+    text-decoration: none
+    padding: 5px 10px
+
+nav li::after 
+    content: ""
+    position: absolute
+    bottom: -5px
+    left: 0
+    width: 0
+    height: 2px
+    background-color: $color_4
+    transition: width 0.3s ease-in-out
+
+nav li:hover::after 
+    width: 100%
+
+.sub-menu
+    display: none
+    position: absolute
+    top: 100%
+    border-radius: 3px
+    background-color: $color_1
+    min-width: 150px
+    z-index: 1
+    padding: 10px 0
+    border: solid 1px $color_2
+
+.sub-menu::after
+    content: ""
+    position: absolute
+    bottom: -5px
+    left: auto
+    right: 0
+    width: 0
+    height: 2px
+
+.sub-menu::before
+    content: ""
+    position: absolute
+    bottom: -5px
+    left: auto
+    right: 0
+    width: 0
+    height: 2px
+    background-color: $color_4
+    transition: width 0.3s ease-in-out
+
+nav li.active .sub-menu 
+    display: block
+
+nav li.active .sub-menu::after 
+    right: auto
+    left: 0
+    width: 100%
+
+.sub-menu li
+    display: block
+
+.sub-menu a
+    text-align: center
+    color: $color_3
+    padding: 5px 15px
+    display: block
+    text-decoration: none
+    font-size: small
+
+.sub-menu a:hover
+    background-color: $color_4

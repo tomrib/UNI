@@ -1,0 +1,25 @@
+@import 'base/_typographie'
+@import 'base/_variable'
+@import 'base/_mixin'
+@import 'base/reset'
+@import 'components/_buttons'
+@import 'components/_modals'
+@import 'layout/_header'
+@import 'layout/_footer'
+@import 'pages/_login'
+@import 'pages/_desk'
+// @import 'pages/_archives'
+// @import 'pages/_clients'
+// @import 'pages/_employees'
+// @import 'pages/_interventions'
+// @import 'pages/_planning'
+// @import 'pages/_subcontractors'
+
+$header_height: 60px
+$footer_height: 60px
+
+main
+    flex: 1
+    min-height: calc(100vh - (#{$header_height} + #{$footer_height}))
+    display: flex
+    flex-direction: column

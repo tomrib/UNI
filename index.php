@@ -6,25 +6,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CODE POUR LE LOGIN ACCUEIL A RECUP</title>
-    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
-    <!-- Formulaire de connexion -->
-    <form id="loginForm" method="POST">
-        <h2>Bienvenu(e) chez UNI</h2>
-        <label for="login">ADRESSE MAIL</label>
-        <input name="loginEmail" type="text" id="login" placeholder="login" autofocus required>
+    <div class="displayForm">
+        <form id="loginForm" method="POST">
+            <h1>Bienvenue chez UNI</h1>
+            <label for="login">ADRESSE MAIL</label>
+            <input name="loginEmail" type="text" id="login" placeholder="login" autofocus required>
 
-        <label for="password">MOT DE PASSE</label>
-        <input name="loginPassword" type="Password" id="password" placeholder="mot de passe" required>
+            <label for="password">MOT DE PASSE</label>
+            <div class="eye">
+                <input name="loginPassword" type="password" id="password" class="passwordInput" placeholder="mot de passe" required>
+                <button type="button" id="showPassword" class="passwordToggleBtn">
+                    <i class="far fa-eye-slash"></i>
+                </button>
+            </div>
 
-        <!-- Boutons d'action -->
-        <button id="validatioLogin" type="sudmit">Valider</button>
-        <button type="button" onclick="annuler()">Annuler</button>
-        <button id="lostMdp" type="button" onclick="motDePassePerdu()" m>Mot de passe perdu</button>
-    </form>
-    <script src="login.js" defer></script>
+            <!-- Boutons d'action -->
+            <button id="validatioLogin" type="submit">Valider</button>
+            <button type="button" onclick="annuler()">Annuler</button>
+            <button id="lostMdp" type="button" onclick="motDePassePerdu()">Mot de passe perdu</button>
+        </form>
+
+    </div>
+    <script src="./assets/js/login.js" defer></script>
 </body>
 
 </html>
