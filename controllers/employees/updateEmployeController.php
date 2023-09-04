@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once '../models/userModel.php';
-require_once '../models/contractTypesModel.php';
-require_once '../models/userstypesModel.php';
-require_once '../confi.php';
+require_once '../../models/userModel.php';
+require_once '../../models/contractTypesModel.php';
+require_once '../../models/userstypesModel.php';
+require_once '../../confi.php';
 $formErrors = [];
 //liste des contra
 $listContra = new contractsTypes;
@@ -139,6 +139,6 @@ if (count($_POST) > 0) {
     }
 }
 
-require_once '../views/includes/header.php';
-require_once '../views/employe/updateEmploye.php';
-require_once '../views/includes/footer.php';
+require_once '../../views/includes/header.php';
+require_once '../../views/employe/updateEmploye.php';
+require_once '../../views/includes/footer.php';

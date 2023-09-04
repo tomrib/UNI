@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once '../models/userModel.php';
-require_once '../confi.php';
+require_once '../../models/userModel.php';
+require_once '../../confi.php';
 
 $listUser = new user;
 $list = $listUser->listUser();
@@ -16,6 +16,6 @@ if (count($_GET) > 0) {
     $reachUsers->lastname = $_GET['search'];
     $getReachUser = $reachUsers->seachUser();
 }
-require_once '../views/includes/header.php';
-require_once '../views/employe/listEmploye.php';
-require_once '../views/includes/footer.php';
+require_once '../../views/includes/header.php';
+require_once '../../views/employe/listEmploye.php';
+require_once '../../views/includes/footer.php';

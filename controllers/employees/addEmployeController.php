@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once '../models/userModel.php';
-require_once '../models/contractTypesModel.php';
-require_once '../confi.php';
+require_once '../../models/userModel.php';
+require_once '../../models/contractTypesModel.php';
+require_once '../../confi.php';
 $formErrors = [];
 $listContra = new contractsTypes;
 $contra = $listContra->listContractTypes();
@@ -127,6 +127,6 @@ if (count($_POST) > 0) {
     }
 }
 
-require_once '../views/includes/header.php';
-require_once '../views/employe/addEmploye.php';
-require_once '../views/includes/footer.php';
+require_once '../../views/includes/header.php';
+require_once '../../views/employe/addEmploye.php';
+require_once '../../views/includes/footer.php';
