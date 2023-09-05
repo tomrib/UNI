@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--<script src="../../assets/js/search.js"></script>-->
 </head>
 
 <body>
@@ -20,8 +21,10 @@
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon"></label>
             <ul>
-                <li><a href="/bureauAdministratrice">Accueil</a></li>
-
+                <form class="searchBar" method="POST">
+                    <input type="text" id="searchInput" placeholder="Rechercher...">
+                </form>
+                <li><a href="./bureau">Accueil</a></li>
                 <li class="parent">
                     <a href="#">Client(e)s</a>
                     <ul class="sub-menu">

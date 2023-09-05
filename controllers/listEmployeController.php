@@ -16,6 +16,12 @@ if (count($_GET) > 0) {
     $reachUsers->lastname = $_GET['search'];
     $getReachUser = $reachUsers->seachUser();
 }
+
+/*
+$modalUser = new user;
+$modalUser->id = $_GET['id'];
+$employeeData = $modelUser->getUserOne();
+*/
 require_once '../views/includes/header.php';
 require_once '../views/employe/listEmploye.php';
 require_once '../views/includes/footer.php';

@@ -10,10 +10,12 @@ class user
     public string $email = "";
     public string $password = "";
     public string $address = "";
-    public int $phone = 0;
+    public string $phone = "";
     public string $socialInsuranceNumber = "";
     public int $id_usersTypes  = 0;
     public int $id_contractsTypes = 0;
+    public string $beginningContract = "";
+    public string $endContract = "";
 
     public function __construct()
     {
@@ -26,17 +28,20 @@ class user
 
     public function addUser()
     {
-        $query = 'INSERT INTO `jg7b_users`(`lastname`, `firstname`, `email`, `password`, `address`, `phone`, `socialInsuranceNumber`, `id_usersTypes`, `id_contractsTypes`) 
-        VALUES (:lastname,:firstname,:email,:password,:address,:phone,:socialInsuranceNumber,1,:id_contractsTypes);';
+        $query = 'INSERT INTO `jg7b_users`(`lastname`, `firstname`,`birthday`,`email`, `password`, `address`, `phone`, `socialInsuranceNumber`, `id_usersTypes`, `id_contractsTypes`,`beginningContract`,`endContract`) 
+        VALUES (:lastname,:firstname,:birthday,:email,:password,:address,:phone,:socialInsuranceNumber,1,:id_contractsTypes,:beginningContract,:endContract);';
         $request = $this->db->prepare($query);
         $request->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
         $request->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
+        $request->bindValue(':birthday', $this->birthday, PDO::PARAM_STR);
         $request->bindValue(':email', $this->email, PDO::PARAM_STR);
         $request->bindValue(':password', $this->password, PDO::PARAM_STR);
         $request->bindValue(':address', $this->address, PDO::PARAM_STR);
         $request->bindValue(':phone', $this->phone, PDO::PARAM_STR);
         $request->bindValue(':socialInsuranceNumber', $this->socialInsuranceNumber, PDO::PARAM_STR);
         $request->bindValue(':id_contractsTypes', $this->id_contractsTypes, PDO::PARAM_STR);
+        $request->bindValue(':beginningContract', $this->beginningContract, PDO::PARAM_STR);
+        $request->bindValue(':endContract', $this->endContract, PDO::PARAM_STR);
         return $request->execute();
     }
 
@@ -53,6 +58,8 @@ class user
         `phone`,
         `socialInsuranceNumber`,
         `id_usersTypes`,
+        `beginningContract`,
+        `endContract`,
         jg7b_contractstypes.name AS contra
     FROM
         `jg7b_users`
@@ -104,7 +111,7 @@ class user
         return $request->execute();
     }
 
-
+    //getUserOne per permet d affiche les infomation pour l update dans les champ coresponden
     public function getUserOne()
     {
         $query = 'SELECT
@@ -117,6 +124,8 @@ class user
         address,
         phone,
         socialInsuranceNumber,
+        beginningContract,
+        endContract,
         jg7b_userstypes.name AS usersType,jg7b_userstypes.id AS usersTypeId,
         jg7b_contractstypes.id AS contraId,
         jg7b_contractstypes.name AS contra
@@ -143,7 +152,9 @@ class user
         `phone` = :phone,
         `socialInsuranceNumber` = :socialInsuranceNumber,
         `id_usersTypes` = :id_usersTypes,
-        `id_contractsTypes` = :id_contractsTypes 
+        `id_contractsTypes` = :id_contractsTypes,
+        `beginningContract` = :beginningContract,
+        `endContract` = :endContract
         WHERE jg7b_users.id = :id;';
         $request = $this->db->prepare($query);
         $request->bindValue(':id', $this->id, PDO::PARAM_INT);
@@ -156,6 +167,8 @@ class user
         $request->bindValue(':socialInsuranceNumber', $this->socialInsuranceNumber, PDO::PARAM_STR);
         $request->bindValue(':id_usersTypes', $this->id_usersTypes, PDO::PARAM_INT);
         $request->bindValue(':id_contractsTypes', $this->id_contractsTypes, PDO::PARAM_INT);
+        $request->bindValue(':beginningContract', $this->beginningContract, PDO::PARAM_STR);
+        $request->bindValue(':endContract', $this->endContract, PDO::PARAM_STR);
         return $request->execute();
     }
 
@@ -172,6 +185,8 @@ class user
         `phone`,
         `socialInsuranceNumber`,
         `id_usersTypes`,
+        `beginningContract`,
+        `endContract`,
         jg7b_contractstypes.name AS contra
     FROM
         `jg7b_users`
@@ -186,6 +201,8 @@ class user
         $request->bindValue(':address', $this->address, PDO::PARAM_STR);
         $request->bindValue(':phone', $this->phone, PDO::PARAM_STR);
         $request->bindValue(':socialInsuranceNumber', $this->socialInsuranceNumber, PDO::PARAM_STR);
+        $request->bindValue(':beginningContract', $this->beginningContract, PDO::PARAM_STR);
+        $request->bindValue(':endContract', $this->endContract, PDO::PARAM_STR);
         $request->execute();
         return $request->fetchAll(PDO::FETCH_OBJ);
     }
