@@ -8,3 +8,5 @@ RewriteRule ^bureau$ ./controllers/deskController.php
 RewriteRule ^Liste-Employer$ ./controllers/employees/listEmployeController.php
 RewriteRule ^Ajout-Employer$ ./controllers/employees/addEmployeController.php
 RewriteRule ^Modifier-Employer-([0-9]+)$ ./controllers/employees/updateEmployeController.php?id=$1
+#?   les vue des costommer 
+RewriteRule ^Ajout-Client$ ./controllers/customer/addCustomerController.php

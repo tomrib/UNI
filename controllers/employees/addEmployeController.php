@@ -8,7 +8,6 @@ $listContra = new contractsTypes;
 $contra = $listContra->listContractTypes();
 $add = new user;
 if (count($_POST) > 0) {
-    var_dump($_POST);
     if (!empty($_POST['lastname'])) {
         if (preg_match($regex['name'], $_POST['lastname'])) {
             $add->lastname =  strip_tags(strtoupper($_POST['lastname']));
