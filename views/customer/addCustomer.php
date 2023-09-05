@@ -1,27 +1,22 @@
-<link rel="stylesheet" href="../../assets/css/style.css">
 <div id="updateForm">
     <form id="profileForm" method="POST">
         <h3>Ajout d'une entreprise</h3>
-        <label for="name">Nom:</label>
-        <input type="text" id="name" name="name" value="" placeholder="Nom de l'entreprise">
+        <label for="name">Nom de l'entreprise:</label>
+        <input type="text" id="name" name="name" placeholder="Nom de l'entreprise" value="<?= @$_POST['name'] ?>" class="<?= isset($formErrors['name']) ? 'inputError' : '' ?>">
         <p class="errors"><?= @$formErrors['name'] ?></p>
-        <label for="contact">Contact:</label>
-        <input type="text" id="contact" name="contact" value="" placeholder="Nom du contact...">
+        <label for="contactName">Nom du contact:</label>
+        <input type="text" id="contactName" name="contactName" placeholder="Nom du contact..." value="<?= @$_POST['contactName'] ?>" class="<?= isset($formErrors['contactName']) ? 'inputError' : '' ?>">
         <p class="errors"><?= @$formErrors['contact'] ?></p>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="" placeholder="Email de l'entreprise">
-        <p class="errors"><?= @$formErrors['email'] ?></p>
         <label for="address">Adresse:</label>
-        <input type="text" id="address" name="address" value="" placeholder="Adresse de l'entreprise">
+        <input type="text" id="address" name="address" placeholder="Adresse de l'entreprise" value="<?= @$_POST['address'] ?>" class="<?= isset($formErrors['address']) ? 'inputError' : '' ?>">
         <p class="errors"><?= @$formErrors['address'] ?></p>
         <label for="phone">Téléphone:</label>
-        <input type="tel" id="phone" name="phone" value="" placeholder="Téléphone de l'entreprise">
+        <input type="tel" id="phone" name="phone" placeholder="Téléphone de l'entreprise" value="<?= @$_POST['phone'] ?>" class="<?= isset($formErrors['phone']) ? 'inputError' : '' ?>">
         <p class="errors"><?= @$formErrors['phone'] ?></p>
-        <label for="siret">Type Contrat:</label>
-        <input type="text" id="siret" name="siret" value="" placeholder="Numéro SIRET de l'entreprise...">
-        <p class="errors"><?= @$formErrors['siret'] ?></p>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Email de l'entreprise" value="<?= @$_POST['email'] ?>" class="<?= isset($formErrors['email']) ? 'inputError' : '' ?>">
+        <p class="errors"><?= @$formErrors['email'] ?></p>
         <button name="validationCustomers" id="validationUpdate" type="submit">Ajouter</button>
         <button id="closeUpdateCustomers" onclick="closeModal()">Annuler</button>
     </form>
 </div>
-

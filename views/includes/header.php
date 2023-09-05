@@ -28,8 +28,8 @@
                 <li class="parent">
                     <a href="#">Client(e)s</a>
                     <ul class="sub-menu">
-                        <li id=><a href="#">Liste client(e)</a></li>
-                        <li><a href="#">Nouveau client(e)</a></li>
+                        <li><a href="#">Liste client(e)</a></li>
+                        <li><a href="./Ajout-Client">Nouveau client(e)</a></li>
                         <li><a href="#">Archives client(e)</a></li>
                     </ul>
                 </li>

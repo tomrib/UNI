@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once '../models/userModel.php';
-require_once '../models/contractTypesModel.php';
-require_once '../models/userstypesModel.php';
-require_once '../confi.php';
+require_once '../../models/userModel.php';
+require_once '../../models/contractTypesModel.php';
+require_once '../../models/userstypesModel.php';
+require_once '../../confi.php';
 $formErrors = [];
 //liste des contra
 $listContra = new contractsTypes;
@@ -53,6 +53,15 @@ if (count($_POST) > 0) {
     } else {
         $formErrors['firstname'] = USER_FIRSTNAME_ERROR_EMPTY;
     }
+    if (!empty($_POST['birthday'])) {
+        if (preg_match($regex['date'], $_POST['birthday'])) {
+            $update->birthday = strip_tags(ucwords($_POST['birthday']));
+        } else {
+            $formErrors['birthday'] = USER_BIRTHAY_ERROR_INVALID;
+        }
+    } else {
+        $formErrors['birthday'] = USER_BIRTHAY_ERROR_EMPTY;
+    }
     if (!empty($_POST['email'])) {
         if (preg_match($regex['email'], $_POST['email'])) {
             if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
@@ -72,6 +81,7 @@ if (count($_POST) > 0) {
     } else {
         $formErrors['address'] = USER_ADDRESS_ERROR_EMPTY;
     }
+
     if (!empty($_POST['phone'])) {
         if (preg_match($regex['phone'], $_POST['phone'])) {
             $update->phone = strip_tags($_POST['phone']);
@@ -99,17 +109,36 @@ if (count($_POST) > 0) {
     } else {
         $formErrors['socialInsuranceNumber'] = USER_CQ_ERROR_EMPTY;
     }
+    if (!empty($_POST['beginningContract'])) {
+        if (preg_match($regex['date'], $_POST['beginningContract'])) {
+            $update->beginningContract = strip_tags(ucwords($_POST['beginningContract']));
+        } else {
+            $formErrors['beginningContract'] = USER_CONTRACT_ERROR_EMPTY;
+        }
+    } else {
+        $formErrors['beginningContract'] = USER_CONTRACT_ERROR_INVALID;
+    }
+
+    if ($_POST['contra'] == "2" || $_POST['contra'] == "3") {
+        if (!empty($_POST['endContract'])) {
+            if (preg_match($regex['date'], $_POST['endContract'])) {
+                $update->endContract = strip_tags(ucwords($_POST['endContract']));
+            } else {
+                $formErrors['endContract'] = USER_CONTRACT_ERROR_INVALID;
+            }
+        } else {
+            $formErrors['endContract'] = USER_CONTRACTEND_ERROR_EMPTY;
+        }
+    }
     /**
      * ci le count de formErrors et a 0 il envoit les element a la base de donne 
      * ci le count de formErrors et a 1 ou plus il ne pased pas dans la condition 
      *  */
-
-    
     if (count($formErrors) == 0) {
         $update->updateUser();
     }
 }
 
-require_once '../views/includes/header.php';
-require_once '../views/employe/updateEmploye.php';
-require_once '../views/includes/footer.php';
+require_once '../../views/includes/header.php';
+require_once '../../views/employe/updateEmploye.php';
+require_once '../../views/includes/footer.php';

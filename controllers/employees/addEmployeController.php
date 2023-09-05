@@ -1,13 +1,12 @@
 <?php
 session_start();
-require_once '../models/userModel.php';
-require_once '../models/contractTypesModel.php';
-require_once '../confi.php';
+require_once '../../models/userModel.php';
+require_once '../../models/contractTypesModel.php';
+require_once '../../confi.php';
 $formErrors = [];
 $listContra = new contractsTypes;
 $contra = $listContra->listContractTypes();
 $add = new user;
-
 if (count($_POST) > 0) {
     if (!empty($_POST['lastname'])) {
         if (preg_match($regex['name'], $_POST['lastname'])) {
@@ -30,22 +29,26 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['birthday'])) {
-        if (preg_match($regex['birthday'], $_POST['birthday'])) {
+        if (preg_match($regex['date'], $_POST['birthday'])) {
             $add->birthday = strip_tags(ucwords($_POST['birthday']));
         } else {
-            $formErrors['birthday'] = USER_LASTNAME_ERROR_INVALID;
+            $formErrors['birthday'] = USER_BIRTHAY_ERROR_INVALID;
         }
     } else {
-        $formErrors['birthday'] = USER_FIRSTNAME_ERROR_EMPTY;
+        $formErrors['birthday'] = USER_BIRTHAY_ERROR_EMPTY;
     }
 
     if (!empty($_POST['email'])) {
-        if (preg_match($regex['email'], $_POST['email'])) {
-            if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                $add->email = strip_tags($_POST['email']);
+        if ($add->checkIfUserExists('email') != 0) {
+            if (preg_match($regex['email'], $_POST['email'])) {
+                if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                    $add->email = strip_tags($_POST['email']);
+                }
+            } else {
+                $formErrors['email'] = USER_EMAIL_ERROR_INVALID;
             }
         } else {
-            $formErrors['email'] = USER_EMAIL_ERROR_INVALID;
+            $formErrors['email'] = USER_EMAIL_ERROR_EXIT;
         }
     } else {
         $formErrors['email'] = USER_EMAIL_ERROR_EMPTY;
@@ -90,9 +93,6 @@ if (count($_POST) > 0) {
     if (!empty($_POST['socialInsuranceNumber'])) {
         if (preg_match($regex['socialInsuranceNumber'], $_POST['socialInsuranceNumber'])) {
             $add->socialInsuranceNumber = strip_tags($_POST['socialInsuranceNumber']);
-            if ($add->checkIfUserExists('socialInsuranceNumber') > 0) {
-                $formErrors['socialInsuranceNumber'] = USER_CQ_ERROR_EXIT;
-            }
         } else {
             $formErrors['socialInsuranceNumber'] = USER_CQ_ERROR_INVALID;
         }
@@ -100,11 +100,33 @@ if (count($_POST) > 0) {
         $formErrors['socialInsuranceNumber'] = USER_CQ_ERROR_EMPTY;
     }
 
+    if (!empty($_POST['beginningContract'])) {
+        if (preg_match($regex['date'], $_POST['beginningContract'])) {
+            $add->beginningContract = strip_tags(ucwords($_POST['beginningContract']));
+        } else {
+            $formErrors['beginningContract'] = USER_CONTRACT_ERROR_INVALID;
+        }
+    } else {
+        $formErrors['beginningContract'] = USER_CONTRACT_ERROR_EMPTY;
+    }
+
+    if ($_POST['contra'] == "2" || $_POST['contra'] == "3") {
+        if (!empty($_POST['endContract'])) {
+            if (preg_match($regex['date'], $_POST['endContract'])) {
+                $add->endContract = strip_tags(ucwords($_POST['endContract']));
+            } else {
+                $formErrors['endContract'] = USER_LASTNAME_ERROR_INVALID;
+            }
+        } else {
+            $formErrors['endContract'] = USER_CONTRACTEND_ERROR_EMPTY;
+        }
+    }
+
     if (count($formErrors) == 0) {
         $add->addUser();
     }
 }
 
-require_once '../views/includes/header.php';
-require_once '../views/employe/addEmploye.php';
-require_once '../views/includes/footer.php';
+require_once '../../views/includes/header.php';
+require_once '../../views/employe/addEmploye.php';
+require_once '../../views/includes/footer.php';

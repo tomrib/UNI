@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once '../models/userModel.php';
-require_once '../confi.php';
+require_once '../../models/userModel.php';
+require_once '../../confi.php';
 
 $listUser = new user;
 $list = $listUser->listUser();

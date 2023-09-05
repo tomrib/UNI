@@ -20,6 +20,10 @@
             <input type="text" id="firstname" name="firstname" value="<?= $userIdOne->firstname ?>">
             <p class="errors"><?= @$formErrors['firstname'] ?></p>
 
+            <label for="birthday">Date de naissance</label>
+            <input type="date" id="birthday" name="birthday" value="<?= $userIdOne->birthday ?>" placeholder="date de naissance...">
+            <p class="errors"><?= @$formErrors['birthday'] ?></p>
+
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" value="<?= $userIdOne->email ?>">
             <p class="errors"><?= @$formErrors['email'] ?></p>
@@ -29,7 +33,7 @@
             <p class="errors"><?= @$formErrors['address'] ?></p>
 
             <label for="phone">Téléphone:</label>
-            <input type="tel" id="phone" name="phone" value="0<?= $userIdOne->phone ?>">
+            <input type="tel" id="phone" name="phone" class="input-telephone" value="<?= $userIdOne->phone ?>">
             <p class="errors"><?= @$formErrors['phone'] ?></p>
 
             <label for="contra">Type Contrat:</label>
@@ -39,8 +43,13 @@
                     <option value="<?= $liste->id ?>"><?= $liste->name ?></option>
                 <?php } ?>
             </select>
-            <div id="dateFields">
-            </div>
+
+
+            <label for="beginningContract">Date de début :</label>
+            <input type="date" id="beginningContract" value="<?= $userIdOne->beginningContract ?>" name="beginningContract" required>
+            <label for="endContract">Date de fin :</label>
+            <input type="date" id="endContract" value="<?= $userIdOne->endContract ?>" name="endContract" required>
+
 
             <label for="socialInsuranceNumber">N° Sécu:</label>
             <input type="text" id="cq" name="socialInsuranceNumber" value="<?= $userIdOne->socialInsuranceNumber ?>">
@@ -61,5 +70,5 @@
         </form>
 </div>
 
-<script src="../../assets/js/timeContract.js"></script>
-<script src="../../assets/js/update.js"></script>
+<script src="assets/js/timeContract.js"></script>
+<script src="assets/js/update.js"></script>

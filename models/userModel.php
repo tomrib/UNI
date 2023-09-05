@@ -16,7 +16,6 @@ class user
     public int $id_contractsTypes = 0;
     public string $beginningContract = "";
     public string $endContract = "";
-
     public function __construct()
     {
         try {
@@ -44,31 +43,31 @@ class user
         $request->bindValue(':endContract', $this->endContract, PDO::PARAM_STR);
         return $request->execute();
     }
-
     public function listUser()
     {
-        $query = 'SELECT
-        jg7b_users.id AS id,
-        `lastname`,
-        `firstname`,
-        `birthday`,
-        `email`,
-        `password`,
-        `address`,
-        `phone`,
-        `socialInsuranceNumber`,
-        `id_usersTypes`,
-        `beginningContract`,
-        `endContract`,
-        jg7b_contractstypes.name AS contra
-    FROM
-        `jg7b_users`
-    INNER JOIN `jg7b_contractstypes` ON jg7b_users.id_contractsTypes = jg7b_contractstypes.id
-    ORDER BY
-        jg7b_users.id DESC;';
+        $query = "SELECT
+            jg7b_users.id AS id,
+            `lastname`,
+            `firstname`,
+            DATE_FORMAT(birthday, '%d-%m-%Y') AS birthday,
+            `email`,
+            `password`,
+            `address`,
+            `phone`,
+            `socialInsuranceNumber`,
+            `id_usersTypes`,
+            DATE_FORMAT(beginningContract, '%d-%m-%Y') AS beginningContract,
+            DATE_FORMAT(endContract, '%d-%m-%Y') AS endContract,
+            jg7b_contractstypes.name AS contra
+        FROM
+            `jg7b_users`
+        INNER JOIN `jg7b_contractstypes` ON jg7b_users.id_contractsTypes = jg7b_contractstypes.id
+        ORDER BY
+            jg7b_users.id DESC;";
         $request = $this->db->query($query);
         return $request->fetchAll(PDO::FETCH_OBJ);
     }
+
 
     public function checkIfUserExists($column)
     {
@@ -144,9 +143,10 @@ class user
     public function updateUser()
     {
         $query = 'UPDATE `jg7b_users`
-        SET `lastname` = :lastname,
+        SET 
+        `lastname` = :lastname,
         `firstname` = :firstname,
-        `birthday` = :birthday
+        `birthday` = :birthday,
         `email` = :email,
         `address` = :address,
         `phone` = :phone,
