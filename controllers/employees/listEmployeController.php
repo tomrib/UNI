@@ -22,6 +22,6 @@ $modalUser = new user;
 $modalUser->id = $_GET['id'];
 $employeeData = $modelUser->getUserOne();
 */
-require_once '../views/includes/header.php';
-require_once '../views/employe/listEmploye.php';
-require_once '../views/includes/footer.php';
+require_once '../../views/includes/header.php';
+require_once '../../views/employe/listEmploye.php';
+require_once '../../views/includes/footer.php';
