@@ -8,7 +8,7 @@ $listContra = new contractsTypes;
 $contra = $listContra->listContractTypes();
 $add = new user;
 if (count($_POST) > 0) {
-
+    var_dump($_POST);
     if (!empty($_POST['lastname'])) {
         if (preg_match($regex['name'], $_POST['lastname'])) {
             $add->lastname =  strip_tags(strtoupper($_POST['lastname']));
@@ -40,12 +40,16 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['email'])) {
-        if (preg_match($regex['email'], $_POST['email'])) {
-            if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                $add->email = strip_tags($_POST['email']);
+        if ($add->checkIfUserExists('email') != 0) {
+            if (preg_match($regex['email'], $_POST['email'])) {
+                if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                    $add->email = strip_tags($_POST['email']);
+                }
+            } else {
+                $formErrors['email'] = USER_EMAIL_ERROR_INVALID;
             }
         } else {
-            $formErrors['email'] = USER_EMAIL_ERROR_INVALID;
+            $formErrors['email'] = USER_EMAIL_ERROR_EXIT;
         }
     } else {
         $formErrors['email'] = USER_EMAIL_ERROR_EMPTY;
@@ -89,17 +93,14 @@ if (count($_POST) > 0) {
 
     if (!empty($_POST['socialInsuranceNumber'])) {
         if (preg_match($regex['socialInsuranceNumber'], $_POST['socialInsuranceNumber'])) {
-            if ($add->checkIfUserExists('socialInsuranceNumber') == 0) {
-                $formErrors['socialInsuranceNumber'] = USER_CQ_ERROR_EXIT;
-            } else {
-                $add->socialInsuranceNumber = strip_tags($_POST['socialInsuranceNumber']);
-            }
+            $add->socialInsuranceNumber = strip_tags($_POST['socialInsuranceNumber']);
         } else {
             $formErrors['socialInsuranceNumber'] = USER_CQ_ERROR_INVALID;
         }
     } else {
         $formErrors['socialInsuranceNumber'] = USER_CQ_ERROR_EMPTY;
     }
+
     if (!empty($_POST['beginningContract'])) {
         if (preg_match($regex['date'], $_POST['beginningContract'])) {
             $add->beginningContract = strip_tags(ucwords($_POST['beginningContract']));

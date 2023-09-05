@@ -4,26 +4,26 @@
         <h2>Créer un Nouveau Profil</h2>
         <!-- Champs pour saisir les informations de l'employé(e) -->
         <label for="lastname">Nom</label>
-        <input type="text" id="lastname" name="lastname" placeholder="Nom de l'employé(e)...">
+        <input type="text" id="lastname" name="lastname" placeholder="Nom de l'employé(e)..." value="<?= @$_POST['lastname'] ?>" class="<?= isset($formErrors['lastname']) ? 'inputError' : '' ?>">
         <p class="errors"><?= @$formErrors['lastname'] ?></p>
         <label for="firstname">Prénom</label>
-        <input type="text" id="firstname" name="firstname" placeholder="Prénom de l'employé(e)...">
+        <input type="text" id="firstname" name="firstname" placeholder="Prénom de l'employé(e)..." value="<?= @$_POST['firstname'] ?>" class="<?= isset($formErrors['firstname']) ? 'inputError' : '' ?>">
         <p class="errors"><?= @$formErrors['firstname'] ?></p>
         <label for="birthday">Date de naissance</label>
-        <input type="date" id="birthday" name="birthday" placeholder="date de naissance...">
+        <input type="date" id="birthday" name="birthday" placeholder="date de naissance..." value="<?= @$_POST['birthday'] ?>" class="<?= isset($formErrors['birthday']) ? 'inputError' : '' ?>">
         <!--Faire le rajout de l'erreur en PHP-->
         <p class="errors"><?= @$formErrors['birthday'] ?></p>
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Email de l'employé(e)...">
+        <input type="email" id="email" name="email" placeholder="Email de l'employé(e)..." value="<?= @$_POST['email'] ?>" class="<?= isset($formErrors['email']) ? 'inputError' : '' ?>">
         <p class="errors"><?= @$formErrors['email'] ?></p>
         <label for="address">Adresse</label>
-        <input type="text" id="address" name="address" placeholder="Adresse de l'employé(e)...">
+        <input type="text" id="address" name="address" placeholder="Adresse de l'employé(e)..." value="<?= @$_POST['address'] ?>" class="<?= isset($formErrors['address']) ? 'inputError' : '' ?>">
         <p class="errors"><?= @$formErrors['address'] ?></p>
         <label for="phone">Téléphone</label>
-        <input type="text" id="phone" name="phone" placeholder="Téléphone de l'employé(e)..." inputmode="numeric" title="Veuillez entrer un numéro de téléphone à 10 chiffres." maxlength="10" pattern="[0-9]{10}" required>
+        <input type="text" id="phone" name="phone" placeholder="Téléphone de l'employé(e)..." inputmode="numeric" title="Veuillez entrer un numéro de téléphone à 10 chiffres." value="<?= @$_POST['phone'] ?>" class="<?= isset($formErrors['phone']) ? 'inputError' : '' ?>" required>
         <p class="errors"><?= @$formErrors['phone'] ?></p>
         <label for="socialInsuranceNumber">N° Sécu</label>
-        <input type="text" id="socialInsuranceNumber" name="socialInsuranceNumber" placeholder="Numéro de sécurité sociale de l'employé(e)...">
+        <input type="text" id="socialInsuranceNumber" name="socialInsuranceNumber" placeholder="Numéro de sécurité sociale de l'employé(e)..." value="<?= @$_POST['socialInsuranceNumber'] ?>" class="<?= isset($formErrors['socialInsuranceNumber']) ? 'inputError' : '' ?>">
         <p class="errors"><?= @$formErrors['socialInsuranceNumber'] ?></p>
         <!--DEBUT MODIF-->
         <label for="password">Mot de passe</label>
@@ -43,7 +43,7 @@
                 <li class="password-condition stringLength">Au moins 8 caractères<span></span></li>
             </ul>
         </div>
-        <label class="typeContrat" for="contra">Type Contrat</label>
+        <label class="typeContrat" for="contra" >Type Contrat</label>
         <select type="text" id="contra" name="contra">
             <option selected disabled value="0">---</option>
             <?php foreach ($contra as $liste) { ?>

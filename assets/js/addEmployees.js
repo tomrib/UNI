@@ -11,7 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
           <input type="date" id="endContract" name="endContract" required>
           <button type="submit" name="validationEmployees" id="validationEmployees">Créer</button>
           `;
-    } else if (choixSelect.value == "1" || choixSelect.value == "4" || choixSelect.value == "5") {
+    } else if (
+      choixSelect.value == "1" ||
+      choixSelect.value == "4" ||
+      choixSelect.value == "5"
+    ) {
       dateFields.innerHTML = `
           <label for="beginningContract">Date de début :</label>
           <input type="date" id="beginningContract" name="beginningContract" required>
@@ -96,4 +100,69 @@ passwordInput.addEventListener("focus", () => {
 
 passwordInput.addEventListener("blur", () => {
   passwordInfoBox.style.display = "none";
+});
+
+const telephoneInput = document.getElementById("phone");
+
+telephoneInput.addEventListener("input", function () {
+  let phoneNumber = telephoneInput.value.replace(/\D/g, "");
+  phoneNumber=phoneNumber.slice(0, 10); // Supprime tous les caractères non numériques
+
+  if (phoneNumber.length > 2) {
+    // Ajoute un espace après les deux premiers chiffres
+    phoneNumber = phoneNumber.slice(0, 2) + " " + phoneNumber.slice(2);
+  }
+  if (phoneNumber.length > 5) {
+    // Ajoute un espace après les cinq premiers chiffres
+    phoneNumber = phoneNumber.slice(0, 5) + " " + phoneNumber.slice(5);
+  }
+  if (phoneNumber.length > 8) {
+    // Ajoute un espace après les huit premiers chiffres
+    phoneNumber = phoneNumber.slice(0, 8) + " " + phoneNumber.slice(8);
+  }
+
+  if (phoneNumber.length > 11) {
+    // Limite la longueur totale à 11 caractères (10 chiffres et 4 espaces)
+    phoneNumber = phoneNumber.slice(0, 11)+ " " + phoneNumber.slice(11);
+  }
+  if (phoneNumber.length > 14) {
+    // Limite la longueur totale à 14 caractères (10 chiffres et 4 espaces)
+    phoneNumber = phoneNumber.slice(0, 14);
+  }
+  telephoneInput.value = phoneNumber;
+});
+
+
+const socialInsuranceInput = document.getElementById("socialInsuranceNumber");
+
+socialInsuranceInput.addEventListener("input", function () {
+  let socialInsuranceNumber = socialInsuranceInput.value.replace(/\D/g, "");
+  socialInsuranceNumber=socialInsuranceNumber.slice(0, 13); // Supprime tous les caractères non numériques
+
+  if (socialInsuranceNumber.length > 1) {
+    // Ajoute un espace après le premiers chiffres
+    socialInsuranceNumber = socialInsuranceNumber.slice(0, 1) + " " + socialInsuranceNumber.slice(1);
+  }
+  if (socialInsuranceNumber.length > 4) {
+    // Ajoute un espace après les 4premiers chiffres
+    socialInsuranceNumber = socialInsuranceNumber.slice(0, 4) + " " + socialInsuranceNumber.slice(4);
+  }
+  if (socialInsuranceNumber.length > 7) {
+    // Ajoute un espace après les 7 premiers chiffres
+    socialInsuranceNumber = socialInsuranceNumber.slice(0, 7) + " " + socialInsuranceNumber.slice(7);
+  }
+
+  if (socialInsuranceNumber.length > 10) {
+    // Limite la longueur totale à 10 caractères 
+    socialInsuranceNumber = socialInsuranceNumber.slice(0, 10)+ " " + socialInsuranceNumber.slice(10);
+  }
+  if (socialInsuranceNumber.length > 14) {
+    // Limite la longueur totale à 14 caractères 
+    socialInsuranceNumber = socialInsuranceNumber.slice(0, 14)+ " " + socialInsuranceNumber.slice(14);
+  }
+  if (socialInsuranceNumber.length > 19) {
+    // Limite la longueur totale à 19 caractères (13 chiffres et 5 espaces)
+    socialInsuranceNumber = socialInsuranceNumber.slice(0, 19);
+  }
+  socialInsuranceInput.value = socialInsuranceNumber;
 });

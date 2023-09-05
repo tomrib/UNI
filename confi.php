@@ -9,7 +9,7 @@ $regex = [
     'phone' => '/^(?:0)\s*[1-9](?:[\s.-]*\d{2}){4}$/',
     'contra' => '/^[012345]{1}$/',
     'typeUser' => '/^[0123]{1}$/',
-    'socialInsuranceNumber' => '/^[0-9]{1}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{3}[0-9]{3}$/'
+    'socialInsuranceNumber' => '/^[0-9 ]{1}[0-9 ]{2}[0-9 ]{2}[0-9 ]{2}[0-9 ]{3}[0-9 ]{3}$/'
 ];
 
 $mime_types = array();
@@ -26,6 +26,7 @@ define('USER_FIRSTNAME_ERROR_EMPTY', 'Le prénom est obligatoire.');
 
 define('USER_EMAIL_ERROR_EMPTY', 'Le mail est obligatoire.');
 define('USER_EMAIL_ERROR_INVALID', 'l\'adresse mail nes pas valide');
+define('USER_EMAIL_ERROR_EXIT', 'adresse mail existe dechat');
 
 define('USER_PASSWORD_EMPTY', 'Mot de passe et obligatoire');
 define('USER_PASSWORD_ERROR_INVALID', 'L\'adresse mail ou mot de passe incorette');
@@ -40,7 +41,6 @@ define('USER_CONTRA_ERROR_INVALID', 'La saisie ne pas valide');
 
 define('USER_CQ_ERROR_EMPTY', 'Le numero de securite social et obligatoire');
 define('USER_CQ_ERROR_INVALID', 'Le numero de securette social ne pas valide');
-define('USER_CQ_ERROR_EXIT', 'Le numero de securité social existe dechat');
 
 define('USER_TYPE_ERROR_EMPTY', 'Types de postes et obligatoire.');
 define('USER_TYPE_ERROR_INVALID', 'Types de postes ne pas valide.');
