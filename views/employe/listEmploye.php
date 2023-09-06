@@ -40,7 +40,7 @@
         </table>
     </div>
     <!-- Bouton pour créer un nouveau profil -->
-    <button onclick="openModal()" class="create-profile-button"> <a href="/Ajout-Employer">Créer un nouveau profil</a></button>
+    <button onclick="openModal()" class="create-profile-button"><a href="./Ajout-Employer">Créer un nouveau profil</a></button>
 
     <!--MODAL BUTTON-->
     <div id="employeeModal" class="modal" style="display: none;">

@@ -13,18 +13,38 @@
                 <tr>
                     <!-- Entêtes du tableau -->
                     <th>Entreprise</th>
-                    <th>Contact</th>
-                    <th>Email</th>
+                    <th>Nom du contact</th>
                     <th>Adresse</th>
                     <th>Téléphone</th>
-                    <th>N° SIRET</th>
-                    <th>Action</th>
+                    <th>Email</th>
+                    <th class="border" id="modalInfo" title="fiche d'information"><i class="fas fa-eye"></i></th>
+                    <th class="border"><i class="fas fa-edit" title="modifier la fiche"></i></th>
+                    <th class="border"><i class="fas fa-trash-alt" title="suppression de la fiche"></i></th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Les données des clients seront insérées ici via JavaScript -->
+                <?php foreach ($list as $list) { ?>
+                    <tr>
+                        <td><?= $list->name ?></td>
+                        <td><?= $list->contactName ?></td>
+                        <td><?= $list->address ?></td>
+                        <td><?= $list->phone ?></td>
+                        <td><?= $list->email ?></td>
+                        <td class="border" id="modalInfo" style="width: 100px;">
+                            <a href="./Liste-Client-<?= $list->id ?>"><button class="infoEmployee" title="fiche d'information"><i class="fas fa-eye"></i></button></a>
+                        </td>
+                        <td class="border" style="width: 100px;">
+                            <a href="./Modifier-Client-<?= $list->id ?>"><button title="modifier la fiche"><i class="fas fa-edit"></i></button></a>
+                        </td>
+                        <td class="border" style="width: 100px;">
+                            <form action="./Liste-Client" id="deleteForm" method="POST">
+                                <input type="hidden" name="id_suppression" value="<?= $list->id ?>">
+                                <button type="submit" id="hoverDanger" name="delete" title="suppression de la fiche"><i class="fas fa-trash-alt"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
         <!-- Bouton pour créer un nouveau profil -->
-        <button onclick="openModal()" class="create-profile-button">Créer un nouveau profil</button>
-
+        <button onclick="openModal()" class="create-profile-button"><a href="./Ajout-Client">Créer un nouveau profil</a></button>

@@ -6,7 +6,7 @@
         <p class="errors"><?= @$formErrors['name'] ?></p>
         <label for="contactName">Nom du contact:</label>
         <input type="text" id="contactName" name="contactName" placeholder="Nom du contact..." value="<?= @$_POST['contactName'] ?>" class="<?= isset($formErrors['contactName']) ? 'inputError' : '' ?>">
-        <p class="errors"><?= @$formErrors['contact'] ?></p>
+        <p class="errors"><?= @$formErrors['contactName'] ?></p>
         <label for="address">Adresse:</label>
         <input type="text" id="address" name="address" placeholder="Adresse de l'entreprise" value="<?= @$_POST['address'] ?>" class="<?= isset($formErrors['address']) ? 'inputError' : '' ?>">
         <p class="errors"><?= @$formErrors['address'] ?></p>
