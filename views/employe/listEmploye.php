@@ -47,44 +47,44 @@
         <div class="modal-content">
             <h2>FICHE DE RENSEIGNEMENT</h2>
             <div class="infoItem">
-                <strong>Nom:</strong>
-                <span></span>
+                <p>Nom:</p>
+                <p></p>
             </div>
             <div class="infoItem">
-                <strong>Prénom:</strong>
-                <span></span>
+                <p>Prénom:</p>
+                <p></p>
             </div>
             <div class="infoItem">
-                <strong>Mail:</strong>
-                <span></span>
+                <p>Mail:</p>
+                <p></p>
             </div>
             <div class="infoItem">
-                <strong>Date de naissance:</strong>
-                <span></span>
+                <p>Date de naissance:</p>
+                <p></p>
             </div>
             <div class="infoItem">
-                <strong>Adresse:</strong>
-                <span></span>
+                <p>Adresse:</p>
+                <p></p>
             </div>
             <div class="infoItem">
-                <strong>Téléphone:</strong>
-                <span></span>
+                <p>Téléphone:</p>
+                <p></p>
             </div>
             <div class="infoItem">
-                <strong>Type de contrat:</strong>
-                <span></span>
+                <p>Type de contrat:</p>
+                <p></p>
             </div>
             <div class="infoItem">
-                <strong>Date de début:</strong>
-                <span></span>
+                <p>Date de début:</p>
+                <p></p>
             </div>
             <div class="infoItem">
-                <strong>Date de fin:</strong>
-                <span></span>
+                <p>Date de fin:</p>
+                <p></p>
             </div>
             <div class="infoItem">
-                <strong>Numéro de sécurité sociale:</strong>
-                <span></span>
+                <p>Numéro de sécurité sociale:</p>
+                <p></p>
             </div>
         </div>
         <button id="closeModalButton">Fermer</button>

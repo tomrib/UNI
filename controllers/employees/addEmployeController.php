@@ -39,7 +39,7 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['email'])) {
-        if ($add->checkIfUserExists('email') == 0) {
+        if ($add->checkIfUserExists('email') != 0) {
             if (preg_match($regex['email'], $_POST['email'])) {
                 if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                     $add->email = strip_tags($_POST['email']);
@@ -64,7 +64,7 @@ if (count($_POST) > 0) {
 
     if (!empty($_POST['address'])) {
         if (preg_match($regex['address'], $_POST['address'])) {
-            $add->address = strip_tags(strtoupper($_POST['address']));
+            $add->address = strip_tags($_POST['address']);
         }
     } else {
         $formErrors['address'] = USER_ADDRESS_ERROR_EMPTY;
@@ -102,7 +102,7 @@ if (count($_POST) > 0) {
 
     if (!empty($_POST['beginningContract'])) {
         if (preg_match($regex['date'], $_POST['beginningContract'])) {
-            $add->beginningContract = strip_tags(ucwords($_POST['beginningContract']));
+            $add->beginningContract = strip_tags($_POST['beginningContract']);
         } else {
             $formErrors['beginningContract'] = USER_CONTRACT_ERROR_INVALID;
         }
@@ -113,7 +113,7 @@ if (count($_POST) > 0) {
     if ($_POST['contra'] == "2" || $_POST['contra'] == "3") {
         if (!empty($_POST['endContract'])) {
             if (preg_match($regex['date'], $_POST['endContract'])) {
-                $add->endContract = strip_tags(ucwords($_POST['endContract']));
+                $add->endContract = strip_tags($_POST['endContract']);
             } else {
                 $formErrors['endContract'] = USER_LASTNAME_ERROR_INVALID;
             }
@@ -124,6 +124,7 @@ if (count($_POST) > 0) {
 
     if (count($formErrors) == 0) {
         $add->addUser();
+        header('location:./Liste-Employer');
     }
 }
 

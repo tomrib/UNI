@@ -63,7 +63,7 @@ class user
             `jg7b_users`
         INNER JOIN `jg7b_contractstypes` ON jg7b_users.id_contractsTypes = jg7b_contractstypes.id
         ORDER BY
-            jg7b_users.id DESC;";
+            jg7b_users.lastname ASC;";
         $request = $this->db->query($query);
         return $request->fetchAll(PDO::FETCH_OBJ);
     }
