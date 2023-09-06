@@ -136,6 +136,7 @@ if (count($_POST) > 0) {
      *  */
     if (count($formErrors) == 0) {
         $update->updateUser();
+        header('Location:./Liste-Employer');
     }
 }
 

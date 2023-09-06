@@ -9,7 +9,7 @@ $regex = [
     'phone' => '/^(?:0)\s*[1-9](?:[\s.-]*\d{2}){4}$/',
     'contra' => '/^[012345]{1}$/',
     'typeUser' => '/^[0123]{1}$/',
-    'socialInsuranceNumber' => '/^[0-9 ]{1}[0-9 ]{2}[0-9 ]{2}[0-9 ]{2}[0-9 ]{3}[0-9 ]{3}$/'
+    'socialInsuranceNumber' => '/^[0-9]{1} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{3} [0-9]{3}$/'
 ];
 
 $mime_types = array();
@@ -33,6 +33,7 @@ define('USER_PASSWORD_EMPTY', 'Mot de passe et obligatoire');
 define('USER_PASSWORD_ERROR_INVALID', 'L\'adresse mail ou mot de passe incorette');
 
 define('USER_ADDRESS_ERROR_EMPTY', 'L\'adresse de domicile est obligatoire.');
+define('USER_ADDRESS_ERROR_INVALID', 'l\'adresse nes pas conforme il faut un ou plusieurs numero types de rue et nom de la rue');
 
 define('USER_PHONE_ERROR_EMPTY', 'Le numero de téléphon est obligatoire.');
 define('USER_PHONE_ERROR_INVALID', 'Le numero de téléphon ne pas valide.');

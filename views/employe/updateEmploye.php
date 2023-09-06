@@ -70,5 +70,5 @@
         </form>
 </div>
 
-<script src="assets/js/timeContract.js"></script>
-<script src="assets/js/update.js"></script>
+<script src="../../assets/js/timeContract.js"></script>
+<script src="../../assets/js/update.js"></script>
