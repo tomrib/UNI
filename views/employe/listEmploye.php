@@ -22,13 +22,13 @@
                         <td><?= $list->email ?></td>
                         <td><?= $list->phone ?></td>
 
-                        <td class="border" id="modalInfo" style="width: 100px;">
+                        <td class="border" id="modalInfo">
                             <a href="./Liste-Employer-<?= $list->id ?>"><button class="infoEmployee" title="fiche d'information"><i class="fas fa-eye"></i></button></a>
                         </td>
-                        <td class="border" style="width: 100px;">
+                        <td class="border">
                             <a href="./Modifier-Employer-<?= $list->id ?>"><button title="modifier la fiche"><i class="fas fa-edit"></i></button></a>
                         </td>
-                        <td class="border" style="width: 100px;">
+                        <td class="border">
                             <form action="./Liste-Employer" id="deleteForm" method="POST">
                                 <input type="hidden" name="id_suppression" value="<?= $list->id ?>">
                                 <button type="submit" id="hoverDanger" name="delete" title="suppression de la fiche"><i class="fas fa-trash-alt"></i></button>
