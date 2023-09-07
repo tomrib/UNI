@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="../../assets/css/style.css">
+
 <div id="updateForm">
-    <form id="profileForm" method="POST">
-        <?php foreach ($listCustomerOne  as $one) { ?>
+    <?php foreach ($listCustomerOne  as $one) { ?>
+    <form  action="./Modifier-Client-<?= $one->id ?>" id="profileForm" method="POST">
             <h3>Modification d'un profil client(e)</h3>
             <label for="name">Nom de l'entreprise:</label>
             <input type="text" id="name" name="name" placeholder="Nom de l'entreprise" value="<?= $one->name ?>">
@@ -18,20 +18,20 @@
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Email de l'entreprise" value="<?= $one->email  ?>" ">
             <p class=" errors"><?= @$formErrors['email'] ?></p>
-            <button name="validationCustomers" id="validationUpdate" type="submit">Modifier</button>
+            <button name="validationCustomers" id="validationUpdate">Modifier</button>
             <button id="closeUpdateCustomers" onclick="closeModal()">Annuler</button>
+            <div id="confirmationModal" class="modal">
+                <div class="modal-content">
+                    <p id="confirmationMessage">Êtes-vous sûr(e) de vouloir modifier ?</p>
+                    <div class="modal-buttons">
+                        <input type="submit" id="confirmUpdate" value="Oui">
+                        <button id="cancelUpdate">Non</button>
+                    </div>
+                </div>
+            </div>
+        </form>
         <?php } ?>
-    </form>
 </div>
 
-<div id="confirmationModal" class="modal">
-    <div class="modal-content">
-        <p id="confirmationMessage">Êtes-vous sûr(e) de vouloir modifier ?</p>
-        <div class="modal-buttons">
-            <button id="confirmUpdate">Oui</button>
-            <button id="cancelUpdate">Non</button>
-        </div>
-    </div>
-</div>
 
-<script src="../../assets/js/update.js"></script>
+<script src="assets/js/update.js"></script>

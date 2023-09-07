@@ -1,33 +1,13 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const choixSelect = document.getElementById("contra");
-  const dateFields = document.getElementById("dateFields");
+const choiceSelect = document.getElementById("contra");
+const beginningContract = document.getElementById("beginningContract");
+const endContract = document.getElementById("endContract");
 
-  choixSelect.addEventListener("change", function () {
-    if (choixSelect.value == "2" || choixSelect.value == "3") {
-      dateFields.innerHTML = `
-          <label for="beginningContract">Date de début :</label>
-          <input type="date" id="beginningContract" name="beginningContract" required>
-          <label for="endContract">Date de fin :</label>
-          <input type="date" id="endContract" name="endContract" required>
-          <button type="submit" name="validationEmployees" id="validationEmployees">Créer</button>
-          `;
-    } else if (
-      choixSelect.value == "1" ||
-      choixSelect.value == "4" ||
-      choixSelect.value == "5"
-    ) {
-      dateFields.innerHTML = `
-          <label for="beginningContract">Date de début :</label>
-          <input type="date" id="beginningContract" name="beginningContract" required>
-          <button type="submit" name="validationEmployees" id="validationEmployees">Créer</button>
-          `;
-    } else {
-      dateFields.innerHTML = "";
+choiceSelect.addEventListener("change", function () {
+    beginningContract.classList.toggle("onInput");
+    if (choiceSelect.value == "2" || choiceSelect.value == "3") {
+      beginningContract.classList.toggle("onInput");
+      endContract.classList.toggle("onInput");
     }
-  });
-
-  const form = document.getElementById("profileForm");
-  form.appendChild(dateFields);
 });
 
 $(document).ready(function () {

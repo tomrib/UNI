@@ -4,12 +4,17 @@ require_once '../../models/custommerModel.php';
 require_once '../../confi.php';
 $formErrors = [];
 
-$listCustomer = new business;
-$listCustomer->id = $_GET['id'];
-$listCustomerOne = $listCustomer->getCustomerOne();
+$Customer = new business;
+$Customer->id = $_GET['id'];
+$listCustomerOne = $Customer->getCustomerOne();
 
 $updateCustomer = new business;
+$updateCustomer->id = $_GET['id'];
 if (count($_POST) > 0) {
+    var_dump($_POST);
+    var_dump($updateCustomer);
+    var_dump($formErrors);
+
     if (!empty($_POST['name'])) {
         if (preg_match($regex['name'], $_POST['name'])) {
             $updateCustomer->name =  strip_tags(strtoupper($_POST['name']));
@@ -21,7 +26,7 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['contactName'])) {
-        if (preg_match($regex['name'], $_POST['name'])) {
+        if (preg_match($regex['name'], $_POST['contactName'])) {
             $updateCustomer->contactName = strip_tags(strtoupper($_POST['contactName']));
         } else {
             $formErrors['contactName'] = USER_LASTNAME_ERROR_INVALID;
@@ -33,7 +38,7 @@ if (count($_POST) > 0) {
     if (!empty($_POST['address'])) {
         if (preg_match($regex['address'], $_POST['address'])) {
             $updateCustomer->address = strip_tags($_POST['address']);
-        }{
+        } else {
             $formErrors['address'] = USER_ADDRESS_ERROR_INVALID;
         }
     } else {
@@ -65,13 +70,12 @@ if (count($_POST) > 0) {
     } else {
         $formErrors['email'] = USER_EMAIL_ERROR_EMPTY;
     }
-var_dump($_POST);
-var_dump($formErrors);
+
     if (count($formErrors) == 0) {
         $updateCustomer->updateCustomer();
-       /*  header('Location:./Liste-Client'); */
+        header('Location:./Liste-Client');
     }
 }
 require_once '../../views/includes/header.php';
-require_once '../../views/customer/updateCustomers.php';
+require_once '../../views/customer/updateCustomer.php';
 require_once '../../views/includes/footer.php';
