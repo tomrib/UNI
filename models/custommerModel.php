@@ -20,7 +20,7 @@ class business
         }
     }
 
-    public function addCustommer()
+    public function addCustomer()
     {
         $query = 'INSERT INTO `jg7b_business`(
             `name`,
@@ -45,7 +45,7 @@ class business
         return $request->execute();
     }
 
-    public function getCustommer()
+    public function getCustomer()
     {
         $query = 'SELECT
         `id`,
@@ -60,7 +60,7 @@ class business
         return $request->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function getCustommerOne()
+    public function getCustomerOne()
     {
         $query = 'SELECT
         `id`,
@@ -78,7 +78,7 @@ class business
         return $request->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function updateCustommer()
+    public function updateCustomer()
     {
         $query = 'UPDATE
         `jg7b_business`
@@ -100,7 +100,7 @@ class business
         return $request->execute();
     }
 
-    public function deleteCustommer()
+    public function deleteCustomer()
     {
         $query = 'DELETE FROM `jg7b_business`
     WHERE
@@ -110,7 +110,7 @@ class business
         return $request->execute();
     }
 
-    public function checkIfCustommeExists($column)
+    public function checkIfCustomeExists($column)
     {
         $query = 'SELECT count(' . $column . ') 
         FROM `jg7b_business` 

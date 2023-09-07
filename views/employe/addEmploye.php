@@ -11,6 +11,7 @@
                 <input type="date" id="birthday" name="birthday" placeholder="date de naissance..." value="<?= @$_POST['birthday'] ?>" class="<?= isset($formErrors['birthday']) ? 'inputError' : '' ?>">
                 <!--Faire le rajout de l'erreur en PHP-->
                 <p class="errors"><?= @$formErrors['birthday'] ?></p>
+                <p class="errors"><?= @$formInformation['birthday'] ?></p>
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Email de l'employé(e)..." value="<?= @$_POST['email'] ?>" class="<?= isset($formErrors['email']) ? 'inputError' : '' ?>">
                 <p class="errors"><?= @$formErrors['email'] ?></p>
@@ -42,14 +43,24 @@
                 </div>
                 <label class="typeContrat" for="contra">Type Contrat</label>
                 <select type="text" id="contra" name="contra">
-                        <option selected disabled value="0">---</option>
+                        <option value="<?= @$_POST['contra'] ?>">---</option>
                         <?php foreach ($contra as $liste) { ?>
                                 <option value="<?= $liste->id ?>"><?= $liste->name ?></option>
                         <?php } ?>
                 </select>
-                <!-- Insérez les champs de sélection de date ici -->
-                <div id="dateFields"></div>
-
+                <div id="beginningContract" class="offInput">
+                        <label for="beginningContract">Date de début :</label>
+                        <input type="date" id="beginningContract" name="beginningContract" value="<?= @$_POST['beginningContract'] ?>" required>
+                        <p class="errors"><?= @$formErrors['beginningContract'] ?></p>
+                </div>
+                <div id="endContract" class="offInput">
+                        <label for="endContract">Date de fin :</label>
+                        <input type="date" id="endContract" name="endContract" value="<?= @$_POST['endContract'] ?>" required>
+                        <p class="errors"><?= @$formErrors['endContract'] ?></p>
+                </div>
+                <div>
+                        <button type="submit" name="validationEmployees" id="validationEmployees">Créer</button>
+                </div>
         </form>
 </div>
 

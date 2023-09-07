@@ -1,5 +1,13 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+.offInput {
+  display: none;
+}
+
+.onInput {
+  display: block;
+}
+
 .displayTable {
   display: flex;
   flex-direction: column;

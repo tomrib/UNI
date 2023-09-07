@@ -33,6 +33,7 @@ define('USER_PASSWORD_EMPTY', 'Mot de passe et obligatoire');
 define('USER_PASSWORD_ERROR_INVALID', 'L\'adresse mail ou mot de passe incorette');
 
 define('USER_ADDRESS_ERROR_EMPTY', 'L\'adresse de domicile est obligatoire.');
+define('USER_ADDRESS_ERROR_INVALID', 'l\'adresse nes pas conforme il faut un ou plusieurs numero types de rue et nom de la rue');
 
 define('USER_PHONE_ERROR_EMPTY', 'Le numero de téléphon est obligatoire.');
 define('USER_PHONE_ERROR_INVALID', 'Le numero de téléphon ne pas valide.');
@@ -49,6 +50,8 @@ define('USER_TYPE_ERROR_INVALID', 'Types de postes ne pas valide.');
 define('USER_CONTRACT_ERROR_EMPTY', 'La date de début et obligatoire.');
 define('USER_CONTRACT_ERROR_INVALID', 'La date née pas valide.');
 define('USER_CONTRACTEND_ERROR_EMPTY', 'La date de fin et obligatoire.');
+define('USER_CONTRACTEND_ERROR', 'La date de fin de contrat doit être postérieure à la date de début de contrat.');
 
 define('USER_BIRTHAY_ERROR_EMPTY', 'La date de naissance et obligatoire.');
 define('USER_BIRTHAY_ERROR_INVALID', 'La date de naissance née pas valide.');
+define('USER_BIRTHAY_INFO_INVALID', '⚠️ Attention, le profil suivant est âgé de moins de 18 ans ⚠️');

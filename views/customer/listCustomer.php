@@ -4,9 +4,6 @@
         <!-- En-tête de la page -->
         <h1>Liste des client(e)s</h1>
 
-        <!-- Champ de recherche -->
-        <input type="text" id="searchInput" placeholder="Rechercher un client...">
-
         <!-- Tableau pour afficher la liste des clients -->
         <table id="clients-table">
             <thead>

@@ -28,7 +28,7 @@ $update->id = $_GET['id'];
 if (count($_POST) > 0) {
     if (!empty($_POST['typeUser'])) {
         if ($_POST['typeUser'] == 1 || $_POST['typeUser'] == 2 || $_POST['typeUser'] == 3) {
-            $update->id_usersTypes =  strip_tags($_POST['typeUser']);
+            $update->id_usersTypes =  intval(strip_tags($_POST['typeUser']));
         } else {
             $formErrors['typeUser'] = USER_TYPE_ERROR_INVALID;
         }
@@ -93,7 +93,7 @@ if (count($_POST) > 0) {
     }
     if (!empty($_POST['contra'])) {
         if ($_POST['contra'] == 1 || $_POST['contra'] == 2 || $_POST['contra'] == 3 || $_POST['contra'] == 4 || $_POST['contra'] == 5) {
-            $update->id_contractsTypes = strip_tags($_POST['contra']);
+            $update->id_contractsTypes = intval(strip_tags($_POST['contra']));
         } else {
             $formErrors['contra'] = USER_CONTRA_ERROR_INVALID;
         }
@@ -111,7 +111,7 @@ if (count($_POST) > 0) {
     }
     if (!empty($_POST['beginningContract'])) {
         if (preg_match($regex['date'], $_POST['beginningContract'])) {
-            $update->beginningContract = strip_tags(ucwords($_POST['beginningContract']));
+            $update->beginningContract = strip_tags($_POST['beginningContract']);
         } else {
             $formErrors['beginningContract'] = USER_CONTRACT_ERROR_EMPTY;
         }
@@ -122,7 +122,7 @@ if (count($_POST) > 0) {
     if ($_POST['contra'] == "2" || $_POST['contra'] == "3") {
         if (!empty($_POST['endContract'])) {
             if (preg_match($regex['date'], $_POST['endContract'])) {
-                $update->endContract = strip_tags(ucwords($_POST['endContract']));
+                $update->endContract = strip_tags($_POST['endContract']);
             } else {
                 $formErrors['endContract'] = USER_CONTRACT_ERROR_INVALID;
             }
@@ -136,6 +136,7 @@ if (count($_POST) > 0) {
      *  */
     if (count($formErrors) == 0) {
         $update->updateUser();
+        header('Location:./Liste-Employer');
     }
 }
 

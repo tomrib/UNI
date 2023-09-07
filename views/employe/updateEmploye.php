@@ -44,12 +44,10 @@
                 <?php } ?>
             </select>
 
-
             <label for="beginningContract">Date de début :</label>
             <input type="date" id="beginningContract" value="<?= $userIdOne->beginningContract ?>" name="beginningContract" required>
-            <label for="endContract">Date de fin :</label>
-            <input type="date" id="endContract" value="<?= $userIdOne->endContract ?>" name="endContract" required>
-
+                <label for="endContract">Date de fin :</label>
+                <input type="date" id="endContract" value="<?= $userIdOne->endContract ?>" name="endContract" required>
 
             <label for="socialInsuranceNumber">N° Sécu:</label>
             <input type="text" id="cq" name="socialInsuranceNumber" value="<?= $userIdOne->socialInsuranceNumber ?>">
@@ -70,5 +68,5 @@
         </form>
 </div>
 
-<script src="assets/js/timeContract.js"></script>
-<script src="assets/js/update.js"></script>
+<script src="../../assets/js/timeContract.js"></script>
+<script src="../../assets/js/update.js"></script>
