@@ -21,9 +21,11 @@
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon"></label>
             <ul>
-                <form class="searchBar" method="POST">
-                    <input type="text" id="searchInput" placeholder="Rechercher...">
-                </form>
+                <li class="searchBar">
+                    <form class="barSearch" method="POST">
+                        <input type="text" id="searchInput" placeholder="Rechercher...">
+                    </form>
+                </li>
                 <li><a href="./bureau">Accueil</a></li>
                 <li class="parent">
                     <a href="#">Client(e)s</a>

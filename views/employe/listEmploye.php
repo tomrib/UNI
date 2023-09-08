@@ -14,7 +14,7 @@
                         <th class="border"><i class="fas fa-trash-alt" title="suppression de la fiche"></i></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="liveList">
                     <?php foreach ($list as $list) { ?>
                         <tr>
                             <td class="fixedWidthColumn"><?= $list->lastname ?></td>
@@ -26,23 +26,27 @@
                                 <a href="./Liste-Employer-<?= $list->id ?>"><button class="infoEmployee" title="fiche d'information"><i class="fas fa-eye"></i></button></a>
                             </td>
                             <td class="border">
-                                <a href="./Modifier-Employer-<?= $list->id ?>"><button title="modifier la fiche"><i class="fas fa-edit"></i></button></a>
+                                <a class="editEmployeeButton" href="./Modifier-Employer-<?= $list->id ?>"><button title="modifier la fiche"><i class="fas fa-edit"></i></button></a>
                             </td>
                             <td class="border">
-                                <form action="./Liste-Employer" id="deleteForm" method="POST">
-                                    <input type="hidden" name="id_suppression" value="<?= $list->id ?>">
-                                    <button type="submit" id="hoverDanger" name="delete" title="suppression de la fiche"><i class="fas fa-trash-alt"></i></button>
-                                </form>
+
+                                <button type="button" id="hoverDanger" class="deleteEmployee" title="suppression de la fiche"><i class="fas fa-trash-alt"></i></button>
                             </td>
                         </tr>
+                        <div id="confirmDeleteModal" class="modal" style="display: none;">
+                            <h2>Confirmation de Suppression</h2>
+                            <p>Êtes-vous sûr de vouloir supprimer cette fiche ?</p>
+                            <form action="./Liste-Employer" id="deleteForm" method="POST">
+                                <input type="hidden" name="id_suppression" value="<?= $list->id ?>">
+                                <button class="deleteEmployee" id="confirmDeleteModalButton" type="submit" name="delete">Confirmer</button>
+                                <button id="cancelDeleteModalButton">Annuler</button>
+                            </form>
+                        </div>
                     <?php } ?>
                 </tbody>
             </table>
         </div>
-        <!-- Bouton pour créer un nouveau profil -->
         <button onclick="openModal()" class="create-profile-button"><a href="./Ajout-Employer">Créer un nouveau profil</a></button>
-
-        <!--MODAL BUTTON-->
         <div id="displayModal" class="modal" style="display: none;">
             <h2>FICHE DE RENSEIGNEMENT</h2>
             <div class="modalContent">
@@ -92,5 +96,16 @@
                 <button id="closeModalButton">Fermer</button>
             </div>
         </div>
+        <div id="confirmDeleteModal" class="modal" style="display: none;">
+            <h2>Confirmation de Suppression</h2>
+            <p>Êtes-vous sûr de vouloir supprimer cette fiche ?</p>
+            <form action="./Liste-Employer" id="deleteForm" method="POST">
+                <input type="hidden" name="id_suppression" value="<?= $list->id ?>">
+                <button id="confirmDeleteModalButton">Confirmer</button>
+                <button id="cancelDeleteModalButton">Annuler</button>
+            </form>
+
+        </div>
     </div>
+
     <script src="assets/js/employees.js"></script>

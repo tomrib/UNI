@@ -1,6 +1,6 @@
 <div class="displayForm">
         <form class="addEmploye" id="profileForm" method="POST">
-                <h2>Créer un Nouveau Profil</h2>
+                <h1>Créer un Nouveau Profil</h1>
                 <label for="lastname">Nom</label>
                 <input type="text" id="lastname" name="lastname" placeholder="Nom de l'employé(e)..." value="<?= @$_POST['lastname'] ?>" class="<?= isset($formErrors['lastname']) ? 'inputError' : '' ?>">
                 <p class="errors"><?= @$formErrors['lastname'] ?></p>
@@ -50,12 +50,12 @@
                 </select>
                 <div id="beginningContract" class="offInput">
                         <label for="beginningContract">Date de début :</label>
-                        <input type="date" id="beginningContract" name="beginningContract" value="<?= @$_POST['beginningContract'] ?>" required>
+                        <input type="date" name="beginningContract" value="<?= @$_POST['beginningContract'] ?>" required>
                         <p class="errors"><?= @$formErrors['beginningContract'] ?></p>
                 </div>
                 <div id="endContract" class="offInput">
                         <label for="endContract">Date de fin :</label>
-                        <input type="date" id="endContract" name="endContract" value="<?= @$_POST['endContract'] ?>" required>
+                        <input type="date" name="endContract" value="<?= @$_POST['endContract'] ?>" required>
                         <p class="errors"><?= @$formErrors['endContract'] ?></p>
                 </div>
                 <div>

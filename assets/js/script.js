@@ -38,52 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Fonction pour mettre à jour l'horloge en temps réel
-
-  // Ouverture des modales
-  const creditsModalTrigger = document.querySelector(".credits-modal-trigger");
-  const cguModalTrigger = document.querySelector(".cgu-modal-trigger");
-  const loginModalTrigger = document.querySelector("nav ul li:last-child a");
-
-  const creditsModal = document.querySelector(".credits-modal");
-  const cguModal = document.querySelector(".cgu-modal");
-  const loginModal = document.querySelector(".login-modal");
-
-  creditsModalTrigger.addEventListener("click", function () {
-    creditsModal.style.display = "block";
-  });
-
-  cguModalTrigger.addEventListener("click", function () {
-    cguModal.style.display = "block";
-  });
-
-  loginModalTrigger.addEventListener("click", function () {
-    loginModal.style.display = "block";
-  });
-
-  // Fermeture des modales
-  const closeModalButtons = document.querySelectorAll(".close");
-
-  closeModalButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const modal = this.closest(".modal");
-      modal.style.display = "none";
-    });
-  });
-
-  // Supposons que vous ayez un tableau d'actualités provenant de la base de données
-  const newsData = [
-    {
-      title: "Titre de l'actualité 1",
-      content: "Contenu de l'actualité 1...",
-    },
-    {
-      title: "Titre de l'actualité 2",
-      content: "Contenu de l'actualité 2...",
-    },
-    // ... autres actualités
-  ];
-
   // JS - SOUS MENU DE LA NAV
   const parentItems = document.querySelectorAll(".parent");
 
