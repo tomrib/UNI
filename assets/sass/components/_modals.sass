@@ -1,8 +1,8 @@
 #displayModal
     position: fixed
     left: 50%
-    transform: translate(-50%, -50%)
     top: 50%
+    transform: translate(-50%, -50%)
     background-color: $color_3
     display: none
     z-index: 2
@@ -53,3 +53,19 @@ p
 
 #closeModalButton
     cursor: pointer
+
+.modal
+    position: fixed
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    background-color: $color_3
+    border-radius: 3px
+    padding: 10px
+    border: solid 1px $color_1
+
+#confirmDeleteModalButton
+    &:hover
+        background-color: $color_7
+        color: $color_3
+        border: 1px solid $color_3

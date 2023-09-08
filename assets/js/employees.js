@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
 $(document).ready(function () {
   $("#confirmDeleteModalButton").click(function () {
     $.ajax({

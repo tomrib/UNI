@@ -1,10 +1,12 @@
 <?php
+
 session_start();
 require_once '../../models/userModel.php';
 require_once '../../models/contractTypesModel.php';
 require_once '../../models/userstypesModel.php';
 require_once '../../confi.php';
 $formErrors = [];
+
 //liste des contra
 $listContra = new contractsTypes;
 $contra = $listContra->listContractTypes();
@@ -35,6 +37,7 @@ if (count($_POST) > 0) {
     } else {
         $formErrors['typeUser'] = USER_TYPE_ERROR_EMPTY;
     }
+
     if (!empty($_POST['lastname'])) {
         if (preg_match($regex['name'], $_POST['lastname'])) {
             $update->lastname =  strip_tags(strtoupper($_POST['lastname']));
@@ -73,7 +76,7 @@ if (count($_POST) > 0) {
     } else {
         $formErrors['email'] = USER_EMAIL_ERROR_EMPTY;
     }
-    
+
     if (!empty($_POST['address'])) {
         if (preg_match($regex['address'], $_POST['address'])) {
             $update->address = strip_tags(strtoupper($_POST['address']));
@@ -118,7 +121,6 @@ if (count($_POST) > 0) {
     } else {
         $formErrors['beginningContract'] = USER_CONTRACT_ERROR_INVALID;
     }
-
     if ($_POST['contra'] == "2" || $_POST['contra'] == "3") {
         if (!empty($_POST['endContract'])) {
             if (preg_match($regex['date'], $_POST['endContract'])) {
@@ -139,6 +141,7 @@ if (count($_POST) > 0) {
         header('Location:./Liste-Employer');
     }
 }
+
 
 require_once '../../views/includes/header.php';
 require_once '../../views/employe/updateEmploye.php';

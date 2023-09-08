@@ -15,7 +15,7 @@ class user
     public int $id_usersTypes  = 0;
     public int $id_contractsTypes = 0;
     public string $beginningContract = "";
-    public string $endContract = "";
+    public string $endContract = "0000-00-00";
     public function __construct()
     {
         try {
