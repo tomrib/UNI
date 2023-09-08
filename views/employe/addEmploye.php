@@ -43,19 +43,19 @@
                 </div>
                 <label class="typeContrat" for="contra">Type Contrat</label>
                 <select type="text" id="contra" name="contra">
-                        <option value="<?= @$_POST['contra'] ?>">---</option>
+                        <option value="<?= @$_POST['contra'] ?>" class="<?= isset($formErrors['contra']) ? 'inputError' : '' ?>" selected disabled>---</option>
                         <?php foreach ($contra as $liste) { ?>
                                 <option value="<?= $liste->id ?>"><?= $liste->name ?></option>
                         <?php } ?>
                 </select>
-                <div id="beginningContract" class="offInput">
+                <div id="beginning" class="offInput">
                         <label for="beginningContract">Date de début :</label>
-                        <input type="date" id="beginningContract" name="beginningContract" value="<?= @$_POST['beginningContract'] ?>" required>
+                        <input type="date" id="beginningContract" name="beginningContract" required>
                         <p class="errors"><?= @$formErrors['beginningContract'] ?></p>
                 </div>
-                <div id="endContract" class="offInput">
-                        <label for="endContract">Date de fin :</label>
-                        <input type="date" id="endContract" name="endContract" value="<?= @$_POST['endContract'] ?>" required>
+                <div id="end" class="offInput">
+                        <label for="endContract">Date de fin du contrat :</label>
+                        <input type="date" id="endContract" name="endContract" >
                         <p class="errors"><?= @$formErrors['endContract'] ?></p>
                 </div>
                 <div>

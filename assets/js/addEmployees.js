@@ -1,14 +1,20 @@
 const choiceSelect = document.getElementById("contra");
-const beginningContract = document.getElementById("beginningContract");
-const endContract = document.getElementById("endContract");
+const beginningContract = document.getElementById("beginning");
+const endContract = document.getElementById("end");
 
 choiceSelect.addEventListener("change", function () {
-    beginningContract.classList.toggle("onInput");
-    if (choiceSelect.value == "2" || choiceSelect.value == "3") {
-      beginningContract.classList.toggle("onInput");
-      endContract.classList.toggle("onInput");
-    }
+  if (choiceSelect.value === "2" || choiceSelect.value === "3" || choiceSelect.value === "5") {
+    beginningContract.classList.add("onInput");
+    endContract.classList.add("onInput");
+  } else if (choiceSelect.value === "1" || choiceSelect.value === "4") {
+    beginningContract.classList.add("onInput");
+    endContract.classList.remove("onInput");
+  } else {
+    beginningContract.classList.remove("offInput");
+    endContract.classList.remove("offInput");
+  }
 });
+
 
 $(document).ready(function () {
   $("#showPassword").click(function () {

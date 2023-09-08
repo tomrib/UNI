@@ -11,9 +11,7 @@ $listCustomerOne = $Customer->getCustomerOne();
 $updateCustomer = new business;
 $updateCustomer->id = $_GET['id'];
 if (count($_POST) > 0) {
-    var_dump($_POST);
-    var_dump($updateCustomer);
-    var_dump($formErrors);
+
 
     if (!empty($_POST['name'])) {
         if (preg_match($regex['name'], $_POST['name'])) {

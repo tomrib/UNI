@@ -130,9 +130,7 @@ if (count($_POST) > 0) {
             $formErrors['endContract'] = USER_LASTNAME_ERROR_INVALID;
         }
     }
-    var_dump($formErrors);
-    var_dump($add->beginningContract);
-    var_dump($add->endContract);
+
     if (count($formErrors) == 0) {
         $add->addUser();
         header('Location:./Liste-Employer');

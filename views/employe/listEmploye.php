@@ -14,16 +14,18 @@
                         <th class="border"><i class="fas fa-trash-alt" title="suppression de la fiche"></i></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="maListe">
                     <?php foreach ($list as $list) { ?>
                         <tr>
                             <td class="fixedWidthColumn"><?= $list->lastname ?></td>
                             <td class="fixedWidthColumn"><?= $list->firstname ?></td>
                             <td class="fixedWidthColumn"><?= $list->email ?></td>
                             <td class="fixedWidthColumn"><?= $list->phone ?></td>
-
                             <td class="border" id="modalInfo">
-                                <a href="./Liste-Employer-<?= $list->id ?>"><button class="infoEmployee" title="fiche d'information"><i class="fas fa-eye"></i></button></a>
+                            <form id="deleteForm" method="POST">
+                                    <input type="hidden" name="id_Info" value="<?= $list->id ?>">
+                                    <button type="button" name="info"  class="infoEmployee" title="fiche d'information" data-id="<?= $list->id ?>"><i class="fas fa-eye"></i></button>
+                                </form>
                             </td>
                             <td class="border">
                                 <a href="./Modifier-Employer-<?= $list->id ?>"><button title="modifier la fiche"><i class="fas fa-edit"></i></button></a>
@@ -41,56 +43,57 @@
         </div>
         <!-- Bouton pour créer un nouveau profil -->
         <button onclick="openModal()" class="create-profile-button"><a href="./Ajout-Employer">Créer un nouveau profil</a></button>
-
         <!--MODAL BUTTON-->
         <div id="displayModal" class="modal" style="display: none;">
             <h2>FICHE DE RENSEIGNEMENT</h2>
-            <div class="modalContent">
-                <div class="infoItem">
-                    <p class="strongP">Nom:</p>
-                    <p></p>
-                </div>
-                <div class="infoItem">
+            <?php foreach ($employeeData as $value) { ?>
+                <div class="modalContent">
+                    <div class="infoItem">
+                        <p class="strongP">Nom:</p>
+                        <p><?= $value->lastname ?></p>
+                    </div>
+                    <div class="infoItem">
                     <p class="strongP">Prénom:</p>
-                    <p></p>
+                    <p><?= $value->firstname ?></p>
                 </div>
                 <div class="infoItem">
                     <p class="strongP">Mail:</p>
-                    <p></p>
+                    <p><?= $value->email  ?></p>
                 </div>
                 <div class="infoItem">
                     <p class="strongP">Date de naissance:</p>
-                    <p></p>
+                    <p><?= $value->birthday ?></p>
                 </div>
                 <div class="infoItem">
                     <p class="strongP">Adresse:</p>
-                    <p></p>
+                    <p><?= $value->address ?></p>
                 </div>
                 <div class="infoItem">
                     <p class="strongP">Téléphone:</p>
-                    <p></p>
+                    <p><?= $value->phone ?></p>
                 </div>
                 <div class="infoItem">
                     <p class="strongP">Type de contrat:</p>
-                    <p></p>
+                    <p><?= $value->contra ?></p>
                 </div>
                 <div class="infoItem">
                     <p class="strongP">Date de début:</p>
-                    <p></p>
+                    <p><?= $value->beginningContract ?></p>
                 </div>
                 <div class="infoItem">
                     <p class="strongP">Date de fin:</p>
-                    <p></p>
+                    <p><?= $value->endContract ?></p>
                 </div>
                 <div class="infoItem">
                     <p class="strongP">Numéro de sécurité sociale:</p>
-                    <p></p>
+                    <p><?= $value->socialInsuranceNumber ?></p>
                 </div>
             </div>
             <div class="buttonModal">
                 <button name="" id="downloadButton" type"submit"><i class="fas fa-download" title="télécharger la fiche"></i></button>
                 <button id="closeModalButton">Fermer</button>
             </div>
+            <?php } ?>
         </div>
     </div>
     <script src="assets/js/employees.js"></script>
