@@ -1,0 +1,58 @@
+
+$header_height: 60px
+$footer_height: 60px
+
+// Ajout Client(e)s
+
+.displayForm
+    @include displayForm
+
+.addClient
+    background-color: $color_6
+    border-radius: 3px
+
+li
+    list-style-type: none
+
+.errors
+    color: $color_7
+    font-weight: bolder
+    text-decoration: underline $color_7
+
+// Liste employé(e)s
+
+table
+    @include displayTable
+    min-height: calc(100vh - (#{$header_height} + #{$footer_height}))
+
+button a 
+    color: $color_3
+    text-decoration: none
+    &:hover
+        color: $color_5
+
+#deleteForm
+    border: none
+    width: 100%
+    padding: 0px
+
+.tableContainer
+    width: 100%
+    overflow-x: auto
+    margin: 0 auto
+
+// Update employé(e)s
+
+#updateForm
+    display: flex
+
+    align-items: center
+    background-color: $color_6
+
+.selectRow
+    display: flex
+    justify-content: space-between
+    padding: 15px
+
+label
+    display: block

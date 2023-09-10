@@ -19,11 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
       displayModal.style.display = "block";
     });
   });
-/* 
+
   closeModalButton.addEventListener("click", function () {
     displayModal.style.display = "none";
   });
- */
+
   deleteEmployeeButtons.forEach(function (button) {
     button.addEventListener("click", function () {
       selectedEmployeeId = this.getAttribute("data-id");
@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
 
 $(document).ready(function () {
   $("#confirmDeleteModalButton").click(function () {
@@ -47,20 +46,20 @@ $(document).ready(function () {
     });
   });
 });
-  $(document).ready(function() {
-    $('.infoEmployee').click(function() {
-        var id = $(this).data('id');
-        console.log('ID récupéré : ' + id);
-        $.ajax({
-            type: 'GET',
-            url:'./Info-Employer' ,
-            data: { id: id },
-            success: function(response) {
-                console.log('Réponse du serveur : ' + response);
-            },
-            error: function() {
-                alert('Une erreur s\'est produite lors de la récupération des données.');
-            }
-        });
+$(document).ready(function () {
+  $(".infoEmployee").click(function () {
+    var id = $(this).data("id");
+    console.log("ID récupéré : " + id);
+    $.ajax({
+      type: "GET",
+      url: "./Info-Employer",
+      data: { id: id },
+      success: function (response) {
+        console.log("Réponse du serveur : " + response);
+      },
+      error: function () {
+        alert("Une erreur s'est produite lors de la récupération des données.");
+      },
     });
+  });
 });
