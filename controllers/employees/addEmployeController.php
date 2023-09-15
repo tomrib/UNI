@@ -45,17 +45,17 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['email'])) {
-        if ($add->checkIfUserExists('email') === 1) {
-            if (preg_match($regex['email'], $_POST['email'])) {
-                if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                    $add->email = strip_tags($_POST['email']);
-                }
-            } else {
-                $formErrors['email'] = USER_EMAIL_ERROR_INVALID;
+        /*        if ($add->checkIfUserExists('email') === 1) { */
+        if (preg_match($regex['email'], $_POST['email'])) {
+            if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                $add->email = strip_tags($_POST['email']);
             }
         } else {
-            $formErrors['email'] = USER_EMAIL_ERROR_EXIT;
+            $formErrors['email'] = USER_EMAIL_ERROR_INVALID;
         }
+        /* } else {
+            $formErrors['email'] = USER_EMAIL_ERROR_EXIT;
+        } */
     } else {
         $formErrors['email'] = USER_EMAIL_ERROR_EMPTY;
     }

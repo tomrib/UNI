@@ -1,13 +1,5 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
-.offInput {
-  display: none;
-}
-
-.onInput {
-  display: block;
-}
-
 .displayTable {
   display: flex;
   flex-direction: column;
@@ -99,6 +91,14 @@ h2 {
   background-color: #FF0000;
   color: #fff;
   border: 1px solid #fff;
+}
+
+.offInput {
+  display: none;
+}
+
+.onInput {
+  display: block;
 }
 
 button {
@@ -218,7 +218,7 @@ header {
   cursor: pointer;
 }
 
-input[type=checkbox]#menu-toggle {
+input[type=checkbox]#menuToggle {
   display: none;
 }
 
@@ -287,11 +287,11 @@ nav li:hover::after {
   transition: width 0.3s ease-in-out;
 }
 
-nav li.active .sub-menu {
+nav li.active .subMenu {
   display: block;
 }
 
-nav li.active .sub-menu::after {
+nav li.active .subMenu::after {
   right: auto;
   left: 0;
   width: 100%;

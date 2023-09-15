@@ -18,12 +18,12 @@ if (count($_POST) > 0) {
         $formErrors['note'] = BLOCK_ERROR_TEXT_EMPTY;
     }
 
-    if (!empty($_SESSION['user']['id'])) {
+    /*  if (!empty($_SESSION['user']['id'])) {
         $note->id_users = intval($_SESSION['user']['id']);
     } else {
         header('location:./Connexion');
-    }
-    
+    }*/
+
     if (count($formErrors) == 0) {
         $note->addNote();
     }
