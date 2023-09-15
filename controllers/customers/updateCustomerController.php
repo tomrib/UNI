@@ -1,14 +1,14 @@
 <?php
 session_start();
-require_once '../../models/custommerModel.php';
+require_once '../../models/customersModel.php';
 require_once '../../confi.php';
 $formErrors = [];
 
-$Customer = new business;
+$Customer = new customer;
 $Customer->id = $_GET['id'];
 $listCustomerOne = $Customer->getCustomerOne();
 
-$updateCustomer = new business;
+$updateCustomer = new customer;
 $updateCustomer->id = $_GET['id'];
 if (count($_POST) > 0) {
 
@@ -54,7 +54,7 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['email'])) {
-        if ($updateCustomer->checkIfCustomeExists('email') != 0) {
+        if ($updateCustomer->checkIfCustomersExist('email') != 0) {
             if (preg_match($regex['email'], $_POST['email'])) {
                 if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                     $updateCustomer->email = strip_tags($_POST['email']);
@@ -75,5 +75,5 @@ if (count($_POST) > 0) {
     }
 }
 require_once '../../views/includes/header.php';
-require_once '../../views/customer/updateCustomer.php';
+require_once '../../views/customers/updateCustomer.php';
 require_once '../../views/includes/footer.php';

@@ -9,7 +9,6 @@
                 <p class="errors"><?= @$formErrors['firstname'] ?></p>
                 <label for="birthday">Date de naissance</label>
                 <input type="date" id="birthday" name="birthday" placeholder="date de naissance..." value="<?= @$_POST['birthday'] ?>" class="<?= isset($formErrors['birthday']) ? 'inputError' : '' ?>">
-                <!--Faire le rajout de l'erreur en PHP-->
                 <p class="errors"><?= @$formErrors['birthday'] ?></p>
                 <p class="errors"><?= @$formInformation['birthday'] ?></p>
                 <label for="email">Email</label>
@@ -41,14 +40,16 @@
                                 <li class="password-condition stringLength">Au moins 8 caractères<span></span></li>
                         </ul>
                 </div>
-                <label class="typeContrat" for="contra">Type Contrat</label>
-                <select type="text" id="contra" name="contra">
-                        <option value="<?= @$_POST['contra'] ?>" class="<?= isset($formErrors['contra']) ? 'inputError' : '' ?>" selected disabled>---</option>
-                        <?php foreach ($contra as $liste) { ?>
-                                <option value="<?= $liste->id ?>"><?= $liste->name ?></option>
+                <label class="typeContrat" for="contract">Type Contrat</label>
+                <select id="contract" type="text" name="contract">
+                        <option value="<?= @$_POST['contract'] ?>" class="<?= isset($formErrors['contract']) ? 'inputError' : '' ?>" selected disabled>---</option>
+                        <?php foreach ($contract as $l) { ?>
+                                <option value="<?= $l->id ?>"><?= $l->name ?></option>
                         <?php } ?>
                 </select>
-                <div id="beginning" class="offInput">
+                <p class="errors"><?= @$formErrors['contract'] ?></p>
+                <p class="errors"><?= @$formInfo['contract'] ?></p>
+                <div id="beginningContract" class="offInput">
                         <label for="beginningContract">Date de début :</label>
                         <input type="date" name="beginningContract" value="<?= @$_POST['beginningContract'] ?>" required>
                         <p class="errors"><?= @$formErrors['beginningContract'] ?></p>
@@ -63,5 +64,4 @@
                 </div>
         </form>
 </div>
-
 <script src="assets/js/addEmployees.js"></script>

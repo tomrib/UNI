@@ -15,7 +15,7 @@ class user
     public int $id_usersTypes  = 0;
     public int $id_contractsTypes = 0;
     public string $beginningContract = "";
-    public string $endContract = "0000-00-00";
+    public string $endContract = "";
     public function __construct()
     {
         try {
@@ -91,7 +91,7 @@ class user
         return $request->fetch(PDO::FETCH_COLUMN);
     }
 
-    public function getIds()
+    public function getId()
     {
         $query = 'SELECT `id`,`id_usersTypes`
         FROM `jg7b_users` 
@@ -137,7 +137,7 @@ class user
         $request = $this->db->prepare($query);
         $request->bindValue(':id', $this->id, PDO::PARAM_STR);
         $request->execute();
-        return $request->fetchAll(PDO::FETCH_OBJ);
+        return $request->fetch(PDO::FETCH_OBJ);
     }
 
     public function updateUser()
@@ -187,7 +187,7 @@ class user
         `id_usersTypes`,
         `beginningContract`,
         `endContract`,
-        jg7b_contractstypes.name AS contra
+        jg7b_contractstypes.name AS contract
     FROM
         `jg7b_users`
     INNER JOIN `jg7b_contractstypes` ON jg7b_users.id_contractsTypes = jg7b_contractstypes.id

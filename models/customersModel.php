@@ -1,7 +1,7 @@
 <?php
 require_once "database.php";
 
-class business
+class customer
 {
     public $db = NULL;
     public int $id = 0;
@@ -22,7 +22,7 @@ class business
 
     public function addCustomer()
     {
-        $query = 'INSERT INTO `jg7b_business`(
+        $query = 'INSERT INTO `jg7b_customers`(
             `name`,
             `contactName`,
             `address`,
@@ -45,7 +45,7 @@ class business
         return $request->execute();
     }
 
-    public function getCustomer()
+    public function listCustomer()
     {
         $query = 'SELECT
         `id`,
@@ -55,7 +55,9 @@ class business
         `phone`,
         `email`
     FROM
-        `jg7b_business`';
+        `jg7b_customers`
+        ORDER BY
+        jg7b_customers.name ASC';
         $request = $this->db->query($query);
         return $request->fetchAll(PDO::FETCH_OBJ);
     }
@@ -70,18 +72,18 @@ class business
         `phone`,
         `email`
     FROM
-        `jg7b_business`
-        WHERE jg7b_business.id = :id';
+        `jg7b_customers`
+        WHERE jg7b_customers.id = :id';
         $request = $this->db->prepare($query);
         $request->bindValue(':id', $this->id, PDO::PARAM_STR);
         $request->execute();
-        return $request->fetchAll(PDO::FETCH_OBJ);
+        return $request->fetch(PDO::FETCH_OBJ);
     }
 
     public function updateCustomer()
     {
         $query = 'UPDATE
-        `jg7b_business`
+        `jg7b_customers`
     SET
         `name` = :name,
         `contactName` = :contactName,
@@ -89,7 +91,7 @@ class business
         `phone` = :phone,
         `email` = :email
     WHERE
-        jg7b_business.id = :id ;';
+        jg7b_customers.id = :id ;';
         $request = $this->db->prepare($query);
         $request->bindValue(':id', $this->id, PDO::PARAM_INT);
         $request->bindValue(':name', $this->name, PDO::PARAM_STR);
@@ -102,18 +104,18 @@ class business
 
     public function deleteCustomer()
     {
-        $query = 'DELETE FROM `jg7b_business`
+        $query = 'DELETE FROM `jg7b_customers`
     WHERE
-        jg7b_business.id = :id ;';
+        jg7b_customers.id = :id ;';
         $request = $this->db->prepare($query);
         $request->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $request->execute();
     }
 
-    public function checkIfCustomeExists($column)
+    public function checkIfCustomersExist($column)
     {
         $query = 'SELECT count(' . $column . ') 
-        FROM `jg7b_business` 
+        FROM `jg7b_customers` 
         WHERE ' . $column . ' = :' . $column;
         $request = $this->db->prepare($query);
         $request->bindValue(':' . $column, $this->$column, PDO::PARAM_STR);

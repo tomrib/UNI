@@ -1,6 +1,6 @@
-const choiceSelect = document.getElementById("contra");
-const beginningContract = document.getElementById("beginning");
-const endContract = document.getElementById("end");
+const choiceSelect = document.getElementById("contract");
+const beginningContract = document.getElementById("beginningContract");
+const endContract = document.getElementById("endContract");
 
 choiceSelect.addEventListener("change", function () {
   if (choiceSelect.value === "2" || choiceSelect.value === "3" || choiceSelect.value === "5") {

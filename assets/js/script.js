@@ -1,5 +1,5 @@
 const nav = document.querySelector("nav");
-const menuToggle = document.getElementById("menu-toggle");
+const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.querySelectorAll("nav ul li");
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Fermer le menu en cliquant en dehors du menu
   document.addEventListener("click", function (event) {
-    if (!nav.contains(event.target) && !event.target.matches("#menu-toggle")) {
+    if (!nav.contains(event.target) && !event.target.matches("#menuToggle")) {
       nav.classList.remove("open");
       menuToggle.checked = false;
     }

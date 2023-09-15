@@ -1,7 +1,7 @@
 <div class="displayForm">
     <div id="updateForm">
-        <?php foreach ($userIdOne as  $userIdOne) { ?>
-            <form action="./Modifier-Employer-<?= $userIdOne->id ?>" id="profileForm" method="POST">
+        <form id="profileForm" method="POST">
+            <?php foreach ($userIdOne as $userIdOne) { ?>
                 <h1>Modification d'un profil employé(e)</h1>
                 <label for="lastname">Nom</label>
                 <input type="text" id="lastname" name="lastname" value="<?= $userIdOne->lastname ?>">
@@ -19,10 +19,10 @@
                 <input type="text" id="address" name="address" value="<?= $userIdOne->address ?>">
                 <p class="errors"><?= @$formErrors['address'] ?></p>
                 <label for="phone">Téléphone</label>
-                <input type="tel" id="phone" name="phone" class="input-telephone" value="<?= $userIdOne->phone ?>">
+                <input type="tel" id="phone" name="phone" class="inputTelephone" value="<?= $userIdOne->phone ?>">
                 <p class="errors"><?= @$formErrors['phone'] ?></p>
                 <label for="socialInsuranceNumber">N° Sécu</label>
-                <input type="text" id="cq" name="socialInsuranceNumber" value="<?= $userIdOne->socialInsuranceNumber ?>">
+                <input type="text" name="socialInsuranceNumber" value="<?= $userIdOne->socialInsuranceNumber ?>">
                 <p class="errors"><?= @$formErrors['socialInsuranceNumber'] ?></p>
                 <div class="selectRow">
                     <div class="selectColumn">
@@ -36,14 +36,15 @@
                         <p class="errors"><?= @$formErrors['typeUser'] ?></p>
                     </div>
                     <div class="selectColumn">
-                        <label for="contra">Type Contrat</label>
-                        <select type="text" id="contra" name="contra">
+                        <label for="contract">Type Contrat</label>
+                        <select type="text" name="contract">
                             <option value="<?= $userIdOne->contraId ?>"><?= $userIdOne->contra ?></option>
-                            <?php foreach ($contra as $liste) { ?>
+                            <?php foreach ($contract as $liste) { ?>
                                 <option value="<?= $liste->id ?>"><?= $liste->name ?></option>
                             <?php } ?>
                         </select>
                     </div>
+                    <p class="errors"><?= @$formErrors['contract'] ?></p>
                 </div>
                 <label for="beginningContract">Date de début du contrat</label>
                 <input type="date" id="beginningContract" value="<?= $userIdOne->beginningContract ?>" name="beginningContract" required>
@@ -52,15 +53,15 @@
                 <button name="validationEmployees" id="validationUpdate" type="submit">Modifier</button>
                 <button id="closeUpdateEmployes"><a href="./Liste-Employer">Annuler</a></button>
             <?php } ?>
-            <div id="confirmationModalUpdate" class="modalUpdate" style="display: none;">
-                <div class=" modal-content">
-                    <p id="confirmationMessage">Êtes-vous sûr(e) de vouloir modifier ?</p>
-                    <div class="modal-buttons">
-                        <input type="submit" id="confirmUpdate" value="Oui">
-                        <button id="cancelUpdate">Non</button>
-                    </div>
+        </form>
+        <div id="confirmationModalUpdate" class="modalUpdate">
+            <div class="modalContent">
+                <p id="confirmationMessage">Êtes-vous sûr(e) de vouloir modifier ?</p>
+                <div class="modalButtons">
+                    <input type="submit" id="confirmUpdate" value="Oui">
+                    <button id="cancelUpdate">Non</button>
                 </div>
             </div>
-            </form>
+        </div>
     </div>
 </div>

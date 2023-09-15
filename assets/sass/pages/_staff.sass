@@ -1,0 +1,92 @@
+// MIXIN visuel de la page staff:
+.displayStaff
+    @include displayStaff
+    position: relative
+
+// Visuel de la page qui accueil les 3 boutons pour les employé(e)s:
+.container
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100vh
+    margin: 0
+
+// Contour du bouton "faire un signalement":
+.upload
+    border: 1px solid $color_1
+    border-radius: 3px
+    padding: 10px
+    margin: 50px
+    text-align: center
+
+// Visuel de la modal du bouton "je suis sur place !":
+.modalArrival
+    display: none
+    position: fixed
+    top: 50%
+    left: 50%
+    background-color: $color_3
+    transform: translate(-50%, -50%)
+    z-index: 1
+    text-align: center
+    border-radius: 5px
+    box-shadow: 0px 0px 10px $color_5
+    padding: 20px
+
+// Visuel de la modal du bouton "Fin d'intervention":    
+.modalDepart
+    display: none
+    position: fixed
+    top: 50%
+    left: 50%
+    padding: 20px
+    background-color: $color_3
+    transform: translate(-50%, -50%)
+    z-index: 1
+    text-align: center
+    border-radius: 5px
+    box-shadow: 0px 0px 10px $color_5
+
+// Visuel de la modal du bouton "Signalement":     
+.modalUpload
+    display: none
+    position: fixed
+    top: 50%
+    left: 50%
+    background-color: $color_3
+    transform: translate(-50%, -50%)
+    z-index: 1
+    text-align: center
+    border-radius: 5px
+    box-shadow: 0px 0px 10px $color_5
+    padding: 10px
+
+// Mise en forme des selects:    
+.select
+    display: flex
+    align-items: center
+    margin: 5px 0
+
+    p, select
+        margin-right: 10px
+
+textarea
+    width: 80%
+    margin-top: 10px
+    // bloque la taille de la zone de text
+    resize: none
+    border: 1px solid $color_1
+    border-radius: 3px
+
+// Centre de toutes les balises <p> dans la modal de signalement: 
+p
+    margin: 5px
+    text-align: center
+
+// display none de l'input pour upload un/des fichier(s): 
+#fileUpload
+    display: none
+
+// Radius du bouton UPLOAD:
+#uploadButtonTest
+    border-radius: 20px

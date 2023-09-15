@@ -21,15 +21,15 @@
                 <button name="validationCustomers" id="validationUpdate" type="submit">Modifier</button>
                 <button id="closeUpdateCustomers"><a href="./Liste-Client">Annuler</button>
             <?php } ?>
-            <div id="confirmationModalUpdate" class="modalUpdate" style="display: none;">
-                <div class=" modal-content">
-                    <p id="confirmationMessage">Êtes-vous sûr(e) de vouloir modifier ?</p>
-                    <div class="modal-buttons">
-                        <input type="submit" id="confirmUpdate" value="Oui">
-                        <button id="cancelUpdate">Non</button>
-                    </div>
+        </form>
+        <div id="confirmationModalUpdate" class="modalUpdate">
+            <div class=" modalContent">
+                <p id="confirmationMessage">Êtes-vous sûr(e) de vouloir modifier ?</p>
+                <div class="modalButtons">
+                    <input type="submit" id="confirmUpdate" value="Oui">
+                    <button id="cancelUpdate">Non</button>
                 </div>
             </div>
-            </form>
+        </div>
     </div>
 </div>

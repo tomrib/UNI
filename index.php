@@ -27,7 +27,7 @@
             </div>
 
             <!-- Boutons d'action -->
-            <button id="validatioLogin" type="submit">Valider</button>
+            <button id="validationLogin" type="submit">Valider</button>
             <button type="button" onclick="annuler()">Annuler</button>
             <button id="lostMdp" type="button" onclick="motDePassePerdu()">Mot de passe perdu</button>
         </form>
