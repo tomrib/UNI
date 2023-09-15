@@ -1,14 +1,14 @@
 <?php
 session_start();
-require_once '../../models/custommerModel.php';
+require_once '../../models/customerModel.php';
 require_once '../../confi.php';
 $formErrors = [];
 
-$Customer = new business;
+$Customer = new customer;
 $Customer->id = $_GET['id'];
 $listCustomerOne = $Customer->getCustomerOne();
 
-$updateCustomer = new business;
+$updateCustomer = new customer;
 $updateCustomer->id = $_GET['id'];
 if (count($_POST) > 0) {
 
@@ -75,5 +75,5 @@ if (count($_POST) > 0) {
     }
 }
 require_once '../../views/includes/header.php';
-require_once '../../views/customer/updateCustomer.php';
+require_once '../../views/customers/updateCustomer.php';
 require_once '../../views/includes/footer.php';

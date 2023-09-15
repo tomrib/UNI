@@ -20,18 +20,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  closeModalButton.addEventListener("click", function () {
-    displayModal.style.display = "none";
-  });
-
   deleteClientButtons.forEach(function (button) {
     button.addEventListener("click", function () {
       selectedClientId = this.getAttribute("data-id");
       confirmDeleteModal.style.display = "block";
     });
   });
+});
 
-  $("#confirmDeleteModalButton").click(function () {
+$(document).ready(function () {
+  $("#confirmDelete").click(function () {
     $.ajax({
       type: "POST",
       url: "./Liste-Client",
@@ -43,7 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     });
   });
+});
 
+$(document).ready(function () {
   $(".infoClient").click(function () {
     var id = $(this).data("id");
     console.log("ID récupéré : " + id);

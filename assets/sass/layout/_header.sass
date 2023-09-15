@@ -7,14 +7,14 @@ header
     justify-content: space-between
     padding: 10px
 
-.menu-icon
+.menuIcon
     display: none
     cursor: pointer
 
 input[type="checkbox"]#menu-toggle
     display: none
 
-.menu-icon::before
+.menuIcon::before
     content: "\2630"
     font-size: 25px
 
@@ -44,7 +44,7 @@ nav li::after
 nav li:hover::after 
     width: 100%
 
-.sub-menu
+.subMenu
     display: none
     position: absolute
     top: 100%
@@ -55,7 +55,7 @@ nav li:hover::after
     padding: 10px 0
     border: solid 1px $color_2
 
-.sub-menu::after
+.subMenu::after
     content: ""
     position: absolute
     bottom: -5px
@@ -64,7 +64,7 @@ nav li:hover::after
     width: 0
     height: 2px
 
-.sub-menu::before
+.subMenu::before
     content: ""
     position: absolute
     bottom: -5px
@@ -83,10 +83,10 @@ nav li.active .sub-menu::after
     left: 0
     width: 100%
 
-.sub-menu li
+.subMenu li
     display: block
 
-.sub-menu a
+.subMenu a
     text-align: center
     color: $color_3
     padding: 5px 15px
@@ -94,7 +94,7 @@ nav li.active .sub-menu::after
     text-decoration: none
     font-size: small
 
-.sub-menu a:hover
+.subMenu a:hover
     background-color: $color_4
 
 //.searchBar

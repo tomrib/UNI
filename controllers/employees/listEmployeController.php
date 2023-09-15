@@ -19,5 +19,5 @@ if (count($_GET) > 0) {
 }
 
 require_once '../../views/includes/header.php';
-require_once '../../views/employe/listEmploye.php';
+require_once '../../views/employees/listEmploye.php';
 require_once '../../views/includes/footer.php';

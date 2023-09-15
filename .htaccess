@@ -1,16 +1,22 @@
 RewriteEngine On
-#?   Connexion
-RewriteRule ^connexion$ ./index
-RewriteRule ^deconnecter$ ./controllers/logoutController.php
-#?   Bureau
-RewriteRule ^bureau$ ./controllers/deskController.php
-#?   les vue des employer 
+#? 404
+#ErrorDocument 404 /views/errors/page404.php
+#? Connexion
+RewriteRule ^Connexion$ ./index
+RewriteRule ^Deconnecter$ ./controllers/logoutController.php
+#? Bureau
+RewriteRule ^Bureau$ ./controllers/deskController.php
+#? les vues des employers 
 RewriteRule ^Ajout-Employer$ ./controllers/employees/addEmployeController.php
 RewriteRule ^Liste-Employer$ ./controllers/employees/listEmployeController.php
-RewriteRule ^Info-Employer-([0-9]+)$ ./controllers/employees/listEmployeController.php?id=$1
 RewriteRule ^Modifier-Employer-([0-9]+)$ ./controllers/employees/updateEmployeController.php?id=$1
-#?   les vue des costommer 
+#? les vues des custommer 
 RewriteRule ^Ajout-Client$ ./controllers/customers/addCustomerController.php
 RewriteRule ^Liste-Client$ ./controllers/customers/listCustomerController.php
-RewriteRule ^Info-Client$ ./controllers/customers/listCustomerController.php
 RewriteRule ^Modifier-Client-([0-9]+)$ ./controllers/customers/updateCustomerController.php?id=$1
+#? les vues des subContractor 
+RewriteRule ^Ajout-Sous-Traitant$ ./controllers/subContractor/addSubContractorController.php
+RewriteRule ^Liste-Sous-Traitant$ ./controllers/subContractor/listSubContractorController.php
+RewriteRule ^Modifier-Sous-Traitant-([0-9]+)$ ./controllers/subContractor/UpdateSubContractorController.php?id=$1
+#? staff
+RewriteRule ^Espace-Employés$ ./views/Staff.php

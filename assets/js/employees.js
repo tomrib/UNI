@@ -20,10 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  closeModalButton.addEventListener("click", function () {
-    displayModal.style.display = "none";
-  });
-
   deleteEmployeeButtons.forEach(function (button) {
     button.addEventListener("click", function () {
       selectedEmployeeId = this.getAttribute("data-id");
@@ -46,6 +42,7 @@ $(document).ready(function () {
     });
   });
 });
+
 $(document).ready(function () {
   $(".infoEmployee").click(function () {
     var id = $(this).data("id");

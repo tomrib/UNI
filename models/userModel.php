@@ -91,7 +91,7 @@ class user
         return $request->fetch(PDO::FETCH_COLUMN);
     }
 
-    public function getIds()
+    public function getId()
     {
         $query = 'SELECT `id`,`id_usersTypes`
         FROM `jg7b_users` 
@@ -187,7 +187,7 @@ class user
         `id_usersTypes`,
         `beginningContract`,
         `endContract`,
-        jg7b_contractstypes.name AS contra
+        jg7b_contractstypes.name AS contract
     FROM
         `jg7b_users`
     INNER JOIN `jg7b_contractstypes` ON jg7b_users.id_contractsTypes = jg7b_contractstypes.id

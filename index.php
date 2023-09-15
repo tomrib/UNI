@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CODE POUR LE LOGIN ACCUEIL A RECUP</title>
+    <title>Espace de connexion</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -27,7 +27,7 @@
             </div>
 
             <!-- Boutons d'action -->
-            <button id="validatioLogin" type="submit">Valider</button>
+            <button id="validationLogin" type="submit">Valider</button>
             <button type="button" onclick="annuler()">Annuler</button>
             <button id="lostMdp" type="button" onclick="motDePassePerdu()">Mot de passe perdu</button>
         </form>

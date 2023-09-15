@@ -94,23 +94,23 @@ if (count($_POST) > 0) {
     } else {
         $formErrors['phone'] = USER_PHONE_ERROR_EMPTY;
     }
-    if (!empty($_POST['contra'])) {
-        if ($_POST['contra'] == 1 || $_POST['contra'] == 2 || $_POST['contra'] == 3 || $_POST['contra'] == 4 || $_POST['contra'] == 5) {
-            $update->id_contractsTypes = intval(strip_tags($_POST['contra']));
+    if (!empty($_POST['contract'])) {
+        if ($_POST['contract'] == 1 || $_POST['contract'] == 2 || $_POST['contract'] == 3 || $_POST['contract'] == 4 || $_POST['contract'] == 5) {
+            $update->id_contractsTypes = intval(strip_tags($_POST['contract']));
         } else {
-            $formErrors['contra'] = USER_CONTRA_ERROR_INVALID;
+            $formErrors['contract'] = USER_CONTRACT_ERROR_INVALID;
         }
     } else {
-        $formErrors['contra'] = USER_CONTRA_ERROR_EMPTY;
+        $formErrors['contract'] = USER_CONTRACT_ERROR_EMPTY;
     }
     if (!empty($_POST['socialInsuranceNumber'])) {
         if (preg_match($regex['socialInsuranceNumber'], $_POST['socialInsuranceNumber'])) {
             $update->socialInsuranceNumber = strip_tags($_POST['socialInsuranceNumber']);
         } else {
-            $formErrors['socialInsuranceNumber'] = USER_CQ_ERROR_INVALID;
+            $formErrors['socialInsuranceNumber'] = USER_SOCIALINSURANCE_ERROR_INVALID;
         }
     } else {
-        $formErrors['socialInsuranceNumber'] = USER_CQ_ERROR_EMPTY;
+        $formErrors['socialInsuranceNumber'] = USER_SOCIALINSURANCE_ERROR_EMPTY;
     }
     if (!empty($_POST['beginningContract'])) {
         if (preg_match($regex['date'], $_POST['beginningContract'])) {
@@ -144,5 +144,5 @@ if (count($_POST) > 0) {
 
 
 require_once '../../views/includes/header.php';
-require_once '../../views/employe/updateEmploye.php';
+require_once '../../views/employees/updateEmploye.php';
 require_once '../../views/includes/footer.php';

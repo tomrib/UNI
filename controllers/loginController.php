@@ -17,11 +17,10 @@ if (count($_POST) > 0) {
     }
     if (!empty($_POST['loginPassword'])) {
         if (isset($password)) {
-            if (password_verify($_POST['loginPassword'],$password)) {
-                $_SESSION['user'] = $user->getIds();
-/*                 if () {
-                } */
-                header('Location: ./bureau');
+            if (password_verify($_POST['loginPassword'], $password)) {
+                $_SESSION['user'] = $user->getId();
+
+                header('Location: ./Bureau');
                 exit;
             } else {
                 $formErrors['loginEmail'] = USER_PASSWORD_ERROR_INVALID;

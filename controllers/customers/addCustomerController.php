@@ -1,10 +1,10 @@
 <?php
 session_start();
-require_once '../../models/custommerModel.php';
+require_once '../../models/customerModel.php';
 require_once '../../confi.php';
 $formErrors = [];
 
-$newCstommer = new business;
+$newCstommer = new customer;
 if (count($_POST) > 0) {
     if (!empty($_POST['name'])) {
         if (preg_match($regex['name'], $_POST['name'])) {
@@ -17,10 +17,10 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['contactName'])) {
-        if (preg_match($regex['name'], $_POST['name'])) {
+        if (preg_match($regex['name'], $_POST['contactName'])) {
             $newCstommer->contactName = strip_tags(strtoupper($_POST['contactName']));
         } else {
-            $formErrors['lastname'] = USER_LASTNAME_ERROR_INVALID;
+            $formErrors['contactName'] = USER_LASTNAME_ERROR_INVALID;
         }
     } else {
         $formErrors['contactName'] = USER_NAME_ERROR_EMPTY;
@@ -67,5 +67,5 @@ if (count($_POST) > 0) {
 }
 
 require_once '../../views/includes/header.php';
-require_once '../../views/customer/addCustomer.php';
+require_once '../../views/customers/addCustomer.php';
 require_once '../../views/includes/footer.php';

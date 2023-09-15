@@ -4,10 +4,9 @@ require_once '../../models/userModel.php';
 require_once '../../models/contractTypesModel.php';
 require_once '../../confi.php';
 $formErrors = [];
-$formInformation = [];
-$listContra = new contractsTypes;
-$contra = $listContra->listContractTypes();
-
+$formInfo = [];
+$listContract = new contractsTypes;
+$contract = $listContract->listContractTypes();
 $add = new user;
 if (count($_POST) > 0) {
     if (!empty($_POST['lastname'])) {
@@ -46,7 +45,7 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['email'])) {
-        if ($add->checkIfUserExists('email') != 0) {
+        if ($add->checkIfUserExists('email') === 1) {
             if (preg_match($regex['email'], $_POST['email'])) {
                 if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                     $add->email = strip_tags($_POST['email']);
@@ -64,6 +63,8 @@ if (count($_POST) > 0) {
     if (!empty($_POST['password'])) {
         if (preg_match($regex['password'], $_POST['password'])) {
             $add->password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        } else {
+            $_POST['password'] = USER_PASSWORD_ERROR_INVALID;
         }
     } else {
         $formErrors['password'] = USER_PASSWORD_EMPTY;
@@ -72,6 +73,8 @@ if (count($_POST) > 0) {
     if (!empty($_POST['address'])) {
         if (preg_match($regex['address'], $_POST['address'])) {
             $add->address = strip_tags($_POST['address']);
+        } else {
+            $formErrors['address'] = USER_ADDRESS_ERROR_INVALID;
         }
     } else {
         $formErrors['address'] = USER_ADDRESS_ERROR_EMPTY;
@@ -87,37 +90,37 @@ if (count($_POST) > 0) {
         $formErrors['phone'] = USER_PHONE_ERROR_EMPTY;
     }
 
-    if (!empty($_POST['contra'])) {
-        if (!preg_match($regex['name'], $_POST['contra'])) {
-            $add->id_contractsTypes = intval(strip_tags($_POST['contra']));
-        } else {
-            $formErrors['contra'] = USER_CONTRA_ERROR_INVALID;
-        }
-    } else {
-        $formErrors['contra'] = USER_CONTRA_ERROR_EMPTY;
-    }
-
     if (!empty($_POST['socialInsuranceNumber'])) {
         if (preg_match($regex['socialInsuranceNumber'], $_POST['socialInsuranceNumber'])) {
             $add->socialInsuranceNumber = strip_tags($_POST['socialInsuranceNumber']);
         } else {
-            $formErrors['socialInsuranceNumber'] = USER_CQ_ERROR_INVALID;
+            $formErrors['socialInsuranceNumber'] = USER_SOCIALINSURANCE_ERROR_INVALID;
         }
     } else {
-        $formErrors['socialInsuranceNumber'] = USER_CQ_ERROR_EMPTY;
+        $formErrors['socialInsuranceNumber'] = USER_SOCIALINSURANCE_ERROR_EMPTY;
+    }
+
+    if (!empty($_POST['contract'])) {
+        if (!preg_match($regex['contract'], $_POST['contract'])) {
+            $add->id_contractsTypes = intval(strip_tags($_POST['contract']));
+        } else {
+            $formErrors['contract'] = USER_CONTRACT_ERROR_INVALID;
+        }
+    } else {
+        $formErrors['contract'] = USER_CONTRACT_ERROR_EMPTY;
     }
 
     if (!empty($_POST['beginningContract'])) {
         if (preg_match($regex['date'], $_POST['beginningContract'])) {
             $add->beginningContract = strip_tags($_POST['beginningContract']);
         } else {
-            $formErrors['beginningContract'] = USER_CONTRACT_ERROR_INVALID;
+            $formErrors['beginningContract'] = USER_DATE_ERROR_INVALID;
         }
     } else {
-        $formErrors['beginningContract'] = USER_CONTRACT_ERROR_EMPTY;
+        $formErrors['beginningContract'] = USER_BEGINNINGCONTRACT_ERROR_EMPTY;
     }
 
-    if ($_POST['contra'] == "2" || $_POST['contra'] == "3") {
+    if ($_POST['contract'] == "2" || $_POST['contract'] == "3") {
         if (!empty($_POST['endContract']) && preg_match($regex['date'], $_POST['endContract'])) {
             $add->endContract = strip_tags($_POST['endContract']);
             $beginningContract = new DateTime($add->beginningContract);
@@ -127,7 +130,7 @@ if (count($_POST) > 0) {
                 $formErrors['endContract'] = USER_CONTRACTEND_ERROR;
             }
         } else {
-            $formErrors['endContract'] = USER_LASTNAME_ERROR_INVALID;
+            $formErrors['endContract'] = USER_CONTRACTEND_ERROR_EMPTY;
         }
     }
 
@@ -138,5 +141,5 @@ if (count($_POST) > 0) {
 }
 
 require_once '../../views/includes/header.php';
-require_once '../../views/employe/addEmploye.php';
+require_once '../../views/employees/addEmploye.php';
 require_once '../../views/includes/footer.php';

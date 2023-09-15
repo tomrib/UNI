@@ -3,7 +3,6 @@ session_start();
 require_once '../models/notesModel.php';
 require_once '../confi.php';
 $formErrors = [];
-var_dump($_SESSION);
 
 
 

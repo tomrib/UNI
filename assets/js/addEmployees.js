@@ -1,9 +1,13 @@
-const choiceSelect = document.getElementById("contra");
-const beginningContract = document.getElementById("beginning");
-const endContract = document.getElementById("end");
+const choiceSelect = document.getElementById("contract");
+const beginningContract = document.getElementById("beginningContract");
+const endContract = document.getElementById("endContract");
 
 choiceSelect.addEventListener("change", function () {
-  if (choiceSelect.value === "2" || choiceSelect.value === "3" || choiceSelect.value === "5") {
+  if (
+    choiceSelect.value === "2" ||
+    choiceSelect.value === "3" ||
+    choiceSelect.value === "5"
+  ) {
     beginningContract.classList.add("onInput");
     endContract.classList.add("onInput");
   } else if (choiceSelect.value === "1" || choiceSelect.value === "4") {
@@ -14,7 +18,6 @@ choiceSelect.addEventListener("change", function () {
     endContract.classList.remove("offInput");
   }
 });
-
 
 $(document).ready(function () {
   $("#showPassword").click(function () {
