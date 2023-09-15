@@ -55,7 +55,9 @@ class customer
         `phone`,
         `email`
     FROM
-        `jg7b_customers`';
+        `jg7b_customers`
+        ORDER BY
+        jg7b_customers.name ASC';
         $request = $this->db->query($query);
         return $request->fetchAll(PDO::FETCH_OBJ);
     }
@@ -75,7 +77,7 @@ class customer
         $request = $this->db->prepare($query);
         $request->bindValue(':id', $this->id, PDO::PARAM_STR);
         $request->execute();
-        return $request->fetchAll(PDO::FETCH_OBJ);
+        return $request->fetch(PDO::FETCH_OBJ);
     }
 
     public function updateCustomer()

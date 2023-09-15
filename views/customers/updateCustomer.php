@@ -23,7 +23,7 @@
             <?php } ?>
             </form>
             <div id="confirmationModalUpdate" class="modalUpdate">
-                <div class=" modalContent">
+                <div class="modalContent">
                     <p id="confirmationMessage">Êtes-vous sûr(e) de vouloir modifier ?</p>
                     <div class="modalButtons">
                         <input type="submit" id="confirmUpdate" value="Oui">

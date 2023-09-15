@@ -15,7 +15,7 @@ class user
     public int $id_usersTypes  = 0;
     public int $id_contractsTypes = 0;
     public string $beginningContract = "";
-    public string $endContract = "0000-00-00";
+    public string $endContract = "";
     public function __construct()
     {
         try {
@@ -137,7 +137,7 @@ class user
         $request = $this->db->prepare($query);
         $request->bindValue(':id', $this->id, PDO::PARAM_STR);
         $request->execute();
-        return $request->fetchAll(PDO::FETCH_OBJ);
+        return $request->fetch(PDO::FETCH_OBJ);
     }
 
     public function updateUser()

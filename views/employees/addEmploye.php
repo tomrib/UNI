@@ -64,5 +64,4 @@
                 </div>
         </form>
 </div>
-
 <script src="assets/js/addEmployees.js"></script>

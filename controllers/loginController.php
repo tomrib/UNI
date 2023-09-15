@@ -19,9 +19,14 @@ if (count($_POST) > 0) {
         if (isset($password)) {
             if (password_verify($_POST['loginPassword'], $password)) {
                 $_SESSION['user'] = $user->getId();
-
-                header('Location: ./Bureau');
-                exit;
+                if ($_SESSION['user']['id_usersTypes'] === 2 || $_SESSION['user']['id_usersTypes'] === 3) {
+                    header('location:./Bureau');
+                    exit;
+                }
+                if ($_SESSION['user']['id_usersTypes'] === 1) {
+                    header('location:./Espace-Employés');
+                    exit;
+                }
             } else {
                 $formErrors['loginEmail'] = USER_PASSWORD_ERROR_INVALID;
             }

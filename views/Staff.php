@@ -1,10 +1,11 @@
+<?php require_once "../controllers/staffController.php"; ?>
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css">
     <title>Espace de </title>
 </head>
 
@@ -34,7 +35,6 @@
             <p>Le 17/10/2023 </p>
         </div>
         <div class="select">
-
             <div>
                 <p>Lieu du signalement:</p>
                 <select>
@@ -56,15 +56,10 @@
             <div>
                 <p>Type d'événement:</p>
                 <select>
-                    <option selected disabled value="option10">---</option>
-                    <option value="option11">K</option>
-                    <option value="option12">L</option>
-                    <option value="option13">M</option>
-                    <option value="option14">N</option>
-                    <option value="option15">O</option>
-                    <option value="option16">P</option>
-                    <option value="option17">Q</option>
-                    <option value="option18">R</option>
+                    <option selected disabled>---</option>
+                    <?php foreach ($listTypesInterventions as $e) { ?>
+                        <option value="<?= $e->id ?>"><?= $e->name ?></option>
+                    <?php } ?>
                 </select>
             </div>
         </div>
@@ -78,7 +73,7 @@
         <button id="UploadCloseButton">ANNULER</button>
         <button type="submit" id="sendButton">VALIDER</button>
     </form>
-    <script src="../assets/js/staff.js"></script>
+    <script src="assets/js/staff.js"></script>
 </body>
 
 </html>

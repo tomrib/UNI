@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../../models/customerModel.php';
+require_once '../../models/customersModel.php';
 require_once '../../confi.php';
 $formErrors = [];
 
@@ -45,7 +45,7 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['email'])) {
-        if ($newCstommer->checkIfCustomeExists('email') != 0) {
+        if ($newCstommer->checkIfCustomersExist('email') != 0) {
             if (preg_match($regex['email'], $_POST['email'])) {
                 if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                     $newCstommer->email = strip_tags($_POST['email']);

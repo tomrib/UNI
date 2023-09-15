@@ -56,7 +56,10 @@
                 <li>
                     <a href="#">Archives interventions</a>
                 </li>
-                <li class="loginModalTrigger"><a href="./deconnecter">Se déconnecter</a></li>
+                <<<<<<< HEAD <li class="loginModalTrigger"><a href="./deconnecter">Se déconnecter</a></li>
+                    =======
+                    <li class="loginModalTrigger"><a href="./Deconnecter">Se déconnecter</a></li>
+                    >>>>>>> a22757c59aecc384fe260d44607bc638342452a8
             </ul>
         </nav>
     </header>
