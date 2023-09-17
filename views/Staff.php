@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
     <title>Espace de </title>
 </head>
 
@@ -19,6 +20,7 @@
                 <h2>Faire un signalement</h2>
                 <button id="openUploadModal">Continuer</button>
             </div>
+            <button id="exitButton"><i class="fas fa-door-open"></i> Exit</button>
         </div>
     </div>
     <div id="myModalArrival" class="modalArrival">
@@ -31,8 +33,8 @@
     </div>
     <form id="myModalUpload" class="modalUpload">
         <h2>SIGNALEMENT</h2>
-        <div>
-            <p>Le 17/10/2023 </p>
+        <div class="dateReporting">
+            <p>Nous sommes le 17/10/2023 </p>
         </div>
         <div class="select">
             <div>
@@ -73,7 +75,16 @@
         <button id="UploadCloseButton">ANNULER</button>
         <button type="submit" id="sendButton">VALIDER</button>
     </form>
-    <script src="assets/js/staff.js"></script>
+
+    <div id="confirmationModal" class="modal">
+        <div>
+            <p>Êtes-vous sûr de vouloir valider votre signalement ?</p>
+            <div class="positionButton">
+                <button id="confirmNoButton">Non</button>
+                <button id="confirmYesButton">Oui</button>
+            </div>
+        </div>
+        <script src="../assets/js/staff.js"></script>
 </body>
 
 </html>

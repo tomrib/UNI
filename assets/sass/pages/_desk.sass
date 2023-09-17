@@ -6,43 +6,31 @@ $footer_height: 60px
 
 .displayDesk
     @include displayDesk
+    display: flex
 
-.displayCalendar
+.arrangement
+    display: flex
+    flex-direction: column
+    flex: 1
+
+.displayNote, .displayLive
+    border: solid 1px $color_1
+    border-radius: 3px
     background-color: $color_6
     margin: 20px
     padding: 20px
-    width: 50%
-
-.displayNote
-    background-color: $color_6
-    margin: 20px
-    padding: 20px
-    width: 50%
     display: flex
     flex-direction: column
     align-items: center
+    flex: 1
 
-.displayIntervention
+#inter
+    border: solid 1px $color_1
+    border-radius: 3px
     background-color: $color_6
     margin: 20px
     padding: 20px
-    width: 50%
-    display: flex
-    flex-direction: column
-    align-items: center
-
-.displayLive
-    background-color: $color_6
-    margin: 20px
-    padding: 20px
-    width: 50%
-    display: flex
-    flex-direction: column
-    align-items: center
+    flex: 2
 
 form
     @include form
-
-form
-    max-width: 500px
-    width: 100%

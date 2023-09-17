@@ -101,7 +101,7 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['contract'])) {
-        if (!preg_match($regex['contract'], $_POST['contract'])) {
+        if (preg_match($regex['contract'], $_POST['contract'])) {
             $add->id_contractsTypes = intval(strip_tags($_POST['contract']));
         } else {
             $formErrors['contract'] = USER_CONTRACT_ERROR_INVALID;
@@ -109,6 +109,17 @@ if (count($_POST) > 0) {
     } else {
         $formErrors['contract'] = USER_CONTRACT_ERROR_EMPTY;
     }
+    if (!empty($_POST['contract'])) {
+        if (preg_match($regex['contract'], $_POST['contract'])) {
+            $add->id_contractsTypes = intval(strip_tags($_POST['contract']));
+        } else {
+            $formErrors['contract'] = USER_CONTRACT_ERROR_INVALID;
+        }
+    } else {
+        $formErrors['contract'] = USER_CONTRACT_ERROR_EMPTY;
+    }
+
+
 
     if (!empty($_POST['beginningContract'])) {
         if (preg_match($regex['date'], $_POST['beginningContract'])) {

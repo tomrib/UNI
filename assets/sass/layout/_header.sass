@@ -1,11 +1,7 @@
-//              Styles header
+// Styles header
 header
     background-color: $color_1
     color: $color_3
-    display: flex
-    align-items: center
-    justify-content: space-between
-    padding: 10px
 
 .menuIcon
     display: none
@@ -17,10 +13,6 @@ input[type="checkbox"]#menuToggle
 .menuIcon::before
     content: "\2630"
     font-size: 25px
-
-//nav ul 
-//    list-style: none
-//    display: flex
 
 nav li 
     position: relative
@@ -97,24 +89,25 @@ nav li.active .subMenu::after
 .subMenu a:hover
     background-color: $color_4
 
-//.searchBar
-//    border: none
-
-//#searchInput
-//    width: 100%
-
 .searchBar
     margin-left: auto
+    display: flex
+    align-items: center
 
 #searchInput
     width: 100%
     border: none
     padding: 5px
 
+body, nav ul
+    margin: 0
+    padding: 0
+
 nav ul 
     list-style: none
     display: flex
     align-items: center
+    margin-left: auto
 
 nav ul li 
     margin-left: 10px

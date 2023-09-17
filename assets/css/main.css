@@ -207,10 +207,6 @@ p {
 header {
   background-color: #0c0d29;
   color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
 }
 
 .menuIcon {
@@ -316,6 +312,8 @@ nav li.active .subMenu::after {
 
 .searchBar {
   margin-left: auto;
+  display: flex;
+  align-items: center;
 }
 
 #searchInput {
@@ -324,10 +322,16 @@ nav li.active .subMenu::after {
   padding: 5px;
 }
 
+body, nav ul {
+  margin: 0;
+  padding: 0;
+}
+
 nav ul {
   list-style: none;
   display: flex;
   align-items: center;
+  margin-left: auto;
 }
 
 nav ul li {
@@ -354,6 +358,11 @@ footer {
   font-weight: bold;
 }
 
+@media (max-width: 768px) {
+  #date {
+    display: none;
+  }
+}
 #loginForm {
   background-color: #EDF1F4;
   border-color: #0c0d29;
@@ -412,63 +421,63 @@ form {
   flex-grow: 1;
 }
 
+@media screen and (max-width: 768px) {
+  .displayForm {
+    padding: 20px;
+  }
+  #loginForm {
+    padding: 10px;
+    margin: 20px;
+    /* Styles pour le bouton "Mot de passe perdu" */
+  }
+  #loginForm button {
+    margin-top: 10px;
+  }
+  #loginForm #lostMdp {
+    margin-bottom: 10px;
+  }
+}
 body {
   background-color: #fff;
 }
 
 .displayDesk {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   min-height: calc(100vh - (60px + 60px));
+  display: flex;
 }
 
-.displayCalendar {
+.arrangement {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.displayNote, .displayLive {
+  border: solid 1px #0c0d29;
+  border-radius: 3px;
   background-color: #EDF1F4;
   margin: 20px;
   padding: 20px;
-  width: 50%;
-}
-
-.displayNote {
-  background-color: #EDF1F4;
-  margin: 20px;
-  padding: 20px;
-  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
 }
 
-.displayIntervention {
+#inter {
+  border: solid 1px #0c0d29;
+  border-radius: 3px;
   background-color: #EDF1F4;
   margin: 20px;
   padding: 20px;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.displayLive {
-  background-color: #EDF1F4;
-  margin: 20px;
-  padding: 20px;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex: 2;
 }
 
 form {
   border: 1px solid;
   padding: 20px;
   max-width: 400px;
-  width: 100%;
-}
-
-form {
-  max-width: 500px;
   width: 100%;
 }
 
@@ -551,6 +560,10 @@ label {
   display: block;
 }
 
+#confirmDeleteModal {
+  display: none;
+}
+
 .displayStaff {
   display: flex;
   flex-direction: column;
@@ -576,7 +589,7 @@ label {
   border: 1px solid #0c0d29;
   border-radius: 3px;
   padding: 10px;
-  margin: 50px;
+  margin: 30px;
   text-align: center;
 }
 
@@ -624,8 +637,8 @@ label {
 
 .select {
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin: 5px 0;
 }
 .select p, .select select {
   margin-right: 10px;
@@ -652,6 +665,40 @@ p {
   border-radius: 20px;
 }
 
+.dateReporting {
+  padding: 5px;
+  margin: 20px;
+  border: solid 1px #0c0d29;
+  border-radius: 25px;
+}
+
+#confirmationModal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #000;
+  padding: 20px;
+}
+
+.postionButton {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .modalUpload {
+    width: 80%;
+    max-width: none;
+    padding: 5%;
+  }
+}
 .displayForm {
   display: flex;
   flex-direction: column;

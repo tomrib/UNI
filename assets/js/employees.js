@@ -53,20 +53,20 @@ function displayEmployee(e) {
 
       // Remplit le contenu de la modal avec les informations de l'employé
       modalContent.innerHTML = "";
-      modalContent.innerHTML += pattern("Nom", data.lastname);
-      modalContent.innerHTML += pattern("Prénom", data.firstname);
-      modalContent.innerHTML += pattern("Mail", data.email);
-      modalContent.innerHTML += pattern("Date de naissance", data.birthday);
-      modalContent.innerHTML += pattern("Adresse", data.address);
-      modalContent.innerHTML += pattern("Téléphone", data.phone);
-      modalContent.innerHTML += pattern("Type de contrat", data.contra);
+      modalContent.innerHTML += pattern("Nom:", data.lastname);
+      modalContent.innerHTML += pattern("Prénom:", data.firstname);
+      modalContent.innerHTML += pattern("Mail:", data.email);
+      modalContent.innerHTML += pattern("Date de naissance:", data.birthday);
+      modalContent.innerHTML += pattern("Adresse:", data.address);
+      modalContent.innerHTML += pattern("Téléphone:", data.phone);
+      modalContent.innerHTML += pattern("Type de contrat:", data.contra);
       modalContent.innerHTML += pattern(
-        "Date de début",
+        "Date de début:",
         data.beginningContract
       );
-      modalContent.innerHTML += pattern("Date de fin", data.endContract);
+      modalContent.innerHTML += pattern("Date de fin:", data.endContract);
       modalContent.innerHTML += pattern(
-        "Numéro de sécurité sociale",
+        "Numéro de sécurité sociale:",
         data.socialInsuranceNumber
       );
     }

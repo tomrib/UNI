@@ -15,11 +15,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const openUploadButton = document.getElementById("openUploadModal");
   const modalUpload = document.getElementById("myModalUpload");
   const cancelButton = document.getElementById("UploadCloseButton");
+  const sendButton = document.getElementById("sendButton");
+
+  // CONST confirmation modal:
+  const confirmationModal = document.getElementById("confirmationModal");
+  const confirmYesButton = document.getElementById("confirmYesButton");
+  const confirmNoButton = document.getElementById("confirmNoButton");
 
   // CONST bouton input:
   const uploadButtonTest = document.getElementById("uploadButtonTest");
   const fileInput = document.getElementById("fileUpload");
   const fileCountText = document.getElementById("fileCountText");
+
+  // CONST bouton exit:
+  const exitButton = document.getElementById("exitButton");
 
   /*-----DÉCLARATION DES ÉVÉNEMENTS-----*/
 
@@ -84,5 +93,32 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.target === modal) {
       modal.style.display = "none";
     }
+  });
+
+  // JS Bouton de validation du signalement:
+  sendButton.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    // Afficher la modal de confirmation
+    confirmationModal.style.display = "block";
+  });
+
+  // JS Bouton "Oui" dans la modal de confirmation
+  confirmYesButton.addEventListener("click", function () {
+    // Ajoutez ici le code pour soumettre le formulaire ou effectuer d'autres actions nécessaires.
+
+    // Fermez la modal de confirmation
+    confirmationModal.style.display = "none";
+  });
+
+  // JS Bouton "Non" dans la modal de confirmation
+  confirmNoButton.addEventListener("click", function () {
+    // Si l'utilisateur clique sur "Non", fermez simplement la modal de confirmation
+    confirmationModal.style.display = "none";
+  });
+
+  // Écouteur de sortie de staff et retour vers l'index:
+  exitButton.addEventListener("click", () => {
+    window.location.href = "/UNI";
   });
 });

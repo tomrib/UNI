@@ -16,7 +16,7 @@
     border: 1px solid $color_1
     border-radius: 3px
     padding: 10px
-    margin: 50px
+    margin: 30px
     text-align: center
 
 // Visuel de la modal du bouton "je suis sur place !":
@@ -64,8 +64,8 @@
 // Mise en forme des selects:    
 .select
     display: flex
+    justify-content: center
     align-items: center
-    margin: 5px 0
 
     p, select
         margin-right: 10px
@@ -90,3 +90,33 @@ p
 // Radius du bouton UPLOAD:
 #uploadButtonTest
     border-radius: 20px
+
+.dateReporting
+    padding: 5px
+    margin: 20px
+    border: solid 1px $color_1
+    border-radius: 25px
+
+#confirmationModal
+    display: none
+    position: fixed
+    top: 50%
+    left: 50%
+    background-color: $color_3
+    transform: translate(-50%, -50%)
+    z-index: 1
+    text-align: center
+    border-radius: 5px
+    box-shadow: 0px 0px 10px $color_5
+    padding: 20px
+
+.postionButton
+    display: flex
+    justify-content: space-between
+    margin-top: 20px
+
+@media (max-width: 768px)
+    .modalUpload
+        width: 80%
+        max-width: none
+        padding: 5%

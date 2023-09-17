@@ -31,6 +31,7 @@ a:hover {
 @media (max-width: 768px) {
     body {
         padding: 20px;
+        height: 80vh;
     }
 
     a {
@@ -42,3 +43,4 @@ a:hover {
         padding: 8px;
     }
 }
+
