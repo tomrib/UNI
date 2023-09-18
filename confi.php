@@ -2,14 +2,14 @@
 $regex = [
     'content' => '/^.*<\/script>.*$/',
     'name' => '/^[A-Za-z\- áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]{1,20}$/',
-    'date' => '/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/',
+    'date' => '/^\d{4}-\d{2}-\d{2}$/',
     'email' => '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
     'password' => '/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/',
     'address' => '/^([1-9][0-9]*(?:-[1-9][0-9]*)*)[\s,-]+(?:(bis|ter|qua)[\s,-]+)?([\w]+[\-\w]*)[\s,]+([-\w].+)$/',
     'phone' => '/^(?:0)\s*[1-9](?:[\s.-]*\d{2}){4}$/',
-    'contract' => '/^[0-9]{1}$/',
-    'typeUser' => '/^[0123]{1}$/',
-    'socialInsuranceNumber' => '/^[0-9]{1} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{3} [0-9]{3}$/'
+    'contract' => '/^[1-9]{1}$/',
+    'typeUser' => '/^[1-9]{1}$/',
+    'socialInsuranceNumber' => '/^[0-9]{1} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{3} [0-9]{3}$/',
 ];
 
 $mime_types = array();
@@ -31,7 +31,8 @@ define('USER_EMAIL_ERROR_INVALID', 'l\'adresse n\'est pas valide.');
 define('USER_EMAIL_ERROR_EXIT', 'L\'adresse mail existe déjà.');
 
 define('USER_PASSWORD_EMPTY', 'Le mot de passe est obligatoire.');
-define('USER_PASSWORD_ERROR_INVALID', 'L\'adresse mail ou le mot de passe est incorrect.');
+define('LOGIN_PASSWORD_ERROR_INVALID', 'L\'adresse mail ou le mot de passe est incorrect.');
+define('USER_PASSWORD_ERROR_INVALID', 'Le mot de passe doit comporter une majuscule, un caractère spécial et des chiffres.');
 
 define('USER_ADDRESS_ERROR_EMPTY', 'L\'adresse de domicile est obligatoire.');
 define('USER_ADDRESS_ERROR_INVALID', 'L\'adresse n\'est pas conforme, il faut un ou plusieurs numéros, types de rue et nom de rue.');
@@ -39,14 +40,15 @@ define('USER_ADDRESS_ERROR_INVALID', 'L\'adresse n\'est pas conforme, il faut un
 define('USER_PHONE_ERROR_EMPTY', 'Le numéro de téléphone est obligatoire.');
 define('USER_PHONE_ERROR_INVALID', 'Le numéro de téléphone n\'est pas valide.');
 
-define('USER_CONTRACT_ERROR_EMPTY', 'Le contrat est obligatoire.');
-define('USER_CONTRACT_ERROR_INVALID', 'La saisie n\'est pas valide.');
 
 define('USER_SOCIALINSURANCE_ERROR_EMPTY', 'Le numéro de sécurité sociale est obligatoire.');
 define('USER_SOCIALINSURANCE_ERROR_INVALID', 'Le numéro de sécurité sociale n\'est pas valide.');
 
 define('USER_TYPE_ERROR_EMPTY', 'Les types de postes sont obligatoires.');
 define('USER_TYPE_ERROR_INVALID', 'Les types de postes ne sont pas valides.');
+
+define('USER_CONTRACT_ERROR_EMPTY', 'Le contrat est obligatoire.');
+define('USER_CONTRACT_ERROR_INVALID', 'La saisie n\'est pas valide.');
 
 define('USER_BEGINNINGCONTRACT_ERROR_EMPTY', 'La date de début est obligatoire.');
 define('USER_DATE_ERROR_INVALID', 'La date n\'est pas valide.');

@@ -45,17 +45,17 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['email'])) {
-        /*        if ($add->checkIfUserExists('email') === 1) { */
-        if (preg_match($regex['email'], $_POST['email'])) {
-            if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                $add->email = strip_tags($_POST['email']);
+        if ($add->checkIfUserExists('email') === 1) {
+            if (preg_match($regex['email'], $_POST['email'])) {
+                if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                    $add->email = strip_tags($_POST['email']);
+                }
+            } else {
+                $formErrors['email'] = USER_EMAIL_ERROR_INVALID;
             }
         } else {
-            $formErrors['email'] = USER_EMAIL_ERROR_INVALID;
-        }
-        /* } else {
             $formErrors['email'] = USER_EMAIL_ERROR_EXIT;
-        } */
+        }
     } else {
         $formErrors['email'] = USER_EMAIL_ERROR_EMPTY;
     }
@@ -64,7 +64,7 @@ if (count($_POST) > 0) {
         if (preg_match($regex['password'], $_POST['password'])) {
             $add->password = password_hash($_POST['password'], PASSWORD_BCRYPT);
         } else {
-            $_POST['password'] = USER_PASSWORD_ERROR_INVALID;
+            $formErrors['password'] = USER_PASSWORD_ERROR_INVALID;
         }
     } else {
         $formErrors['password'] = USER_PASSWORD_EMPTY;
@@ -106,44 +106,39 @@ if (count($_POST) > 0) {
         } else {
             $formErrors['contract'] = USER_CONTRACT_ERROR_INVALID;
         }
-    } else {
-        $formErrors['contract'] = USER_CONTRACT_ERROR_EMPTY;
-    }
-    if (!empty($_POST['contract'])) {
-        if (preg_match($regex['contract'], $_POST['contract'])) {
-            $add->id_contractsTypes = intval(strip_tags($_POST['contract']));
-        } else {
-            $formErrors['contract'] = USER_CONTRACT_ERROR_INVALID;
-        }
-    } else {
-        $formErrors['contract'] = USER_CONTRACT_ERROR_EMPTY;
-    }
 
-
-
-    if (!empty($_POST['beginningContract'])) {
-        if (preg_match($regex['date'], $_POST['beginningContract'])) {
-            $add->beginningContract = strip_tags($_POST['beginningContract']);
-        } else {
-            $formErrors['beginningContract'] = USER_DATE_ERROR_INVALID;
-        }
-    } else {
-        $formErrors['beginningContract'] = USER_BEGINNINGCONTRACT_ERROR_EMPTY;
-    }
-
-    if ($_POST['contract'] == "2" || $_POST['contract'] == "3") {
-        if (!empty($_POST['endContract']) && preg_match($regex['date'], $_POST['endContract'])) {
-            $add->endContract = strip_tags($_POST['endContract']);
-            $beginningContract = new DateTime($add->beginningContract);
-            $endContract = new DateTime($add->endContract);
-
-            if ($beginningContract > $endContract) {
-                $formErrors['endContract'] = USER_CONTRACTEND_ERROR;
+        if (!empty($_POST['beginningContract'])) {
+            if (preg_match($regex['date'], $_POST['beginningContract'])) {
+                $add->beginningContract = strip_tags($_POST['beginningContract']);
+            } else {
+                $formErrors['beginningContract'] = USER_DATE_ERROR_INVALID;
             }
         } else {
-            $formErrors['endContract'] = USER_CONTRACTEND_ERROR_EMPTY;
+            $formErrors['beginningContract'] = USER_BEGINNINGCONTRACT_ERROR_EMPTY;
         }
+
+        if ($_POST['contract'] == "2" || $_POST['contract'] == "3") {
+            if (!empty($_POST['endContract'])) {
+                if (preg_match($regex['date'], $_POST['endContract'])) {
+                    $add->endContract = strip_tags($_POST['endContract']);
+                    $beginningContract = new DateTime($add->beginningContract);
+                    $endContract = new DateTime($add->endContract);
+
+                    if ($beginningContract > $endContract) {
+                        $formInfo['endContract'] = USER_CONTRACTEND_ERROR;
+                    }
+                } else {
+                    $formErrors['endContract'] = USER_DATE_ERROR_INVALID;
+                }
+            } else {
+                $formErrors['endContract'] = USER_BEGINNINGCONTRACT_ERROR_EMPTY;
+            }
+        }
+    } else {
+        $formErrors['contract'] = USER_CONTRACT_ERROR_EMPTY;
     }
+
+
 
     if (count($formErrors) == 0) {
         $add->addUser();

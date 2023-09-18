@@ -1,0 +1,22 @@
+$header_height: 60px
+$footer_height: 60px
+
+.tableContainer
+    width: 100%
+    overflow-x: auto
+    margin: 0 auto
+
+table
+    @include displayTable
+    min-height: calc(100vh - (#{$header_height} + #{$footer_height}))
+
+button a 
+    color: $color_3
+    text-decoration: none
+    &:hover
+        color: $color_5
+
+#deleteForm
+    border: none
+    width: 100%
+    padding: 0px

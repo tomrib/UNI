@@ -28,3 +28,5 @@ RewriteRule ^Archive-Sous-Traitant$ ./controllers/archives/archiveInterventionsC
 RewriteRule ^Ajout-Planning$ ./controllers/plannings/addPlanningController.php
 RewriteRule ^Planning$ ./controllers/plannings/planningController.php
 RewriteRule ^Modifier-Planning-([0-9]+)$ ./controllers/plannings/updatePlanningController.php?id=$1
+#? la vue des interventions
+RewriteRule ^Liste-Intervention$ ./controllers/interventions/listInterventionController.php

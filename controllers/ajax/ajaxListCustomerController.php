@@ -1,5 +1,5 @@
 <?php
-require_once '../../models/customerModel.php';
+require_once '../../models/customersModel.php';
 
 if (isset($_GET['displayid'])) {
     $customer = new customer;

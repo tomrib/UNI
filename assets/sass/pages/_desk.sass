@@ -6,23 +6,36 @@ $footer_height: 60px
 
 .displayDesk
     @include displayDesk
-    display: flex
 
-.arrangement
+.arrangementDesk
     display: flex
-    flex-direction: column
-    flex: 1
-
-.displayNote, .displayLive
-    border: solid 1px $color_1
-    border-radius: 3px
-    background-color: $color_6
-    margin: 20px
-    padding: 20px
-    display: flex
-    flex-direction: column
     align-items: center
+    flex-direction: column
     flex: 1
+    max-width: 100%
+    .displayLive
+        max-height: 350px
+    .displayNote, .displayLive
+        border: solid 1px $color_1
+        border-radius: 3px
+        background-color: $color_6
+        margin: 20px
+        padding: 20px
+        display: flex
+        flex-direction: column
+        align-items: center
+        flex: 1
+        text-align: center
+        width: 400px
+        form
+            @include form
+
+.liveList
+    max-width: 400px
+    width: 100%
+    overflow-y: scroll
+    border: 1px solid $color_1
+    border-radius: 3px
 
 #inter
     border: solid 1px $color_1
@@ -30,7 +43,4 @@ $footer_height: 60px
     background-color: $color_6
     margin: 20px
     padding: 20px
-    flex: 2
-
-form
-    @include form
+    width: 50%

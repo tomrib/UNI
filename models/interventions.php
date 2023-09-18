@@ -7,7 +7,7 @@ class interventions
     public string $text = "";
     public string $img = "";
     public string $datetime = "";
-    public int $id_business = 0;
+    public int $id_customers = 0;
     public int $id_users = 0;
     public int $id_typesInterventions = 0;
     public int $id_subcontractor = 0;

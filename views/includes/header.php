@@ -54,7 +54,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Archives interventions</a>
+                    <a href="#">Interventions</a>
+                </li>
+                <li>
+                    <a href="#">Archives</a>
                 </li>
                 <li class="loginModalTrigger"><a href="./Deconnecter">Se déconnecter</a></li>
             </ul>

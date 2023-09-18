@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../models/businessUserModel.php';
+require_once '../models/customersUserModel.php';
 require_once '../models/customerModel.php';
 require_once '../models/userModel.php';
 require_once '../models/interventions.php';

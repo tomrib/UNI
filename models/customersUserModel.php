@@ -3,7 +3,7 @@ require_once "database.php";
 class customersUser
 {
     public $db = NULL;
-    public int $id_business = 0;
+    public int $id_customers = 0;
     public int $id_users = 0;
     public string $date = "";
     public string $startDatePlanned = "";
@@ -19,6 +19,4 @@ class customersUser
             die($e->getMessage());
         }
     }
-
-
 }
