@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+
 .displayTable {
   display: flex;
   flex-direction: column;
@@ -8,7 +9,7 @@
   text-align: center;
   padding: 20px;
   background-color: #EDF1F4;
-  border: 1px solid #0c0d29;
+  border: 1px solid #4e6151;
   margin: 30px;
   height: 550px;
 }
@@ -17,7 +18,7 @@ table {
   border-collapse: collapse;
   width: 100%;
   text-align: center;
-  border: 1px solid #0c0d29;
+  border: 1px solid #4e6151;
   margin-top: 20px;
 }
 
@@ -25,14 +26,14 @@ th,
 td {
   padding: 10px;
   text-align: center;
-  border-bottom: 1px solid #0c0d29;
+  border-bottom: 1px solid #4e6151;
   max-width: 600px;
   margin: 0 auto;
 }
 
 th {
-  background-color: #0c0d29;
-  color: #fff;
+  background-color: #4e6151;
+  color: #fcfcfc;
 }
 
 tr:nth-child(even) {
@@ -40,8 +41,8 @@ tr:nth-child(even) {
 }
 
 .border {
-  border-right: 1px solid #0c0d29;
-  border-left: 1px solid #0c0d29;
+  border-right: 1px solid #4e6151;
+  border-left: 1px solid #4e6151;
   width: 60px;
   text-align: center;
 }
@@ -49,16 +50,16 @@ tr:nth-child(even) {
 thead {
   position: sticky;
   top: 0;
-  background-color: #0c0d29;
-  color: #fff;
+  background-color: #4e6151;
+  color: #fcfcfc;
   z-index: 1;
 }
 
 th {
   position: sticky;
   top: 0;
-  background-color: #0c0d29;
-  color: #fff;
+  background-color: #4e6151;
+  color: #fcfcfc;
 }
 
 .fixedWidthColumn {
@@ -74,7 +75,7 @@ th {
 body {
   font-family: "Dosis", sans-serif;
   height: 100%;
-  background-color: #fff;
+  background-color: #fcfcfc;
 }
 
 h1 {
@@ -89,8 +90,7 @@ h2 {
 
 #hoverDanger:hover {
   background-color: #FF0000;
-  color: #fff;
-  border: 1px solid #fff;
+  color: #fcfcfc;
 }
 
 .offInput {
@@ -104,18 +104,19 @@ h2 {
 button {
   margin-right: 10px;
   border-radius: 3px;
-  border-color: #0c0d29;
-  background-color: #0c0d29;
+  border-color: #4e6151;
+  background-color: #4e6151;
   padding: 6px 10px;
-  color: #fff;
+  color: #fcfcfc;
   margin: 5px;
   cursor: pointer;
 }
+
 button:hover {
   margin-right: 10px;
   border-radius: 3px;
-  border-color: #1b1e5e;
-  background-color: #fff;
+  border-color: #5e8c61;
+  background-color: #fcfcfc;
   padding: 6px 10px;
   color: #000;
   margin: 5px;
@@ -127,15 +128,15 @@ button:hover {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: #fcfcfc;
   display: none;
   z-index: 2;
-  color: #fff;
-  border: solid 1px #0c0d29;
+  color: #fcfcfc;
+  border: solid 1px #4e6151;
   border-radius: 3px;
   width: 500px;
   height: 500px;
-  box-shadow: 0px 0px 10px #0c0d29;
+  box-shadow: 0px 0px 10px #4e6151;
 }
 
 h2 {
@@ -171,7 +172,7 @@ p {
   margin: 10px;
   padding: 10px;
   background-color: #EDF1F4;
-  border: solid 1px #0c0d29;
+  border: solid 1px #4e6151;
   height: 65%;
 }
 
@@ -191,22 +192,22 @@ p {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: #fcfcfc;
   border-radius: 3px;
   padding: 10px;
-  border: solid 1px #0c0d29;
+  border: solid 1px #4e6151;
   z-index: 5;
 }
 
 #confirmDeleteModalButton:hover {
   background-color: #FF0000;
-  color: #fff;
-  border: 1px solid #fff;
+  color: #fcfcfc;
+  border: 1px solid #fcfcfc;
 }
 
 header {
-  background-color: #0c0d29;
-  color: #fff;
+  background-color: #4e6151;
+  color: #fcfcfc;
 }
 
 .menuIcon {
@@ -229,7 +230,7 @@ nav li {
 }
 
 nav a {
-  color: #fff;
+  color: #fcfcfc;
   text-decoration: none;
   padding: 5px 10px;
 }
@@ -241,7 +242,7 @@ nav li::after {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #5dbfd4;
+  background-color: #3b322c;
   transition: width 0.3s ease-in-out;
 }
 
@@ -254,11 +255,11 @@ nav li:hover::after {
   position: absolute;
   top: 100%;
   border-radius: 3px;
-  background-color: #0c0d29;
+  background-color: #4e6151;
   min-width: 150px;
   z-index: 1;
   padding: 10px 0;
-  border: solid 1px #1b1e5e;
+  border: solid 1px #5e8c61;
 }
 
 .subMenu::after {
@@ -279,7 +280,7 @@ nav li:hover::after {
   right: 0;
   width: 0;
   height: 2px;
-  background-color: #5dbfd4;
+  background-color: #3b322c;
   transition: width 0.3s ease-in-out;
 }
 
@@ -299,7 +300,7 @@ nav li.active .subMenu::after {
 
 .subMenu a {
   text-align: center;
-  color: #fff;
+  color: #fcfcfc;
   padding: 5px 15px;
   display: block;
   text-decoration: none;
@@ -307,7 +308,7 @@ nav li.active .subMenu::after {
 }
 
 .subMenu a:hover {
-  background-color: #5dbfd4;
+  background-color: #3b322c;
 }
 
 .searchBar {
@@ -322,7 +323,8 @@ nav li.active .subMenu::after {
   padding: 5px;
 }
 
-body, nav ul {
+body,
+nav ul {
   margin: 0;
   padding: 0;
 }
@@ -346,8 +348,8 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0c0d29;
-  color: #fff;
+  background-color: #4e6151;
+  color: #fcfcfc;
   padding: 10px;
   position: sticky;
   bottom: 0;
@@ -363,9 +365,10 @@ footer {
     display: none;
   }
 }
+
 #loginForm {
   background-color: #EDF1F4;
-  border-color: #0c0d29;
+  border-color: #4e6151;
   border-radius: 3px;
   text-align: center;
 }
@@ -387,7 +390,7 @@ label {
   width: 100%;
   box-sizing: border-box;
   border-radius: 3px;
-  border-color: #0c0d29;
+  border-color: #4e6151;
 }
 
 input {
@@ -395,7 +398,7 @@ input {
   width: 100%;
   box-sizing: border-box;
   border-radius: 3px;
-  border-color: #0c0d29;
+  border-color: #4e6151;
   padding: 5px;
   border: solid 1px;
   margin: 5px;
@@ -425,36 +428,46 @@ form {
   .displayForm {
     padding: 20px;
   }
+
   #loginForm {
     padding: 10px;
     margin: 20px;
     /* Styles pour le bouton "Mot de passe perdu" */
   }
+
   #loginForm button {
     margin-top: 10px;
   }
+
   #loginForm #lostMdp {
     margin-bottom: 10px;
   }
 }
+
 body {
-  background-color: #fff;
+  background-color: #fcfcfc;
 }
 
 .displayDesk {
   display: flex;
   min-height: calc(100vh - (60px + 60px));
-  display: flex;
 }
 
-.arrangement {
+.arrangementDesk {
   display: flex;
+  align-items: center;
   flex-direction: column;
   flex: 1;
+  max-width: 100%;
 }
 
-.displayNote, .displayLive {
-  border: solid 1px #0c0d29;
+.arrangementDesk .displayLive {
+  max-height: 350px;
+}
+
+.arrangementDesk .displayNote,
+.arrangementDesk .displayLive {
+  border: solid 1px #4e6151;
   border-radius: 3px;
   background-color: #EDF1F4;
   margin: 20px;
@@ -463,22 +476,33 @@ body {
   flex-direction: column;
   align-items: center;
   flex: 1;
+  text-align: center;
+  width: 400px;
 }
 
-#inter {
-  border: solid 1px #0c0d29;
-  border-radius: 3px;
-  background-color: #EDF1F4;
-  margin: 20px;
-  padding: 20px;
-  flex: 2;
-}
-
-form {
+.arrangementDesk .displayNote form,
+.arrangementDesk .displayLive form {
   border: 1px solid;
   padding: 20px;
   max-width: 400px;
   width: 100%;
+}
+
+.liveList {
+  max-width: 400px;
+  width: 100%;
+  overflow-y: scroll;
+  border: 1px solid #4e6151;
+  border-radius: 3px;
+}
+
+#inter {
+  border: solid 1px #4e6151;
+  border-radius: 3px;
+  background-color: #EDF1F4;
+  margin: 20px;
+  padding: 20px;
+  width: 50%;
 }
 
 .displayForm {
@@ -517,7 +541,7 @@ li {
   color: #FF0000;
   font-weight: bolder;
   -webkit-text-decoration: underline #FF0000;
-          text-decoration: underline #FF0000;
+  text-decoration: underline #FF0000;
 }
 
 table {
@@ -525,9 +549,10 @@ table {
 }
 
 button a {
-  color: #fff;
+  color: #fcfcfc;
   text-decoration: none;
 }
+
 button a:hover {
   color: #000;
 }
@@ -569,14 +594,12 @@ label {
   flex-direction: column;
   align-items: center;
   background-color: #EDF1F4;
-  border: 1px solid #0c0d29;
+  border: 1px solid #4e6151;
   border-radius: 3px;
+  height: 400px;
   width: 400px;
   padding: 20px;
   position: relative;
-}
-.displayStaff h1 {
-  margin-bottom: 5px;
 }
 
 .container {
@@ -588,7 +611,7 @@ label {
 }
 
 .upload {
-  border: 1px solid #0c0d29;
+  border: 1px solid #4e6151;
   border-radius: 3px;
   padding: 10px;
   margin: 30px;
@@ -600,7 +623,7 @@ label {
   position: fixed;
   top: 50%;
   left: 50%;
-  background-color: #fff;
+  background-color: #fcfcfc;
   transform: translate(-50%, -50%);
   z-index: 1;
   text-align: center;
@@ -615,7 +638,7 @@ label {
   top: 50%;
   left: 50%;
   padding: 20px;
-  background-color: #fff;
+  background-color: #fcfcfc;
   transform: translate(-50%, -50%);
   z-index: 1;
   text-align: center;
@@ -628,7 +651,7 @@ label {
   position: fixed;
   top: 50%;
   left: 50%;
-  background-color: #fff;
+  background-color: #fcfcfc;
   transform: translate(-50%, -50%);
   z-index: 1;
   text-align: center;
@@ -642,7 +665,9 @@ label {
   justify-content: center;
   align-items: center;
 }
-.select p, .select select {
+
+.select p,
+.select select {
   margin-right: 10px;
 }
 
@@ -650,7 +675,7 @@ textarea {
   width: 80%;
   margin-top: 10px;
   resize: none;
-  border: 1px solid #0c0d29;
+  border: 1px solid #4e6151;
   border-radius: 3px;
 }
 
@@ -670,7 +695,7 @@ p {
 .dateReporting {
   padding: 5px;
   margin: 20px;
-  border: solid 1px #0c0d29;
+  border: solid 1px #4e6151;
   border-radius: 25px;
 }
 
@@ -679,7 +704,7 @@ p {
   position: fixed;
   top: 50%;
   left: 50%;
-  background-color: #fff;
+  background-color: #fcfcfc;
   transform: translate(-50%, -50%);
   z-index: 1;
   text-align: center;
@@ -700,18 +725,6 @@ p {
     max-width: none;
     padding: 5%;
   }
-}
-/* retire le border et santre les element retire height de la mixin displayStaff */
-form {
-  border: none;
-  text-align: center;
-}
-form .displayBtmTime {
-  text-align: -webkit-center;
-  margin-top: 10px;
-}
-form .displayBtmTime button {
-  display: flex;
 }
 
 .displayForm {
@@ -737,7 +750,7 @@ li {
   color: #FF0000;
   font-weight: bolder;
   -webkit-text-decoration: underline #FF0000;
-          text-decoration: underline #FF0000;
+  text-decoration: underline #FF0000;
 }
 
 table {
@@ -745,9 +758,10 @@ table {
 }
 
 button a {
-  color: #fff;
+  color: #fcfcfc;
   text-decoration: none;
 }
+
 button a:hover {
   color: #000;
 }
@@ -780,9 +794,36 @@ label {
   display: block;
 }
 
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+  margin: 0 auto;
+}
+
+table {
+  min-height: calc(100vh - (60px + 60px));
+}
+
+button a {
+  color: #fcfcfc;
+  text-decoration: none;
+}
+
+button a:hover {
+  color: #000;
+}
+
+#deleteForm {
+  border: none;
+  width: 100%;
+  padding: 0px;
+}
+
 main {
   flex: 1;
   min-height: calc(100vh - (60px + 60px));
   display: flex;
   flex-direction: column;
-}/*# sourceMappingURL=main.css.map */
+}
+
+/*# sourceMappingURL=main.css.map */
