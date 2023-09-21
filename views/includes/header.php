@@ -52,11 +52,13 @@
                         <li><a href="#">Archives employé(e)</a></li>
                     </ul>
                 </li>
-                <li>
+                <li class="parent">
                     <a href="#">Interventions</a>
-                </li>
-                <li>
-                    <a href="#">Archives</a>
+                    <ul class="subMenu">
+                        <li><a href="#">Liste intervention</a></li>
+                        <li><a href="#">Créer une intervention</a></li>
+                        <li><a href="#">Archives intervention</a></li>
+                    </ul>
                 </li>
                 <li class="loginModalTrigger"><a href="./Deconnecter">Se déconnecter</a></li>
             </ul>
