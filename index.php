@@ -33,7 +33,7 @@
         </form>
 
     </div>
-    <script src="./assets/js/login.js" defer></script>
+    <script src="assets/js/login.js" defer></script>
 </body>
 
 </html>

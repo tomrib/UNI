@@ -45,7 +45,7 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['email'])) {
-        if ($add->checkIfUserExists('email') === 1) {
+        if ($add->checkIfUsersExist('email') > 0) {
             if (preg_match($regex['email'], $_POST['email'])) {
                 if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                     $add->email = strip_tags($_POST['email']);
@@ -62,7 +62,7 @@ if (count($_POST) > 0) {
 
     if (!empty($_POST['password'])) {
         if (preg_match($regex['password'], $_POST['password'])) {
-            $add->password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+            $add->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         } else {
             $formErrors['password'] = USER_PASSWORD_ERROR_INVALID;
         }
@@ -101,12 +101,12 @@ if (count($_POST) > 0) {
     }
 
     if (!empty($_POST['contract'])) {
-        if (preg_match($regex['contract'], $_POST['contract'])) {
+        if (preg_match($regex['number'], $_POST['contract'])) {
             $add->id_contractsTypes = intval(strip_tags($_POST['contract']));
         } else {
             $formErrors['contract'] = USER_CONTRACT_ERROR_INVALID;
         }
-
+        
         if (!empty($_POST['beginningContract'])) {
             if (preg_match($regex['date'], $_POST['beginningContract'])) {
                 $add->beginningContract = strip_tags($_POST['beginningContract']);
@@ -116,16 +116,16 @@ if (count($_POST) > 0) {
         } else {
             $formErrors['beginningContract'] = USER_BEGINNINGCONTRACT_ERROR_EMPTY;
         }
-
-        if ($_POST['contract'] == "2" || $_POST['contract'] == "3") {
+        
+        if ($_POST['contract'] === 2 || $_POST['contract'] === 3) {
             if (!empty($_POST['endContract'])) {
                 if (preg_match($regex['date'], $_POST['endContract'])) {
                     $add->endContract = strip_tags($_POST['endContract']);
                     $beginningContract = new DateTime($add->beginningContract);
                     $endContract = new DateTime($add->endContract);
-
+                    
                     if ($beginningContract > $endContract) {
-                        $formInfo['endContract'] = USER_CONTRACTEND_ERROR;
+                        $formErrors['endContract'] = USER_CONTRACTEND_ERROR;
                     }
                 } else {
                     $formErrors['endContract'] = USER_DATE_ERROR_INVALID;
@@ -137,14 +137,13 @@ if (count($_POST) > 0) {
     } else {
         $formErrors['contract'] = USER_CONTRACT_ERROR_EMPTY;
     }
-
-
-
+        var_dump($_POST);
     if (count($formErrors) == 0) {
         $add->addUser();
         header('Location:./Liste-Employer');
     }
 }
+
 
 require_once '../../views/includes/header.php';
 require_once '../../views/employees/addEmploye.php';

@@ -2,6 +2,8 @@
 .displayStaff
     @include displayStaff
     position: relative
+    h1
+        margin-bottom: 5px
 
 // Visuel de la page qui accueil les 3 boutons pour les employé(e)s:
 .container
@@ -120,3 +122,12 @@ p
         width: 80%
         max-width: none
         padding: 5%
+/* retire le border et santre les element retire height de la mixin displayStaff */
+form
+    border: none
+    text-align: center
+    .displayBtmTime
+        text-align: -webkit-center
+        margin-top: 10px
+        button
+            display: flex

@@ -7,7 +7,7 @@ $user = new user;
 if (count($_POST) > 0) {
     if (!empty($_POST['loginEmail'])) {
         $user->email = $_POST['loginEmail'];
-        if ($user->checkIfUserExists('email') > 0) {
+        if ($user->checkIfUsersExist('email') > 0) {
             $password = $user->getPassword();
         } else {
             $formErrors['loginEmail'] = USER_PASSWORD_ERROR_INVALID;

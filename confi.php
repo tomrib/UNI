@@ -7,8 +7,8 @@ $regex = [
     'password' => '/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/',
     'address' => '/^([1-9][0-9]*(?:-[1-9][0-9]*)*)[\s,-]+(?:(bis|ter|qua)[\s,-]+)?([\w]+[\-\w]*)[\s,]+([-\w].+)$/',
     'phone' => '/^(?:0)\s*[1-9](?:[\s.-]*\d{2}){4}$/',
-    'contract' => '/^[1-9]{1}$/',
-    'typeUser' => '/^[1-9]{1}$/',
+    'number' => '/^[1-9]{1}$/',
+    'numberCustomer' => '/^[0-9]+$/',
     'socialInsuranceNumber' => '/^[0-9]{1} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{3} [0-9]{3}$/',
 ];
 
@@ -58,3 +58,7 @@ define('USER_CONTRACTEND_ERROR', 'La date de fin de contrat doit être postérie
 define('USER_BIRTHAY_ERROR_EMPTY', 'La date de naissance est obligatoire.');
 define('USER_BIRTHAY_ERROR_INVALID', 'La date de naissance n\'est pas valide.');
 define('USER_BIRTHAY_INFO_INVALID', '⚠️ Attention, le profil suivant est âgé de moins de 18 ans ⚠️');
+
+define('USER_CUSTOMER_ERROR_EMPTY', 'Votre lieu de travail est obligatoire ?');
+define('USER_CUSTOMER_ERROR_INVALID', 'Votre lieu de travail n\'est pas valide.');
+define('USER_CUSTOMER_ERROR_ID', 'Vous n\'êtes pas autorisé à sélectionner ce lieu.');

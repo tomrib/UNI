@@ -41,7 +41,7 @@
                         </ul>
                 </div>
                 <label class="typeContrat" for="contract">Type Contrat</label>
-                <select id="contract" type="text" name="contract">
+                <select id="contract" name="contract">
                         <option value="<?= @$_POST['contract'] ?>" class="<?= isset($formErrors['contract']) ? 'inputError' : '' ?>" selected disabled>---</option>
                         <?php foreach ($contract as $l) { ?>
                                 <option value="<?= $l->id ?>"><?= $l->name ?></option>
@@ -51,7 +51,7 @@
                 <p class="errors"><?= @$formInfo['contract'] ?></p>
                 <div id="beginningContract" class="offInput">
                         <label for="beginningContract">Date de début :</label>
-                        <input type="date" name="beginningContract" value="<?= @$_POST['beginningContract'] ?>" required>
+                        <input type="date" name="beginningContract" value="<?= @$_POST['beginningContract'] ?>" >
                         <p class="errors"><?= @$formErrors['beginningContract'] ?></p>
                 </div>
                 <div id="endContract" class="offInput">

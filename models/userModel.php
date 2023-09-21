@@ -69,7 +69,7 @@ class user
     }
 
 
-    public function checkIfUserExists($column)
+    public function checkIfUsersExist($column)
     {
         $query = 'SELECT count(' . $column . ') 
         FROM `jg7b_users` 

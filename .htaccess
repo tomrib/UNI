@@ -1,6 +1,6 @@
 RewriteEngine On
 #? 404
-#ErrorDocument 404 /views/errors/page404.php
+ErrorDocument 404 /views/errors/page404.php
 #? Connexion
 RewriteRule ^Connexion$ ./index
 RewriteRule ^Deconnecter$ ./controllers/logoutController.php
@@ -19,7 +19,7 @@ RewriteRule ^Ajout-Sous-Traitant$ ./controllers/subContractor/addSubContractorCo
 RewriteRule ^Liste-Sous-Traitant$ ./controllers/subContractor/listSubContractorController.php
 RewriteRule ^Modifier-Sous-Traitant-([0-9]+)$ ./controllers/subContractor/UpdateSubContractorController.php?id=$1
 #? staff
-RewriteRule ^Espace-Employés$ ./views/Staff.php
+RewriteRule ^Espace-Employés$ ./controllers/staff/staffController.php
 #? les vues des archives
 RewriteRule ^Archive-Client$ ./controllers/archives/archiveCustomersController.php
 RewriteRule ^Archive-Employer$ ./controllers/archives/archiveEmployeesController.php
@@ -28,5 +28,3 @@ RewriteRule ^Archive-Sous-Traitant$ ./controllers/archives/archiveInterventionsC
 RewriteRule ^Ajout-Planning$ ./controllers/plannings/addPlanningController.php
 RewriteRule ^Planning$ ./controllers/plannings/planningController.php
 RewriteRule ^Modifier-Planning-([0-9]+)$ ./controllers/plannings/updatePlanningController.php?id=$1
-#? la vue des interventions
-RewriteRule ^Liste-Intervention$ ./controllers/interventions/listInterventionController.php

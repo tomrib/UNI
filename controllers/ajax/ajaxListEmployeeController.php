@@ -8,7 +8,7 @@ if (isset($_GET['displayid'])) {
 }
 
 $deletUser = new user;
-if (isset($_GET['deleteid']) && $deletUser->checkIfUserExists('id') != 0) {
+if (isset($_GET['deleteid']) && $deletUser->checkIfUsersExist('id') != 0) {
     $deletUser->id = $_GET['deleteid'];
     if ($deletUser->deleteUser()) {
         $results['status'] = true;
@@ -17,4 +17,4 @@ if (isset($_GET['deleteid']) && $deletUser->checkIfUserExists('id') != 0) {
         $results['status'] = false;
     }
     echo json_encode($results);
-}
+} 
