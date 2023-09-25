@@ -20,58 +20,76 @@ const sendButton = document.getElementById("sendButton");
 
 // CONST confirmation modal:
 const confirmationModal = document.getElementById("confirmationModal");
-const confirmYesButton = document.getElementById("confirmYesButton");
-const confirmNoButton = document.getElementById("confirmNoButton");
 
 // CONST bouton input:
 const uploadButtonTest = document.getElementById("uploadButtonTest");
 const fileInput = document.getElementById("fileUpload");
 const fileCountText = document.getElementById("fileCountText");
 
-// CONST bouton exit:
-const exitButton = document.getElementById("exitButton");
+const closeButton = document.querySelectorAll(".closeButton");
+const timeButtons = document.querySelectorAll(".timeButtons");
 
 /*-----DÉCLARATION DES ÉVÉNEMENTS-----*/
 arrivalButton.addEventListener("click", function (event) {
   event.preventDefault(); // Empêche le comportement par défaut du bouton
-  submitForm("controllers/ajax/ajaxStaffTimeController.php?action=arrival");
 });
 
 endButton.addEventListener("click", function (event) {
   event.preventDefault(); // Empêche le comportement par défaut du bouton
-  submitForm("controllers/ajax/ajaxStaffTimeController.php?action=end");
 });
 
 
-function submitForm(actionURL) {
-  var xhr = new XMLHttpRequest();
-  var formData = new FormData(formulaire);
-  console.log(formulaire);
-  xhr.open("POST", actionURL, true); // Ouvrir la requête d'abord
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        // Traitement de la réponse du serveur
-        var response = JSON.parse(xhr.responseText);
-        if (response.message) {
-          alert(response.message);
-          // Réinitialisez le formulaire ou effectuez d'autres actions ici
-        } else if (response.error) {
-          formErrors.innerHTML = response.error;
+// function submitForm() {
+//   var xhr = new XMLHttpRequest();
+//   var formData = new FormData(formulaire);
+//   console.log(formulaire);
+//   xhr.open("POST", "controllers/ajax/ajaxStaffTimeController.php?action=end", true); // Ouvrir la requête d'abord
+//   xhr.onreadystatechange = function () {
+//     if (xhr.readyState === 4 && xhr.status === 200) {
+      
+//       // Traitement de la réponse du serveur
+//       var response = JSON.parse(this.responseText);
+//       if (response.message) {
+//         alert(response.message);
+//         // Réinitialisez le formulaire ou effectuez d'autres actions ici
+//       } else if (response.error) {
+//         formErrors.innerHTML = response.error;
+//       }
+      
+//     }
+//   };
+//   xhr.send(); // Ensuite, envoyer les données
+// }
+
+for(let t of timeButtons) {
+  t.addEventListener('click', () => {
+    arrivalMessage.innerHTML = '';
+    let action = t.getAttribute('action');
+    let id_date = document.getElementById('id_date').value;
+    let id_customers = document.getElementById('id_customers').value;
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        let data = JSON.parse(this.responseText);
+
+        if(data.success != undefined) {
+          arrivalMessage.innerHTML = data.success;
+        } else {
+          arrivalMessage.innerHTML = data.id_customers;
+
         }
-      } else {
-        formErrors.innerHTML = "Une erreur s'est produite lors de la requête.";
+      
+          modal.style.display = "block";
+    
       }
     }
-  };
-  xhr.send(formData); // Ensuite, envoyer les données
+    
+  xhr.open("GET", "controllers/ajax/ajaxStaffTimeController.php?action=" + action + "&id_date=" + id_date + "&id_customers=" + id_customers , true);
+  xhr.send();
+  })
+
 }
-
-
-// JS bouton ouverture arrivée:
-arrivalButton.addEventListener("click", () => {
-  modal.style.display = "block";
-});
 
 // JS Fermeture modal arrivée:
 arrivalCloseButton.addEventListener("click", () => {
@@ -79,16 +97,11 @@ arrivalCloseButton.addEventListener("click", () => {
   location.reload();
 });
 
-// JS bouton ouverture départ:
-endButton.addEventListener("click", () => {
-modalDepart.style.display = "block";
-});
 
-// JS Bouton fermeture départ:
-endCloseButton.addEventListener("click", () => {
-  modalDepart.style.display = "none";
-  location.reload();
-});
+
+
+
+
 
 // JS Bouton click pour upload le/les fichier(s):
 uploadButtonTest.addEventListener("click", function (event) {
@@ -135,21 +148,12 @@ sendButton.addEventListener("click", function (event) {
   confirmationModal.style.display = "block";
 });
 
-// JS Bouton "Oui" dans la modal de confirmation
-confirmYesButton.addEventListener("click", function () {
-  // Ajoutez ici le code pour soumettre le formulaire ou effectuer d'autres actions nécessaires.
+for (let btn of closeButton) {
+  // JS Bouton "Oui" dans la modal de confirmation
+  btn.addEventListener("click", function () {
+    // Ajoutez ici le code pour soumettre le formulaire ou effectuer d'autres actions nécessaires.
 
-  // Fermez la modal de confirmation
-  confirmationModal.style.display = "none";
-});
-
-// JS Bouton "Non" dans la modal de confirmation
-confirmNoButton.addEventListener("click", function () {
-  // Si l'utilisateur clique sur "Non", fermez simplement la modal de confirmation
-  confirmationModal.style.display = "none";
-});
-
-// Écouteur de sortie de staff et retour vers l'index:
-exitButton.addEventListener("click", () => {
-  window.location.href = "./Deconnecter";
-});
+    // Fermez la modal de confirmation
+    confirmationModal.style.display = "none";
+  });
+}

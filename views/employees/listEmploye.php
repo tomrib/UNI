@@ -1,4 +1,4 @@
-    <div class="displayTable">
+<div class="displayTable">
         <h1>Liste des Employé(e)s</h1>
         <div class="tableContainer">
             <table id="employeesTable" class="responsiveTable">

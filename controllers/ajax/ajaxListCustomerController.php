@@ -1,5 +1,5 @@
 <?php
-require_once '../../models/customersModel.php';
+require_once '../../models/customerModel.php';
 
 if (isset($_GET['displayid'])) {
     $customer = new customer;
@@ -17,4 +17,4 @@ if (isset($_GET['deleteid']) && $deletCustomer->checkIfCustomersExist('id') != 0
         $results['status'] = false;
     }
     echo json_encode($results);
-}
+} 

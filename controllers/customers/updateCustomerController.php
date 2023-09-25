@@ -11,8 +11,6 @@ $listCustomerOne = $Customer->getCustomerOne();
 $updateCustomer = new customer;
 $updateCustomer->id = $_GET['id'];
 if (count($_POST) > 0) {
-
-
     if (!empty($_POST['name'])) {
         if (preg_match($regex['name'], $_POST['name'])) {
             $updateCustomer->name =  strip_tags(strtoupper($_POST['name']));
@@ -71,7 +69,7 @@ if (count($_POST) > 0) {
 
     if (count($formErrors) == 0) {
         $updateCustomer->updateCustomer();
-        header('Location:./Liste-Client');
+        /* header('Location:./Liste-Client'); */
     }
 }
 require_once '../../views/includes/header.php';

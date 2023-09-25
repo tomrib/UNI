@@ -9,23 +9,23 @@ body {
     justify-content: center;
     height: 100vh;
     color: #fff
-}
-
+    }
+    
 a {
     border: 1px solid #fff;
     padding: 10px;
     color: #fff;
     border-radius: 20px;
-    text-decoration: none;
+    text-decoration: none; 
 }
 
 a:hover {
-    background-color: #fff;
-    border: 1px solid #0c0d29;
-    padding: 10px;
-    color: #0c0d29;
-    border-radius: 20px;
-    text-decoration: none;
+        background-color: #fff;
+        border: 1px solid #0c0d29;
+        padding: 10px;
+        color: #0c0d29;
+        border-radius: 20px;
+        text-decoration: none;
 }
 
 @media (max-width: 768px) {
@@ -43,3 +43,4 @@ a:hover {
         padding: 8px;
     }
 }
+

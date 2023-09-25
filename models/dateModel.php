@@ -18,10 +18,8 @@ class date
     }
 
     public function getTodayDate(){
-        $query = 'SELECT `id`, DATE_FORMAT(date, "%d %b %Y") AS date FROM `jg7b_dates` WHERE date = :date;';
-        $request = $this->db->prepare($query);
-        $request->bindValue(':date', $this->date, PDO::PARAM_STR);
-        $request->execute();
+        $query = 'SELECT `id`, DATE_FORMAT(date, "%d %b %Y") AS date FROM `jg7b_dates` WHERE date = date(NOW());';
+        $request = $this->db->query($query);
         return $request->fetch(PDO::FETCH_OBJ);
     }
     

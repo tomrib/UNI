@@ -20,7 +20,7 @@
         <nav>
             <div class="logo"><img src="assets/img/logo_temp.png" alt="Logo temporaire" width="75" height="75"></div>
             <input type="checkBox" id="menuToggle">
-            <label for="menuToggle" class="menuIcon"></label>
+            <label for="menuToggle" class="menuIco/n"></label>
             <div class="searchBar">
                 <form class="barSearch" method="POST">
                     <input type="text" id="searchInput" placeholder="Rechercher...">
@@ -33,15 +33,15 @@
                     <ul class="subMenu">
                         <li><a href="./Liste-Client">Liste client(e)</a></li>
                         <li><a href="./Ajout-Client">Nouveau client(e)</a></li>
-                        <li><a href="#">Archives client(e)</a></li>
+                        <li><a href="./Archive-Client">Archives client(e)</a></li>
                     </ul>
                 </li>
                 <li class="parent">
                     <a href="#">Sous-traitant</a>
                     <ul class="subMenu">
                         <li><a href="./Liste-Sous-Traitant">Liste sous-traitant</a></li>
-                        <li><a href="#">Nouveau sous-traitant</a></li>
-                        <li><a href="#">Archives sous-traitant</a></li>
+                        <li><a href="Ajout-Sous-Traitant">Nouveau sous-traitant</a></li>
+                        <li><a href="Archive-Sous-Traitant">Archives sous-traitant</a></li>
                     </ul>
                 </li>
                 <li class="parent">
@@ -49,7 +49,7 @@
                     <ul class="subMenu">
                         <li><a href="./Liste-Employer">Liste employé(e)</a></li>
                         <li><a href="./Ajout-Employer">Nouveau employé(s)</a></li>
-                        <li><a href="#">Archives employé(e)</a></li>
+                        <li><a href="./Archive-Employer">Archives employé(e)</a></li>
                     </ul>
                 </li>
                 <li class="parent">

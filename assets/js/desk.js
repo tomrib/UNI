@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
             '<p>' + d.text + '</p>' +
             '<p>Fait le : ' + d.date + ' à ' + d.timer + '</p>' +
             '<button type="button" class="deleteNote" title="Suppression de la fiche" data-id="' + d.idNote + '"><i class="fas fa-trash-alt"></i></button>' +
+            '<hr>'+
             '</div>';
         return pattern;
     }

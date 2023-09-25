@@ -1,6 +1,6 @@
 RewriteEngine On
 #? 404
-ErrorDocument 404 /views/errors/page404.php
+ErrorDocument 404 /index.php
 #? Connexion
 RewriteRule ^Connexion$ ./index
 RewriteRule ^Deconnecter$ ./controllers/logoutController.php
@@ -28,3 +28,6 @@ RewriteRule ^Archive-Sous-Traitant$ ./controllers/archives/archiveInterventionsC
 RewriteRule ^Ajout-Planning$ ./controllers/plannings/addPlanningController.php
 RewriteRule ^Planning$ ./controllers/plannings/planningController.php
 RewriteRule ^Modifier-Planning-([0-9]+)$ ./controllers/plannings/updatePlanningController.php?id=$1
+#? intervantion
+RewriteRule ^Intevention$ ./controllers/interventions/listInterventionController.php
+RewriteRule ^Modifier-Intevention-([0-9]+)$ ./controllers/plannings/updatePlanningController.php?id=$1

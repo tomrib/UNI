@@ -9,14 +9,14 @@ $formErrors = [];
 
 //liste des contra
 $listContra = new contractsTypes;
-$contra = $listContra->listContractTypes();
+$contract = $listContra->listContractTypes();
 //liste des types de poste 
 $list = new typesUser;
 $listTypeUser = $list->getTypesUsers();
 // recupare les information de user par son id
 $userId = new user;
 $userId->id = $_GET['id'];
-$userIdOne = $userId->getUserOne();
+$userId = $userId->getUserOne();
 /**
  * on fait un count de post pour savoir s'il y a des élément a vérifier
  * on contrôle les élément de chaque champ séparément

@@ -119,7 +119,6 @@ class user
         firstname,
         birthday,
         email,
-        PASSWORD,
         address,
         phone,
         socialInsuranceNumber,

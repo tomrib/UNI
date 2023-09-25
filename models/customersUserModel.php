@@ -34,28 +34,16 @@ class customersUser
         return $request->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function startDateReal()
+    public function updateDateReal($column)
     {
         $query = 'UPDATE jg7b_customersusers
-    SET startDateReal = NOW()
+    SET ' . $column . ' = TIME(NOW())
     WHERE id_users = :id_users AND id_customers = :id_customers AND id_dates = :id_dates;';
         $request = $this->db->prepare($query);
         $request->bindValue(':id_users', $this->id_users, PDO::PARAM_STR);
         $request->bindValue(':id_dates', $this->id_dates, PDO::PARAM_STR);
         $request->bindValue(':id_customers', $this->id_customers, PDO::PARAM_STR);
-        $request->execute();
+        return $request->execute();
     }
-
-    public function endDateReal()
-    {
-        $query = 'UPDATE jg7b_customersusers
-    SET endDateReal = NOW()
-    WHERE id_users = :id_users AND id_customers = :id_customers AND id_dates = :id_dates;';
-        $request = $this->db->prepare($query);
-        $request->bindValue(':id_users', $this->id_users, PDO::PARAM_STR);
-        $request->bindValue(':id_dates', $this->id_dates, PDO::PARAM_STR);
-        $request->bindValue(':id_customers', $this->id_customers, PDO::PARAM_STR);
-        $request->execute();
-    }
-
 }
+
