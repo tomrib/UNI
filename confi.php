@@ -4,15 +4,21 @@ $regex = [
     'name' => '/^[A-Za-z\- áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]{1,20}$/',
     'date' => '/^\d{4}-\d{2}-\d{2}$/',
     'email' => '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
-    'password' => '/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/',
+    'password' => '/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&.]{8,}$/',
     'address' => '/^([1-9][0-9]*(?:-[1-9][0-9]*)*)[\s,-]+(?:(bis|ter|qua)[\s,-]+)?([\w]+[\-\w]*)[\s,]+([-\w].+)$/',
     'phone' => '/^(?:0)\s*[1-9](?:[\s.-]*\d{2}){4}$/',
     'number' => '/^[1-9]{1}$/',
     'numberCustomer' => '/^[0-9]+$/',
     'socialInsuranceNumber' => '/^[0-9]{1} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{3} [0-9]{3}$/',
+    'time' => '/^\d{2}:\d{2}$/',
 ];
 
-$mime_types = array();
+$mime_types = array(
+    'png' => 'image/png',
+    'jpeg' => 'image/jpeg',
+    'jpg' => 'image/jpeg',
+    'gif' => 'image/gif',
+);
 
 
 define('BLOCK_ERROR_TEXT', 'Le mot "script" n\'est pas autorisé.');
@@ -62,3 +68,11 @@ define('USER_BIRTHAY_INFO_INVALID', '⚠️ Attention, le profil suivant est âg
 define('USER_CUSTOMER_ERROR_EMPTY', 'Votre lieu de travail est obligatoire ?');
 define('USER_CUSTOMER_ERROR_INVALID', 'Votre lieu de travail n\'est pas valide.');
 define('USER_CUSTOMER_ERROR_ID', 'Vous n\'êtes pas autorisé à sélectionner ce lieu.');
+
+define('STAFF_INTERVANTION_IMG_EMPTY', 'Aucun fichier n\'a été téléchargé.');
+define('STAFF_INTERVANTION_IMG_EXCEEDS_LIMIT', 'Le fichier téléchargé dépasse la limite ');
+define('STAFF_INTERVANTION_IMG_WEIGHT','L\'image et trop volumine 10MO');
+
+define('INTERVENTION_ERREUR_EMPTY','La description de l\'intervention est obligatoire.');
+define('INTERVENTION_ERREUR_TIME_EMPTY','L\'heure l\'intervention est obligatoire.');
+define('INTERVENTION_ERREUR_TIME_INVALID','L\'heure l\'intervention nes pas valide.');

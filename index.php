@@ -17,7 +17,7 @@
             <h1>Bienvenue chez UNI</h1>
             <label for="login">ADRESSE MAIL</label>
             <input name="loginEmail" type="text" id="login" placeholder="login" autofocus required>
-
+            
             <label for="password">MOT DE PASSE</label>
             <div class="eye">
                 <input name="loginPassword" type="password" id="password" class="passwordInput" placeholder="mot de passe" required>
@@ -25,6 +25,7 @@
                     <i class="far fa-eye-slash"></i>
                 </button>
             </div>
+            <p class="errors"><?= @$formErrors['loginEmail'] ?></p>
 
             <!-- Boutons d'action -->
             <button id="validationLogin" type="submit">Valider</button>

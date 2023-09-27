@@ -13,7 +13,7 @@
     <h1> ⚠️ DÉCONNECTION ⚠️ </h1>
     <p>Nous vous avons automatiquement déconnecter de votre espace.</p>
     <p>Merci de vous reconnecter.</p>
-    <p><a href="./connexion">Retour à la page d'accueil</a></p>
+    <p><a href="./Connexion">Retour à la page d'accueil</a></p>
 
 </body>
 

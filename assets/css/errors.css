@@ -18,7 +18,6 @@ a {
     border-radius: 20px;
     text-decoration: none; 
 }
-
 a:hover {
         background-color: #fff;
         border: 1px solid #0c0d29;
@@ -27,7 +26,6 @@ a:hover {
         border-radius: 20px;
         text-decoration: none;
 }
-
 @media (max-width: 768px) {
     body {
         padding: 20px;

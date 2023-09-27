@@ -1,16 +1,12 @@
 <?php
 require_once "database.php";
-class interventions
+
+class imginterventions
 {
     public $db = NULL;
     public int $id = 0;
-    public string $text = "";
     public string $img = "";
-    public string $datetime = "";
-    public int $id_customers = 0;
-    public int $id_users = 0;
-    public int $id_typesInterventions = 0;
-    public int $id_subcontractor = 0;
+    public int $id_interventions  = 0;
 
 
     public function __construct()
@@ -20,5 +16,17 @@ class interventions
         } catch (PDOException $e) {
             die($e->getMessage());
         }
+    }
+
+    public function addImgIntervention()
+    {
+        $query = 'INSERT INTO `jg7b_imginterventions` (
+            `img`
+        ) VALUES (
+            :img
+        );';
+        $request = $this->db->prepare($query);
+        $request->bindValue(':img', $this->img, PDO::PARAM_STR);
+        $request->execute();
     }
 }

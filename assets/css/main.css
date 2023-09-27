@@ -203,10 +203,6 @@ p {
   border: 1px solid #fff;
 }
 
-#confirmationModalUpdate {
-  display: none;
-}
-
 header {
   background-color: #0c0d29;
   color: #fff;
@@ -791,6 +787,10 @@ button a:hover {
 
 label {
   display: block;
+}
+
+#confirmationModalUpdate {
+  display: none;
 }
 
 .tableContainer {

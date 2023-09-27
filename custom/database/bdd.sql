@@ -154,6 +154,19 @@ CREATE TABLE jg7b_dates(
 
 
 #------------------------------------------------------------
+# Table: jg7b_imgInterventions
+#------------------------------------------------------------
+
+CREATE TABLE jg7b_imgInterventions(
+        id                    Int  Auto_increment  NOT NULL ,
+        img                   Varchar (255) NOT NULL ,
+        id_interventions Int NOT NULL
+	,CONSTRAINT imgInterventions_PK PRIMARY KEY (id)
+
+	,CONSTRAINT imgInterventions_interventions_FK FOREIGN KEY (id_interventions) REFERENCES JG7B_interventions(id)
+)ENGINE=InnoDB;
+
+#------------------------------------------------------------
 # Table: jg7b_customersUsers
 #------------------------------------------------------------
 

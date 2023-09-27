@@ -106,7 +106,7 @@ if (count($_POST) > 0) {
         } else {
             $formErrors['contract'] = USER_CONTRACT_ERROR_INVALID;
         }
-        
+
         if (!empty($_POST['beginningContract'])) {
             if (preg_match($regex['date'], $_POST['beginningContract'])) {
                 $add->beginningContract = strip_tags($_POST['beginningContract']);
@@ -116,14 +116,14 @@ if (count($_POST) > 0) {
         } else {
             $formErrors['beginningContract'] = USER_BEGINNINGCONTRACT_ERROR_EMPTY;
         }
-        
+
         if ($_POST['contract'] === 2 || $_POST['contract'] === 3) {
             if (!empty($_POST['endContract'])) {
                 if (preg_match($regex['date'], $_POST['endContract'])) {
                     $add->endContract = strip_tags($_POST['endContract']);
                     $beginningContract = new DateTime($add->beginningContract);
                     $endContract = new DateTime($add->endContract);
-                    
+
                     if ($beginningContract > $endContract) {
                         $formErrors['endContract'] = USER_CONTRACTEND_ERROR;
                     }
@@ -137,7 +137,7 @@ if (count($_POST) > 0) {
     } else {
         $formErrors['contract'] = USER_CONTRACT_ERROR_EMPTY;
     }
-        var_dump($_POST);
+    var_dump($_POST);
     if (count($formErrors) == 0) {
         $add->addUser();
         header('Location:./Liste-Employer');

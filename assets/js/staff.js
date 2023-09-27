@@ -39,28 +39,6 @@ endButton.addEventListener("click", function (event) {
 });
 
 
-// function submitForm() {
-//   var xhr = new XMLHttpRequest();
-//   var formData = new FormData(formulaire);
-//   console.log(formulaire);
-//   xhr.open("POST", "controllers/ajax/ajaxStaffTimeController.php?action=end", true); // Ouvrir la requête d'abord
-//   xhr.onreadystatechange = function () {
-//     if (xhr.readyState === 4 && xhr.status === 200) {
-      
-//       // Traitement de la réponse du serveur
-//       var response = JSON.parse(this.responseText);
-//       if (response.message) {
-//         alert(response.message);
-//         // Réinitialisez le formulaire ou effectuez d'autres actions ici
-//       } else if (response.error) {
-//         formErrors.innerHTML = response.error;
-//       }
-      
-//     }
-//   };
-//   xhr.send(); // Ensuite, envoyer les données
-// }
-
 for(let t of timeButtons) {
   t.addEventListener('click', () => {
     arrivalMessage.innerHTML = '';
@@ -96,12 +74,6 @@ arrivalCloseButton.addEventListener("click", () => {
   modal.style.display = "none";
   location.reload();
 });
-
-
-
-
-
-
 
 // JS Bouton click pour upload le/les fichier(s):
 uploadButtonTest.addEventListener("click", function (event) {

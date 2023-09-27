@@ -4,6 +4,7 @@ ErrorDocument 404 /index.php
 #? Connexion
 RewriteRule ^Connexion$ ./index
 RewriteRule ^Deconnecter$ ./controllers/logoutController.php
+
 #? Bureau
 RewriteRule ^Bureau$ ./controllers/deskController.php
 #? les vues des employers 

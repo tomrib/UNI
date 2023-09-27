@@ -14,29 +14,24 @@
             <button name="arrivalButton" id="arrivalButton" class="timeButtons" action="arrival">Je suis sur place !</button>
             <button name="endButton" id="endButton" class="timeButtons" action="end">Fin d'intervention</button>
         </div>
-
         <div class="upload">
             <h2>Faire un signalement</h2>
             <button id="openUploadModal">Continuer</button>
         </div>
-
         <a id="exitButton1" href="./Deconnecter"><button><i class="fas fa-door-open"></i> Exit</button></a>
-
     </div>
 </div>
-
 <div id="myModalArrival" class="modalArrival">
     <p id="arrivalMessage"></p>
     <button id="arrivalCloseButton">Fermer</button>
 </div>
+<form method="POST" enctype="multipart/form-data" id="myModalUpload" class="modalUpload">
 
-
-<form id="myModalUpload" class="modalUpload" method="POST">
     <h2>SIGNALEMENT</h2>
     <div class="dateReporting">
-        <p data-id="<?= $todayDate->id ?>">Nous sommes le <?= $todayDate->date ?> </p>
-
+        <p>Nous sommes le <?= $todayDate->date ?></p>
     </div>
+
     <div class="select">
         <div>
             <p>Lieu du signalement:</p>
@@ -47,10 +42,12 @@
                 <?php } ?>
             </select>
         </div>
+
         <div>
             <p>Heure de l'événement:</p>
             <input type="time" name="timeIntervention">
         </div>
+
         <div>
             <p>Type d'événement:</p>
             <select name="TypesInterventions">
@@ -61,14 +58,18 @@
             </select>
         </div>
     </div>
+
     <p>Votre message:</p>
     <textarea rows="8" name="textIntervention"></textarea>
+
     <p>Envoyé un fichier:</p>
     <button id="uploadButtonTest">UPLOAD</button>
-    <input type="file" id="fileUpload" accept="image/*" name="imgIntervention">
+    <input type="file" id="fileUpload" name="imgIntervention[]" multiple>
     <p id="fileCountText"></p>
+
     <button id="UploadCloseButton">ANNULER</button>
     <button id="sendButton">VALIDER</button>
+
     <div id="confirmationModal" class="modal">
         <div>
             <p>Êtes-vous sûr de vouloir valider votre signalement ?</p>
@@ -79,6 +80,4 @@
         </div>
     </div>
 </form>
-
-
 <script src="assets/js/staff.js"></script>

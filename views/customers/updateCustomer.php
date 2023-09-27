@@ -17,9 +17,10 @@
             <label for="email">Mail</label>
             <input type="email" id="email" name="email" placeholder="Email de l'entreprise" value="<?= $listCustomerOne->email  ?>" ">
             <p class=" errors"><?= @$formErrors['email'] ?></p>
-            <button name="validationCustomers" id="validationUpdate">Modifier</button>
+
+            <button  id="validationCustomer" onclick="modalUpdate()">Modifier</button>
             <button id="closeUpdateCustomers">Annuler</button>
-            <div id="confirmationModalUpdate" class="modalUpdate">
+            <div id="confirmationModalUpdate" class="modal">
                 <div class="modalContent">
                     <p id="confirmationMessage">Êtes-vous sûr(e) de vouloir modifier ?</p>
                     <div class="modalButtons">
@@ -31,4 +32,4 @@
         </form>
     </div>
 </div>
-<script src="assets/js/updateClients.js"></script>
+<script src="assets/js/clients.js"></script>

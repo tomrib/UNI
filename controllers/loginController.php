@@ -10,15 +10,16 @@ if (count($_POST) > 0) {
         if ($user->checkIfUsersExist('email') > 0) {
             $password = $user->getPassword();
         } else {
-            $formErrors['loginEmail'] = USER_PASSWORD_ERROR_INVALID;
+            $formErrors['loginEmail'] = LOGIN_PASSWORD_ERROR_INVALID;
         }
     } else {
-        $formErrors['loginEmail'] = USER_EMAIL_ERROR_EMPTY;
+        $formErrors['loginEmail'] = LOGIN_PASSWORD_ERROR_INVALID;
     }
     if (!empty($_POST['loginPassword'])) {
         if (isset($password)) {
             if (password_verify($_POST['loginPassword'], $password)) {
                 $_SESSION['user'] = $user->getId();
+                $_SESSION['user']['timeout'] = time();
                 if ($_SESSION['user']['id_usersTypes'] === 2 || $_SESSION['user']['id_usersTypes'] === 3) {
                     header('location:./Bureau');
                     exit;
@@ -28,12 +29,12 @@ if (count($_POST) > 0) {
                     exit;
                 }
             } else {
-                $formErrors['loginEmail'] = USER_PASSWORD_ERROR_INVALID;
+                $formErrors['loginEmail'] = LOGIN_PASSWORD_ERROR_INVALID;
             }
         } else {
-            $formErrors['loginEmail'] = USER_PASSWORD_ERROR_INVALID;
+            $formErrors['loginEmail'] = LOGIN_PASSWORD_ERROR_INVALID;
         }
     } else {
-        $formErrors['loginEmail'] = USER_PASSWORD_EMPTY;
+        $formErrors['loginEmail'] = LOGIN_PASSWORD_ERROR_INVALID;
     }
 }
