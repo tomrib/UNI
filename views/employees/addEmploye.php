@@ -21,7 +21,7 @@
                 <input type="text" id="phone" name="phone" placeholder="Téléphone de l'employé(e)..." inputmode="numeric" title="Veuillez entrer un numéro de téléphone à 10 chiffres." value="<?= @$_POST['phone'] ?>" class="<?= isset($formErrors['phone']) ? 'inputError' : '' ?>" required>
                 <p class="errors"><?= @$formErrors['phone'] ?></p>
                 <label for="socialInsuranceNumber">N° Sécu</label>
-                <input type="text" id="socialInsuranceNumber" name="socialInsuranceNumber" inputmode="numeric" placeholder="Numéro de sécurité sociale de l'employé(e)..." value="<?= @$_POST['socialInsuranceNumber'] ?>" class="<?= isset($formErrors['socialInsuranceNumber']) ? 'inputError' : '' ?>">
+                <input type="text" id="socialInsuranceNumber" name="socialInsuranceNumber" placeholder="Numéro de sécurité sociale de l'employé(e)..." value="<?= @$_POST['socialInsuranceNumber'] ?>" class="<?= isset($formErrors['socialInsuranceNumber']) ? 'inputError' : '' ?>">
                 <p class="errors"><?= @$formErrors['socialInsuranceNumber'] ?></p>
                 <label for="password">Mot de passe</label>
                 <div class="eye">

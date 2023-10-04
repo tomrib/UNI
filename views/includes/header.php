@@ -55,8 +55,8 @@
                 <li class="parent">
                     <a href="#">Interventions</a>
                     <ul class="subMenu">
-                        <li><a href="#">Liste intervention</a></li>
-                        <li><a href="#">Créer une intervention</a></li>
+                        <li><a href="Liste-Intervention">Liste intervention</a></li>
+                        <li><a href="Ajout-Intervention">Créer une intervention</a></li>
                         <li><a href="#">Archives intervention</a></li>
                     </ul>
                 </li>

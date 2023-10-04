@@ -137,7 +137,6 @@ if (count($_POST) > 0) {
     } else {
         $formErrors['contract'] = USER_CONTRACT_ERROR_EMPTY;
     }
-    var_dump($_POST);
     if (count($formErrors) == 0) {
         $add->addUser();
         header('Location:./Liste-Employer');

@@ -19,4 +19,13 @@ class subcontractor
         }
     }
 
+    public function listSubcontractor()
+    {
+        $query = '
+        SELECT `id`, `name` FROM `jg7b_subcontractor`;
+        ';
+        $request = $this->db->query($query);
+        return $request->fetchAll(PDO::FETCH_OBJ);
+    }
+
 }

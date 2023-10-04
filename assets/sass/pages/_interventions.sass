@@ -20,3 +20,86 @@ button a
     border: none
     width: 100%
     padding: 0px
+
+.addIntervention
+    background-color: $color_6
+    border-radius: 3px
+
+.displaySelect
+    display: flex
+    justify-content: center
+    align-items: center
+    p, select
+        margin-right: 10px
+
+#confirmDeleteIntervention
+    display: none
+
+.displayButtonUpdate
+    display: flex
+    justify-content: space-between
+
+#confirmationUpdateIntervention
+    display: none
+
+#addIntervenant
+    text-align: center
+    display: none
+
+#addIntervenant h2
+    padding: 5px
+    margin: 5px
+
+#addIntervenant select
+    display: block
+    margin: 0 auto
+
+#addIntervenant button
+    float: left
+    margin-right: 10px
+    margin: 10px
+
+#addIntervenant button:last-child
+    float: right
+    margin-right: 0
+    margin: 10px
+
+#infoIntervention p
+    text-align: left
+    margin: 10px
+
+#infoIntervention
+    display: none
+
+#infoIntervention button
+    margin: 10px
+
+.borderComment
+    border: 1px $color_1 solid
+    background-color: $color_6
+
+#photoCarouselModal
+    display: none
+
+.close
+    position: absolute
+    top: 0
+    right: 0
+    padding: 10px
+    cursor: pointer
+
+/* Styles pour le carrousel */
+.carousel
+    display: flex
+    overflow: hidden
+    width: 100%
+    height: auto
+
+    &-slide
+        min-width: 100%
+        transition: transform 0.5s ease
+
+/* Styles pour les images */
+    &-slide img
+        max-width: 100%
+        height: auto

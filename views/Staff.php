@@ -25,32 +25,28 @@
     <p id="arrivalMessage"></p>
     <button id="arrivalCloseButton">Fermer</button>
 </div>
-<form method="POST" enctype="multipart/form-data" id="myModalUpload" class="modalUpload">
-
+<form method="POST" id="myModalUpload" class="modalUpload" enctype="multipart/form-data">
     <h2>SIGNALEMENT</h2>
     <div class="dateReporting">
         <p>Nous sommes le <?= $todayDate->date ?></p>
     </div>
-
     <div class="select">
         <div>
             <p>Lieu du signalement:</p>
-            <select name="nameCustomer">
+            <select id="id_customer" name="id_customer">
                 <option selected disabled value="">---</option>
                 <?php foreach ($listName as $customer) { ?>
                     <option value="<?= $customer->id ?>"><?= $customer->name ?></option>
                 <?php } ?>
             </select>
         </div>
-
         <div>
             <p>Heure de l'événement:</p>
-            <input type="time" name="timeIntervention">
+            <input type="time" id="time" name="timeIntervention">
         </div>
-
         <div>
             <p>Type d'événement:</p>
-            <select name="TypesInterventions">
+            <select id="id_typesInterventions" name="id_typesInterventions">
                 <option selected disabled>---</option>
                 <?php foreach ($listTypesInterventions as $e) { ?>
                     <option value="<?= $e->id ?>"><?= $e->name ?></option>
@@ -58,18 +54,17 @@
             </select>
         </div>
     </div>
-
     <p>Votre message:</p>
-    <textarea rows="8" name="textIntervention"></textarea>
-
+    <textarea rows="8" id="text" name="textIntervention"></textarea>
     <p>Envoyé un fichier:</p>
     <button id="uploadButtonTest">UPLOAD</button>
-    <input type="file" id="fileUpload" name="imgIntervention[]" multiple>
+    <input type="file" name="imgIntervention" id="fileUpload" multiple />
     <p id="fileCountText"></p>
-
+    <p id="errorMessages" class="error">
+        <!-- Les erreurs seront affichées ici -->
+    </p>
     <button id="UploadCloseButton">ANNULER</button>
     <button id="sendButton">VALIDER</button>
-
     <div id="confirmationModal" class="modal">
         <div>
             <p>Êtes-vous sûr de vouloir valider votre signalement ?</p>

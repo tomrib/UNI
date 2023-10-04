@@ -21,12 +21,15 @@ class imginterventions
     public function addImgIntervention()
     {
         $query = 'INSERT INTO `jg7b_imginterventions` (
-            `img`
+            `img`,
+            `id_interventions`
         ) VALUES (
-            :img
+            :img,
+            :id_interventions
         );';
         $request = $this->db->prepare($query);
         $request->bindValue(':img', $this->img, PDO::PARAM_STR);
+        $request->bindValue(':id_interventions', $this->id_interventions, PDO::PARAM_STR);
         $request->execute();
     }
 }

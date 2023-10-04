@@ -32,3 +32,9 @@ RewriteRule ^Modifier-Planning-([0-9]+)$ ./controllers/plannings/updatePlanningC
 #? intervantion
 RewriteRule ^Intevention$ ./controllers/interventions/listInterventionController.php
 RewriteRule ^Modifier-Intevention-([0-9]+)$ ./controllers/plannings/updatePlanningController.php?id=$1
+#? configuration des page de controlle
+RewriteRule ^controllerIntervention$ ./controllers/ajax/fetchAddInterventionController.php
+#? la vue des interventions
+RewriteRule ^Liste-Intervention$ ./controllers/interventions/listInterventionController.php
+RewriteRule ^Ajout-Intervention$ ./controllers/interventions/addInterventionController.php
+RewriteRule ^Modifier-Intervention$ ./controllers/interventions/updateInterventionController.php
