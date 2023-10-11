@@ -44,4 +44,4 @@
 </div>
 
 
-<script src="assets/js/test.js"></script>
+<script src="assets/js/interventions.js"></script>

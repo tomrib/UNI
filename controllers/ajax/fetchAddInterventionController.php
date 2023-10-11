@@ -18,43 +18,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!preg_match($regex['content'], $_POST['textIntervention'])) {
             $addIntervention->text = strip_tags($_POST['textIntervention']);
         } else {
-            echo BLOCK_ERROR_TEXT;
+            $formError[] =  BLOCK_ERROR_TEXT;
         }
     } else {
-        echo INTERVENTION_ERREUR_EMPTY;
+        $formError[] =  INTERVENTION_ERREUR_EMPTY;
     }
     $date = date('Y-m-d');
     if (!empty($date)) {
         $addIntervention->reportingDate = $date;
     } else {
-        echo ERREUR_ADMIN_INVALID;
+        $formError[] =  ERREUR_ADMIN_INVALID;
     }
     if (!empty($_POST['timeIntervention'])) {
         if (preg_match($regex['time'], $_POST['timeIntervention'])) {
             $addIntervention->reportingTime = strip_tags($_POST['timeIntervention']);
         } else {
-            echo INTERVENTION_ERREUR_TIME_INVALID;
+            $formError[] =  INTERVENTION_ERREUR_TIME_INVALID;
         }
     } else {
-        echo INTERVENTION_ERREUR_TIME_EMPTY;
+        $formError[] =  INTERVENTION_ERREUR_TIME_EMPTY;
     }
     if (!empty($_POST['id_customer'])) {
         if (preg_match($regex['numberCustomer'], $_POST['id_customer'])) {
             $addIntervention->id_customers = intval(strip_tags($_POST['id_customer']));
         } else {
-            echo USER_CUSTOMER_ERROR_INVALID;
+            $formError[] =  USER_CUSTOMER_ERROR_INVALID;
         }
     } else {
-        echo USER_CUSTOMER_ERROR_EMPTY;
+        $formError[] =  USER_CUSTOMER_ERROR_EMPTY;
     }
     if (!empty($_POST['id_typesInterventions'])) {
         if (preg_match($regex['numberCustomer'], $_POST['id_typesInterventions'])) {
             $addIntervention->id_typesInterventions = intval(strip_tags($_POST['id_typesInterventions']));
         } else {
-            echo USER_ERREUR_TYPEINTERVENTIO_INVALID;
+            $formError[] =  USER_ERREUR_TYPEINTERVENTIO_INVALID;
         }
     } else {
-        echo USER_ERREUR_TYPEINTERVENTIO_EMPTY;
+        $formError[] =  USER_ERREUR_TYPEINTERVENTIO_EMPTY;
     }
 
 
@@ -74,41 +74,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         if (move_uploaded_file($file['tmp_name'], '../../' . $path)) {
                             chmod('../../' . $path, '664');  // Correction des permissions
                             // Ajouter les informations sur le fichier à la base de données
-                            echo $path;
+                            $formError[] =  $path;
                             try {
                                 $add->img = $path;
                                 $add->id_interventions = $addIntervention->addIntervention();
                                 if ($add->addImgIntervention()) {
-                                    echo 'Fichier téléchargé avec succès \n';
+                                    $formError[] =  'Fichier téléchargé avec succès \n';
                                 } else {
                                     unlink('../../' . $path);
-                                    echo 'Erreur lors du traitement du fichier \n';
+                                    $formError[] =  'Erreur lors du traitement du fichier \n';
                                 }
                             } catch (PDOException $e) {
                                 unlink('../../' . $path);
-                                echo  'Erreur lors du traitement du fichier \n';
+                                $formError[] =   'Erreur lors du traitement du fichier \n';
                             }
                         } else {
-                            echo 'Erreur lors du déplacement du fichier téléchargé. \n';
+                            $formError[] =  'Erreur lors du déplacement du fichier téléchargé. \n';
                         }
                     } else {
-                        echo ' Extension de fichier non autorisée ou type MIME incorrect. ';
+                        $formError[] =  ' Extension de fichier non autorisée ou type MIME incorrect. ';
                     }
                     break;
                 case UPLOAD_ERR_INI_SIZE: //erreur 1
-                    echo ' taille ';
+                    $formError[] =  ' taille ';
                 case UPLOAD_ERR_PARTIAL: //erreur 3
-                    echo ' Le fichier n\'a été que partiellement téléchargé. \n';
+                    $formError[] =  ' Le fichier n\'a été que partiellement téléchargé. \n';
                     break;
                 case UPLOAD_ERR_NO_FILE: //erreur 4
-                    echo ' Aucun fichier n\'a été téléchargé. \n';
+                    $formError[] =  ' Aucun fichier n\'a été téléchargé. \n';
                     break;
                 default:
-                    echo ' Une erreur inconnue s\'est produite. \n';
+                    $formError[] =  ' Une erreur inconnue s\'est produite. \n';
             }
         }
         $addIntervention->addIntervention();
     }
 } else {
-    echo 'Méthode non autorisée. \n';
+    $formError[] =  'Méthode non autorisée. \n';
 }

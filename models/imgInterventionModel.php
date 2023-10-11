@@ -30,6 +30,19 @@ class imginterventions
         $request = $this->db->prepare($query);
         $request->bindValue(':img', $this->img, PDO::PARAM_STR);
         $request->bindValue(':id_interventions', $this->id_interventions, PDO::PARAM_STR);
-        $request->execute();
+        return $request->execute();
+    }
+
+    public function getImgId()
+    {
+        $query = 'SELECT
+        `img`
+    FROM
+        `jg7b_imginterventions`
+    WHERE
+        jg7b_imginterventions.id_interventions = :id_interventions;';
+        $request = $this->db->prepare($query);
+        $request->bindValue(':id_interventions', $this->id_interventions,PDO::PARAM_STR);
+        return $request->fetchAll(PDO::FETCH_OBJ);
     }
 }

@@ -61,7 +61,7 @@ class interventions
     public function listIntervention()
     {
         $query = 'SELECT
-        jg7b_interventions.id,
+        jg7b_interventions.id AS id,
         text,
         reportingDate,
         jg7b_typesinterventions.name,
@@ -78,20 +78,21 @@ class interventions
     public function getInterventionOne()
     {
         $query = 'SELECT
-        jg7b_interventions.id,
+        jg7b_interventions.id AS id,
         text,
         interventionDate,
-        jg7b_users.lastname,
-        firstname,
-        jg7b_typesinterventions.name,
-        jg7b_customers.address,
-        jg7b_subcontractor.name AS nameSubcontrator
+        jg7b_users.lastname AS userLastname,
+        jg7b_users.firstname AS userFirstname,
+        jg7b_typesinterventions.name AS interventionType,
+        jg7b_customers.address AS customerAddress,
+        jg7b_customers.name AS customerName,
+        jg7b_customers.phone AS customerPhone,
+        jg7b_customers.email AS customerEmail
     FROM
         `jg7b_interventions`
     INNER JOIN jg7b_customers ON jg7b_interventions.id_customers = jg7b_customers.id
     INNER JOIN jg7b_users ON jg7b_interventions.id_users = jg7b_users.id
     INNER JOIN jg7b_typesinterventions ON jg7b_interventions.id_typesInterventions = jg7b_typesinterventions.id
-    INNER JOIN jg7b_subcontractor ON jg7b_interventions.id_subcontractor = jg7b_subcontractor.id
     WHERE
         jg7b_interventions.id = :id';
         $request = $this->db->prepare($query);
