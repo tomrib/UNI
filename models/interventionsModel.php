@@ -87,12 +87,14 @@ class interventions
         jg7b_customers.address AS customerAddress,
         jg7b_customers.name AS customerName,
         jg7b_customers.phone AS customerPhone,
-        jg7b_customers.email AS customerEmail
+        jg7b_customers.email AS customerEmail,
+        img
     FROM
         `jg7b_interventions`
     INNER JOIN jg7b_customers ON jg7b_interventions.id_customers = jg7b_customers.id
     INNER JOIN jg7b_users ON jg7b_interventions.id_users = jg7b_users.id
     INNER JOIN jg7b_typesinterventions ON jg7b_interventions.id_typesInterventions = jg7b_typesinterventions.id
+    INNER JOIN jg7b_imginterventions ON jg7b_interventions.id = jg7b_imginterventions.id_interventions
     WHERE
         jg7b_interventions.id = :id';
         $request = $this->db->prepare($query);

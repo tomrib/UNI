@@ -25,20 +25,20 @@ if (count($_POST) > 0) {
                 $_SESSION['user'] = $user->getId();
 
                 // Redirigez l'utilisateur en fonction de son type
-                if ($_SESSION['user']['id_usersTypes'] === 2 || $_SESSION['user']['id_usersTypes'] === 3) {
+                if ($_SESSION['user']['id_usersTypes'] == 2 || $_SESSION['user']['id_usersTypes'] == 3) {
                     header('Location: ./Bureau');
                     exit;
-                } elseif ($_SESSION['user']['id_usersTypes'] === 1) {
+                } elseif ($_SESSION['user']['id_usersTypes'] == 1) {
                     header('Location: ./Espace-Employés');
                     exit;
                 }
             } else {
-                $formErrors['loginEmail'] = "Mot de passe incorrect."; // Message d'erreur pour un mot de passe incorrect
+                $formErrors['loginEmail'] = LOGIN_PASSWORD_ERROR_INVALID; // Message d'erreur pour un mot de passe incorrect
             }
         } else {
-            $formErrors['loginEmail'] = "L'utilisateur avec cet e-mail n'existe pas."; // Message d'erreur pour un e-mail invalide
+            $formErrors['loginEmail'] = LOGIN_PASSWORD_ERROR_INVALID; // Message d'erreur pour un e-mail invalide
         }
     } else {
-        $formErrors['loginEmail'] = "Veuillez saisir une adresse e-mail."; // Message d'erreur pour une adresse e-mail manquante
+        $formErrors['loginEmail'] = LOGIN_PASSWORD_ERROR_INVALID; 
     }
 }
