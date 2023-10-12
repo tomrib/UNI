@@ -112,8 +112,6 @@ fileInput.addEventListener('change', (event) => {
       modalUpload.style.display = "none";
     }
   }
-  // Affichez les fichiers sélectionnés dans la console
-  console.log('Fichiers sélectionnés :', fileList.length);
 });
 
 // Ajoutez un écouteur d'événements au bouton (doit être défini dans le code HTML avec l'ID "uploadButton")
@@ -125,7 +123,6 @@ sendButton.addEventListener('click', (event) => {
   // Ajoutez chaque fichier au FormData
   fileList.forEach((file, index) => {
     formData.append(`file${index + 1}`, file);
-    console.log('Fichier ajouté au FormData :', file);
   });
 
   // Spécifiez l'URL vers laquelle envoyer les fichiers 
@@ -162,29 +159,9 @@ sendButton.addEventListener('click', (event) => {
       console.error('Erreur lors de l\'envoi des fichiers :', error);
 
     });
-    sendButton.addEventListener("click", function (event) {
-      event.preventDefault();
-      
-      // Afficher la modal de confirmation
-      confirmationModal.style.display = "block";
-    });
-  })
-    
+  sendButton.addEventListener("click", function (event) {
+    // Afficher la modal de confirmation
+    confirmationModal.style.display = "block";
+  });
+})
 
-sendButton.addEventListener('click', function (event) {
-  event.preventDefault(); // Empêche la soumission normale du formulaire
-
-  // Récupérez les valeurs des champs de texte et des sélecteurs
-  const textIntervention = document.getElementById('text').value;
-  const idCustomer = document.getElementById('id_customer').value;
-  const timeIntervention = document.getElementById('time').value;
-  const idTypesInterventions = document.getElementById('id_typesInterventions').value;
-
-  // Affichez les valeurs récupérées dans la console
-  console.log('Texte d\'intervention :', textIntervention);
-  console.log('ID du client :', idCustomer);
-  console.log('Heure d\'intervention :', timeIntervention);
-  console.log('ID du type d\'intervention :', idTypesInterventions);
-
-  // Vous pouvez également envoyer ces valeurs au serveur avec Fetch si nécessaire
-});

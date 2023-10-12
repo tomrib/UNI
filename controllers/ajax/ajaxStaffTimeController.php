@@ -14,7 +14,7 @@ if (!empty($_SESSION['user'])) {
     $updateDate->id_users = intval(strip_tags($_SESSION['user']['id']));
 } else {
     // Redirection vers la page de connexion si la session n'est pas définie.
-    header('location:./Connexion');
+    header('location:./Deconnecter');
     exit;
 }
 

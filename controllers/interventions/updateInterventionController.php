@@ -1,5 +1,13 @@
 <?php
 session_start();
+if ($_SESSION['user']['id_usersTypes'] == 1) {
+    header('location:./Deconnecter');
+    exit;
+}
+if (isset($_SESSION)) {
+    header('location:./Connexion');
+    exit;
+}
 require_once '../../models/subcontractorModel.php';
 require_once '../../models/typesInterventionsModel.php';
 require_once '../../confi.php';

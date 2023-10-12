@@ -66,7 +66,7 @@ function displayIntervention(button) {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 let data = JSON.parse(this.responseText);
                 if (data) { // Vérifiez si des données ont été renvoyées
-                    console.log(data);
+
                     infoInterventionModal.innerHTML = infoInterventionById(data); // Utilisez les données renvoyées pour générer le contenu
                 };
             };
@@ -124,8 +124,6 @@ confirmDelete.addEventListener("click", () => {
                 confirmDeleteIntervention.style.display = "none";
                 // Masque la modal de confirmation de suppression
                 listIntervention.innerHTML = "";
-                // Efface le contenu de la liste d'interventions
-                console.log(data);
                 // Remplit à nouveau la liste d'interventions avec les données mises à jour
                 for (let d of data.data) {
                     listIntervention.innerHTML += listInterventionPattern(d);
@@ -147,49 +145,3 @@ closeImgIntervention.addEventListener('click', () => {
 });
 
 // Fonction qui génère un modèle HTML pour afficher des images dans un carrousel
-function pattern(value) {
-    let pattern =
-        '<div class="carousel-slide">' +
-        '<img src="' + value + '" alt="" >' +
-        '</div>';
-    return pattern;
-}
-
-// Modifiez la fonction displayImg pour accepter l'ID en tant que paramètre
-viewPhotoButton.addEventListener("click", () => {
-    var xhr = new XMLHttpRequest();
-    let idIntervention = button.getAttribute("data-id"); // Il semble y avoir une erreur ici, "button" n'est pas défini.
-
-    // Assurez-vous que "button" est correctement défini ou utilisez un autre moyen pour obtenir l'ID de l'intervention.
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            let responseText = this.responseText;
-        
-            if (responseText.trim() !== '') { // Vérifie si la réponse n'est pas vide
-                let data = JSON.parse(responseText);
-
-                // Vous pouvez utiliser "data" ici pour afficher les images dans le carrousel
-                // Par exemple, en utilisant la fonction "pattern"
-                let imageCarousel = document.getElementById('imageCarousel');
-                imageCarousel.innerHTML = '';
-
-                // Assurez-vous que "data" est une structure JSON appropriée, puis utilisez-la pour afficher les images.
-                data.forEach(imageURL => {
-                    imageCarousel.innerHTML += pattern(imageURL);
-                });
-            } else {
-                console.log("La réponse JSON est vide.");
-            }
-        }
-    };
-
-    // Utilisez l'ID de l'intervention dans la requête AJAX
-    xhr.open(
-        "GET",
-        "controllers/ajax/ajaxListCustomerController.php?displayidimg=" + idIntervention,
-        true
-    );
-
-    xhr.send();
-});

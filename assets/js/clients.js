@@ -130,8 +130,6 @@ confirmDelete.addEventListener("click", () => {
         confirmDeleteModal.style.display = "none";
         // Masque la modal de confirmation de suppression
         listCustomer.innerHTML = "";
-        // Efface le contenu de la liste d'Customers
-console.log('data');
         // Remplit à nouveau la liste d'Customers avec les données mises à jour
         for (let d of data.data) {
           listCustomer.innerHTML += listCustomerPattern(d);

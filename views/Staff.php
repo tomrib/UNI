@@ -60,9 +60,14 @@
     <button id="uploadButtonTest">UPLOAD</button>
     <input type="file" name="imgIntervention" id="fileUpload" multiple />
     <p id="fileCountText"></p>
-    <p id="errorMessages" class="error">
-        <!-- Les erreurs seront affichées ici -->
-    </p>
+    <div id="errorMessages" class="error">
+        <p><?= @$formErrors['textIntervention'] ?></p>
+        <p><?= @$formErrors['timeIntervention'] ?></p>
+        <p><?= @$formErrors['id_customer'] ?></p>
+        <p><?= @$formErrors['id_typesInterventions'] ?></p>
+        <p><?= @$formErrors['date'] ?></p>
+        <p><?= @$formErrors['img'] ?></p>
+    </div>
     <button id="UploadCloseButton">ANNULER</button>
     <button id="sendButton">VALIDER</button>
     <div id="confirmationModal" class="modal">

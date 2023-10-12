@@ -5,8 +5,8 @@ session_start();
  *Redirection vers la connexion.
  *Arrête la lecture de code.
  */
-if ($_SESSION['user']['id_usersTypes'] === 2) {
-    header('location:./Connexion');
+if ($_SESSION['user']['id_usersTypes'] == 2 ) {
+    header('location:./Deconnecter');
     exit;
 }
 require_once '../../models/customersUserModel.php';

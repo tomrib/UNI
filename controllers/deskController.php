@@ -4,10 +4,14 @@ require_once '../models/notesModel.php';
 require_once '../models/userModel.php';
 require_once '../confi.php';
 $formErrors = [];
-if (isset($_SESSION['user']) && $_SESSION['user']['id_usersTypes'] === 1 ) {
+if ($_SESSION['user']['id_usersTypes'] == 1) {
+    header('location:./Deconnecter');
+    exit;
+}
+if (isset($_SESSION)) {
     header('location:./Connexion');
     exit;
-} 
+}
 
 if (count($_POST) > 0) {
     $note = new note;
@@ -24,9 +28,9 @@ if (count($_POST) > 0) {
     if (!empty($_SESSION['user']['id'])) {
         $note->id_users = intval($_SESSION['user']['id']);
     } else {
-        header('location:./Connexion');
+        header('location:./Deconnecter');
     }
-    
+
     if (count($formErrors) == 0) {
         $note->addNote();
     }
