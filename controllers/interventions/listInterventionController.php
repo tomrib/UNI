@@ -4,7 +4,7 @@ if ($_SESSION['user']['id_usersTypes'] == 1) {
     header('location:./Deconnecter');
     exit;
 }
-if (isset($_SESSION)) {
+if ($_SESSION['user'] == '') {
     header('location:./Connexion');
     exit;
 }

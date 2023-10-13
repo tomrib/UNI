@@ -10,7 +10,7 @@ $formErrors = [];
 
 // Créez une instance de la classe 'user'
 $user = new user;
-
+var_dump($_SESSION);
 // Traitement du formulaire lorsque des données POST sont soumises
 if (count($_POST) > 0) {
     if (!empty($_POST['loginEmail'])) {
@@ -25,10 +25,10 @@ if (count($_POST) > 0) {
                 $_SESSION['user'] = $user->getId();
 
                 // Redirigez l'utilisateur en fonction de son type
-                if ($_SESSION['user']['id_usersTypes'] == 2 || $_SESSION['user']['id_usersTypes'] == 3) {
+                if ($_SESSION['user']['id_usersTypes'] == '2' || $_SESSION['user']['id_usersTypes'] == '3') {
                     header('Location: ./Bureau');
                     exit;
-                } elseif ($_SESSION['user']['id_usersTypes'] == 1) {
+                } elseif ($_SESSION['user']['id_usersTypes'] == '1') {
                     header('Location: ./Espace-Employés');
                     exit;
                 }

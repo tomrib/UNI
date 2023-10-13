@@ -4,11 +4,11 @@ require_once '../models/notesModel.php';
 require_once '../models/userModel.php';
 require_once '../confi.php';
 $formErrors = [];
-if ($_SESSION['user']['id_usersTypes'] == 1) {
+if ($_SESSION['user']['id_usersTypes'] == '1') {
     header('location:./Deconnecter');
     exit;
 }
-if (isset($_SESSION)) {
+if ($_SESSION['user'] == '') {
     header('location:./Connexion');
     exit;
 }

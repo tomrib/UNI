@@ -122,4 +122,15 @@ class customer
         $request->execute();
         return $request->fetchAll(PDO::FETCH_COLUMN);
     }
+
+    public function getCustomerAddAdmin()
+    {
+        $query = 'SELECT
+        `id`,
+        `address`
+    FROM
+    `jg7b_customers`';
+        $request = $this->db->query($query);
+        return $request->fetchAll(PDO::FETCH_OBJ);
+    }
 }

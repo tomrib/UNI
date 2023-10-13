@@ -1,48 +1,41 @@
 <div class="displayForm">
     <form class="addIntervention" id="profileForm" method="POST">
         <h1>Ajout d'une intervention</h1>
-        <h2>Date de la création</h2>
-        <input type="hidden" id="date" name="date" placeholder="date" value="" class="">
+        <label for="date">Date de la création</label>
+        <input type="date" id="date" name="date">
+        <p class="errors"><?= @$formErrors['date']?></p>
+        <label for="timeIntervention">Heur de la création</label>
+        <input type="time" id="timeIntervention" name="timeIntervention">
+        <p class="errors"><?= @$formErrors['timeIntervention']?></p>
         <div class="displaySelect">
             <div>
                 <p>Lieu de l'intervention:</p>
-                <select>
+                <select name='id_customer'>
                     <option selected disabled value="option1">entreprise</option>
-                    <option value="option2"></option>
-                    <option value="option3"></option>
-                    <option value="option4"></option>
-                    <option value="option5"></option>
-                    <option value="option6"></option>
-                    <option value="option7"></option>
-                    <option value="option8"></option>
-                    <option value="option9"></option>
-                    <option value="option10"></option>
-                    <option value="option11"></option>
+                    <?php foreach ($add as $a) { ?>
+                        <option value="<?= $a->id ?>"><?= $a->address ?></option>
+                    <?php } ?>
                 </select>
+                <p class="errors"><?= @$formErrors['id_customer']?></p>
             </div>
             <div>
                 <p>Type d'intervention:</p>
-                <select>
+                <select name="id_typesInterventions">
                     <option selected disabled value="option1">motif</option>
-                    <option value="option2"></option>
-                    <option value="option3"></option>
-                    <option value="option4"></option>
-                    <option value="option5"></option>
-                    <option value="option6"></option>
-                    <option value="option7"></option>
-                    <option value="option8"></option>
-                    <option value="option9"></option>
-                    <option value="option10"></option>
-                    <option value="option11"></option>
+                    <?php foreach ($intervention as $e) { ?>
+                        <option value="<?= $e->id ?>"><?= $e->name ?></option>
+                    <?php } ?>
                 </select>
+                <p class="errors"><?= @$formErrors['id_typesInterventions']?></p>
             </div>
         </div>
         <p>Description de l'intervention:</p>
-        <textarea rows="8"></textarea>
+        <textarea rows="8" name="textIntervention"></textarea>
+        <p class="errors"><?= @$formErrors['textIntervention']?></p>
         <div>
             <!--href inutile servant juste au test-->
-            <a href="./Liste-Intervention"><button name="addIntervention" id="addIntervention" type="submit">Rajouter une intervention</a></button>
+            <button name="addIntervention" id="addIntervention" type="submit">Rajouter une intervention</button>
         </div>
     </form>
 </div>
-<script src="assets/js/addIntervention.js"></script>
+<script src="assets/js/intervention.js"></script>

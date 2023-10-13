@@ -57,27 +57,13 @@
     <p>Votre message:</p>
     <textarea rows="8" id="text" name="textIntervention"></textarea>
     <p>Envoyé un fichier:</p>
-    <button id="uploadButtonTest">UPLOAD</button>
-    <input type="file" name="imgIntervention" id="fileUpload" multiple />
+    <button type="button" id="uploadButtonTest">UPLOAD</button>
+    <input type="file" name="imgIntervention" id="fileUpload" multiple/>
     <p id="fileCountText"></p>
-    <div id="errorMessages" class="error">
-        <p><?= @$formErrors['textIntervention'] ?></p>
-        <p><?= @$formErrors['timeIntervention'] ?></p>
-        <p><?= @$formErrors['id_customer'] ?></p>
-        <p><?= @$formErrors['id_typesInterventions'] ?></p>
-        <p><?= @$formErrors['date'] ?></p>
-        <p><?= @$formErrors['img'] ?></p>
+    <div id="errorMessages" class="errors">
+        <!-- Les messages d'erreur seront affichés ici -->
     </div>
-    <button id="UploadCloseButton">ANNULER</button>
-    <button id="sendButton">VALIDER</button>
-    <div id="confirmationModal" class="modal">
-        <div>
-            <p>Êtes-vous sûr de vouloir valider votre signalement ?</p>
-            <div class="positionButton">
-                <button id="confirmNoButton" class="closeButton">Non</button>
-                <button type="submit" id="confirmYesButton" name="btnIntervention" class="closeButton">Oui</button>
-            </div>
-        </div>
-    </div>
+    <button type="button" id="UploadCloseButton">ANNULER</button>
+    <button type="sudmit" id="sendButton">VALIDER</button>
 </form>
 <script src="assets/js/staff.js"></script>

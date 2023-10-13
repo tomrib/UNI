@@ -100,13 +100,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $add->id_interventions = $idInter;
             foreach ($paths as $p) {
                 $add->img = $p;
-            }
-            if ($add->addImgIntervention()) {
+                if ($add->addImgIntervention()) {
                 $formErrors['img'] =  'Fichier téléchargé avec succès \n';
             } else {
                 unlink('../../' . $p);
                 $formErrors['img'] =  'Erreur lors du traitement du fichier \n';
             }
+        }
         } catch (PDOException $e) {
             foreach ($paths as $p) {
                 unlink('../../' . $p);
