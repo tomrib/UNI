@@ -42,6 +42,15 @@ for ($i = 0; $i < 7; $i++) {
     $monday->modify('+1 day');
 }
 
+// On inclus les models
+require_once '../../models/dateModel.php';
+
+// Pour le bon fonctionnement de la suite, on créé les dates de la semaine (si elles n'existent pas déjà) dans la base de données grace à la fonction createPlanningDates.
+$dateModel = new date();
+$dateModel->createPlanningDates($weekDays);
+
+
+
 require_once '../../views/includes/header.php';
 require_once '../../views/plannings/planning.php';
 require_once '../../views/includes/footer.php';
