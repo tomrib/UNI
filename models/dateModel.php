@@ -40,7 +40,7 @@ class date
 
         foreach ($weekDays as $day) {
             $statement = $this->db->prepare($request);
-            $statement->bindValue(':daydate', $day['date']);
+            $statement->bindValue(':daydate', $day['sqlDate']);
             $statement->execute();
         }
     }

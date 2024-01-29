@@ -21,25 +21,26 @@ $todayDate = new DateTime();
 $todayDate->setTime(0, 0); 
 
 // On trouve le lundi
-$monday = clone $todayDate;
-$monday->modify('last sunday +1 day');
+$date = clone $todayDate;
+$date->modify('last sunday +1 day'); 
 
 // A partir du lundi, on génère les autres jours de la semaine juesqu'à dimanche (+7)
 for ($i = 0; $i < 7; $i++) {
-    $isToday = (date("N")-1) == $i;
+    $isToday = (date("N")-1) == $i; // Vrai si c'est aujourd'hui, faux dans le cas contraire
 
     // Cette variable représente le jour qui sera ajouté au tableau
     $weekDay = [
         'name' => $dayNames[$i], // Nom du jour (exemple: Lundi)
-        'date' => $monday->format("Y-m-d"), // Date du jour (exemple: 2024-01-01)
-        'today' => $isToday // Vrai si c'est aujourd'hui, faux dans le cas contraire
+        'sqlDate' => $date->format('Y-m-d'), // Date du jour au format SQL (exemple: 2024-01-01)
+        'frenchDate' => $date->format('d/m/Y'), // Date du jour au format français (exemple: 1 janvier 2024)
+        'today' => $isToday 
     ];
 
     // On ajoute le nouveau jour à la table
     $weekDays[] = $weekDay;
 
     // Pour continuer la boucle on passe au jour suivant
-    $monday->modify('+1 day');
+    $date->modify('+1 day');
 }
 
 // On inclus les models
@@ -48,8 +49,6 @@ require_once '../../models/dateModel.php';
 // Pour le bon fonctionnement de la suite, on créé les dates de la semaine (si elles n'existent pas déjà) dans la base de données grace à la fonction createPlanningDates.
 $dateModel = new date();
 $dateModel->createPlanningDates($weekDays);
-
-
 
 require_once '../../views/includes/header.php';
 require_once '../../views/plannings/planning.php';
