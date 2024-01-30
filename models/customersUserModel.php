@@ -122,6 +122,14 @@ class customersUser
                         if ($i != 0)
                             $request .= ' OR ';
 
+                        // Étant donné que les dates données par le controller du planning sont en réalité des tableaux associatif et pas juste des tableaux de chaines de caractère, la partie suivante vérifie le cas de figure et si c'est le cas, ira prendre le 'sqlDate' des dates données.
+                        // Si la date donnée est en réalité un tableau, et que dans ce tableau il existe une clé 'sqlDate', on utilisera cette valeur à la place
+                        if (is_array($date)) {
+                            if (array_key_exists('sqlDate', $date)) {
+                                $date = $date['sqlDate'];
+                            }
+                        }
+
                         $request .= 'jg7b_dates.date = "' . $date . '"';
                     }
 

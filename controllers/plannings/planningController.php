@@ -53,7 +53,7 @@ $dateModel->createPlanningDates($weekDays);
 
 // Ensuite nous devons faire appel à une fonction qui va nous retourner un tableau complet de tous les rendez-vous du planning, avec les informations de l'utilisateur et du client pour chaque entrée
 $customerUserModel = new customersUser();
-$planningEntries = $customerUserModel->getPlanningEntries();
+$planningEntries = $customerUserModel->getPlanningEntries($weekDays);
 
 require_once '../../views/includes/header.php';
 require_once '../../views/plannings/planning.php';
