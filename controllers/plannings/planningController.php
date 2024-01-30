@@ -45,10 +45,15 @@ for ($i = 0; $i < 7; $i++) {
 
 // On inclus les models
 require_once '../../models/dateModel.php';
+require_once '../../models/customersUserModel.php';
 
-// Pour le bon fonctionnement de la suite, on créé les dates de la semaine (si elles n'existent pas déjà) dans la base de données grace à la fonction createPlanningDates.
+// Pour le bon fonctionnement de la suite, on créé les dates de la semaine (si elles n'existent pas déjà) dans la base de données grace à la fonction createPlanningDates
 $dateModel = new date();
 $dateModel->createPlanningDates($weekDays);
+
+// Ensuite nous devons faire appel à une fonction qui va nous retourner un tableau complet de tous les rendez-vous du planning, avec les informations de l'utilisateur et du client pour chaque entrée
+$customerUserModel = new customersUser();
+$planningEntries = $customerUserModel->getPlanningEntries();
 
 require_once '../../views/includes/header.php';
 require_once '../../views/plannings/planning.php';
